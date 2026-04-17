@@ -1,0 +1,2303 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oma Suomi 1 — 日本語ガイド</title>
+<style>
+  :root {
+    --bg: #fafaf8;
+    --card: #ffffff;
+    --accent: #2563eb;
+    --accent-light: #dbeafe;
+    --text: #1a1a1a;
+    --muted: #6b7280;
+    --border: #e5e5e5;
+    --finnish: #0369a1;
+    --japanese: #7c3aed;
+    --negative: #dc2626;
+    --positive: #16a34a;
+    --highlight: #fef3c7;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Segoe UI", system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    display: flex;
+    min-height: 100vh;
+  }
+
+  /* --- Sidebar --- */
+  nav {
+    width: 260px;
+    min-height: 100vh;
+    background: var(--card);
+    border-right: 1px solid var(--border);
+    padding: 24px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
+    z-index: 100;
+    transition: transform 0.3s ease;
+  }
+
+  nav h1 {
+    font-size: 18px;
+    padding: 0 20px 4px;
+    color: var(--accent);
+  }
+
+  nav .subtitle {
+    font-size: 12px;
+    color: var(--muted);
+    padding: 0 20px 20px;
+  }
+
+  nav .chapter-group {
+    margin-bottom: 8px;
+  }
+
+  nav .chapter-title {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    padding: 12px 20px 4px;
+  }
+
+  nav a {
+    display: block;
+    padding: 6px 20px 6px 32px;
+    text-decoration: none;
+    color: var(--text);
+    font-size: 14px;
+    transition: background 0.15s;
+    border-left: 3px solid transparent;
+  }
+
+  nav a:hover { background: var(--accent-light); }
+
+  nav a.active {
+    background: var(--accent-light);
+    border-left-color: var(--accent);
+    font-weight: 600;
+  }
+
+  nav a .page-num {
+    color: var(--muted);
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  nav a.locked {
+    color: #ccc;
+    pointer-events: none;
+  }
+
+  nav a.locked::after {
+    content: " 🔜";
+    font-size: 11px;
+  }
+
+  /* --- Mobile toggle --- */
+  .nav-toggle {
+    display: none;
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    z-index: 200;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  /* --- Main content --- */
+  main {
+    margin-left: 260px;
+    flex: 1;
+    max-width: 780px;
+    padding: 40px 32px 80px;
+  }
+
+  .page-section {
+    display: block;
+    margin-bottom: 48px;
+    padding-bottom: 48px;
+    border-bottom: 3px solid var(--border);
+  }
+
+  .js-nav .page-section {
+    display: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+
+  .js-nav .page-section.active {
+    display: block;
+  }
+
+  .page-header {
+    margin-bottom: 32px;
+  }
+
+  .page-header h2 {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .page-header .page-badge {
+    display: inline-block;
+    background: var(--accent-light);
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 2px 10px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+  }
+
+  .page-header p {
+    color: var(--muted);
+    font-size: 15px;
+  }
+
+  /* --- Content blocks --- */
+  h3 {
+    font-size: 20px;
+    margin: 32px 0 12px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--accent-light);
+  }
+
+  h4 {
+    font-size: 16px;
+    margin: 20px 0 8px;
+    color: var(--finnish);
+  }
+
+  p, li {
+    font-size: 15px;
+    margin-bottom: 8px;
+  }
+
+  .explanation {
+    background: #f5f3ff;
+    border-left: 4px solid var(--japanese);
+    padding: 14px 18px;
+    margin: 16px 0;
+    border-radius: 0 8px 8px 0;
+    font-size: 14px;
+  }
+
+  .explanation::before {
+    content: "💡 ";
+  }
+
+  .tip {
+    background: var(--highlight);
+    border-left: 4px solid #f59e0b;
+    padding: 14px 18px;
+    margin: 16px 0;
+    border-radius: 0 8px 8px 0;
+    font-size: 14px;
+  }
+
+  .tip::before {
+    content: "📝 ";
+  }
+
+  /* --- Dialogue --- */
+  .dialogue {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 16px 0;
+  }
+
+  .dialogue-line {
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .dialogue-line:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+
+  .dialogue-line .fi {
+    font-weight: 600;
+    color: var(--finnish);
+    font-size: 15px;
+  }
+
+  .dialogue-line .ja {
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 2px;
+  }
+
+  .speaker {
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  /* --- Tables --- */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 14px;
+  }
+
+  th {
+    background: var(--accent-light);
+    color: var(--accent);
+    text-align: left;
+    padding: 8px 12px;
+    font-weight: 600;
+    font-size: 13px;
+  }
+
+  td {
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+
+  .fi-word {
+    color: var(--finnish);
+    font-weight: 600;
+  }
+
+  .neg {
+    color: var(--negative);
+    font-weight: 600;
+  }
+
+  .pos {
+    color: var(--positive);
+    font-weight: 600;
+  }
+
+  /* --- Vocab list --- */
+  .vocab-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin: 16px 0;
+  }
+
+  .vocab-item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 14px;
+  }
+
+  .vocab-item .fi {
+    font-weight: 600;
+    color: var(--finnish);
+    font-size: 15px;
+  }
+
+  .vocab-item .ja {
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  /* --- Phrase pairs --- */
+  .phrase-pair {
+    display: flex;
+    gap: 12px;
+    align-items: baseline;
+    margin: 6px 0;
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--border);
+  }
+
+  .phrase-pair .fi {
+    font-weight: 600;
+    color: var(--finnish);
+    flex: 1;
+  }
+
+  .phrase-pair .ja {
+    color: var(--muted);
+    flex: 1;
+    font-size: 14px;
+  }
+
+  /* --- Responsive --- */
+  /* --- Tap to reveal --- */
+  .reveal {
+    background: var(--accent-light);
+    color: var(--accent-light);
+    border-radius: 4px;
+    padding: 2px 6px;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    transition: all 0.25s ease;
+    display: inline-block;
+    position: relative;
+  }
+
+  .reveal::after {
+    content: "tap";
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--accent);
+    opacity: 0.6;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+  }
+
+  .reveal.shown {
+    background: transparent;
+    color: inherit;
+    cursor: default;
+  }
+
+  .reveal.shown::after {
+    opacity: 0;
+  }
+
+  /* Revealed text in table cells inherits the cell's color classes */
+  td .reveal.shown { color: var(--finnish); }
+  td.pos .reveal.shown,
+  td .reveal.shown.pos-text { color: var(--positive); }
+  td.neg .reveal.shown,
+  td .reveal.shown.neg-text { color: var(--negative); }
+
+  /* --- Quiz Game --- */
+  .quiz-header {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  .quiz-header h2 { font-size: 22px; margin-bottom: 4px; }
+  .quiz-subtitle { color: var(--muted); font-size: 14px; }
+
+  .quiz-score-bar {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin: 16px 0;
+    font-size: 15px;
+    font-weight: 600;
+  }
+  .quiz-score-bar .correct { color: var(--positive); }
+  .quiz-score-bar .wrong { color: var(--negative); }
+  .quiz-score-bar .remaining { color: var(--muted); }
+
+  .quiz-progress {
+    width: 100%;
+    height: 6px;
+    background: var(--border);
+    border-radius: 3px;
+    margin: 12px 0 24px;
+    overflow: hidden;
+  }
+  .quiz-progress-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 3px;
+    transition: width 0.4s ease;
+  }
+
+  .quiz-word {
+    text-align: center;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--finnish);
+    margin: 32px 0 8px;
+    letter-spacing: 0.5px;
+  }
+  .quiz-hint {
+    text-align: center;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 28px;
+  }
+
+  .quiz-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .quiz-option {
+    background: var(--card);
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 12px;
+    font-size: 15px;
+    line-height: 1.5;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  .quiz-option:active { transform: scale(0.97); }
+  .quiz-option.correct-answer {
+    border-color: var(--positive);
+    background: #dcfce7;
+    color: var(--positive);
+    font-weight: 600;
+  }
+  .quiz-option.wrong-answer {
+    border-color: var(--negative);
+    background: #fef2f2;
+    color: var(--negative);
+  }
+  .quiz-option.disabled { pointer-events: none; opacity: 0.5; }
+
+  .quiz-feedback {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 15px;
+    min-height: 24px;
+  }
+
+  .quiz-next-btn {
+    display: block;
+    margin: 20px auto 0;
+    padding: 12px 32px;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .quiz-next-btn:active { opacity: 0.85; }
+
+  .quiz-result {
+    text-align: center;
+    padding: 32px 0;
+  }
+  .quiz-result h3 { font-size: 24px; margin-bottom: 12px; }
+  .quiz-result .big-score { font-size: 48px; font-weight: 700; color: var(--accent); }
+  .quiz-result .message { color: var(--muted); margin: 12px 0; font-size: 15px; }
+
+  .quiz-settings {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+  .quiz-settings button {
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: 2px solid var(--border);
+    background: var(--card);
+    font-size: 14px;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .quiz-settings button.active {
+    border-color: var(--accent);
+    background: var(--accent-light);
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  @media (max-width: 768px) {
+    nav {
+      transform: translateX(-100%);
+    }
+
+    nav.open {
+      transform: translateX(0);
+      box-shadow: 4px 0 20px rgba(0,0,0,0.1);
+    }
+
+    .nav-toggle {
+      display: block;
+    }
+
+    main {
+      margin-left: 0;
+      padding: 60px 20px 80px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<button class="nav-toggle" onclick="document.querySelector('nav').classList.toggle('open')">☰ 目次</button>
+
+<nav id="sidebar">
+  <h1>Oma Suomi 1</h1>
+  <div class="subtitle">日本語コンパニオンガイド</div>
+
+  <div class="chapter-group">
+    <div class="chapter-title">1章 — Tervetuloa!</div>
+    <a href="#" data-page="p6"><span class="page-num">p.6</span> 会話：はじめまして</a>
+    <a href="#" data-page="p7"><span class="page-num">p.7</span> 練習：自己紹介</a>
+    <a href="#" data-page="p8"><span class="page-num">p.8</span> 数字と個人情報</a>
+    <a href="#" data-page="p9"><span class="page-num">p.9</span> あいさつとフレーズ</a>
+    <a href="#" data-page="p10"><span class="page-num">p.10</span> 人物紹介</a>
+    <a href="#" data-page="p11"><span class="page-num">p.11</span> 国と国籍</a>
+    <a href="#" data-page="p12"><span class="page-num">p.12</span> 質問を書く</a>
+    <a href="#" data-page="p13"><span class="page-num">p.13</span> 動詞の活用</a>
+    <a href="#" data-page="p14"><span class="page-num">p.14</span> 練習：否定形</a>
+    <a href="#" data-page="p15"><span class="page-num">p.15</span> さらに練習</a>
+    <a href="#" data-page="p16"><span class="page-num">p.16</span> 数字の練習</a>
+    <a href="#" data-page="p17"><span class="page-num">p.17</span> 個人情報の会話</a>
+    <a href="#" data-page="p18"><span class="page-num">p.18</span> リスニング：書類記入</a>
+    <a href="#" data-page="p19"><span class="page-num">p.19</span> リスニング：人物情報</a>
+    <a href="#" data-page="p20"><span class="page-num">p.20</span> 読解：論理パズル</a>
+  </div>
+
+  <div class="chapter-group">
+    <div class="chapter-title">🎮 クイズゲーム</div>
+    <a href="#" data-page="quiz-verbs1"><span class="page-num">V1</span> 動詞タイプ1（50語）</a>
+    <a href="#" data-page="quiz-nouns"><span class="page-num">N</span> 名詞（100語）</a>
+  </div>
+</nav>
+
+<main>
+
+<!-- ============================================================ -->
+<!-- PAGE 6                                                        -->
+<!-- ============================================================ -->
+<section class="page-section" id="p6">
+  <div class="page-header">
+    <span class="page-badge">6ページ</span>
+    <h2>Tervetuloa! — ようこそ！</h2>
+    <p>第1章の最初のページ。スーザンとユハニの出会いの会話を通して、基本的なあいさつと自己紹介を学びます。</p>
+  </div>
+
+  <h3>この章で学ぶこと（TÄSSÄ KAPPALEESSA OPIT）</h3>
+  <div class="vocab-grid">
+    <div class="vocab-item"><div class="fi">Aakkoset ja numerot</div><div class="ja">アルファベットと数字</div></div>
+    <div class="vocab-item"><div class="fi">Tervehdykset</div><div class="ja">あいさつ</div></div>
+    <div class="vocab-item"><div class="fi">Esittäytymään</div><div class="ja">自己紹介すること</div></div>
+    <div class="vocab-item"><div class="fi">Maita ja kieliä</div><div class="ja">国と言語</div></div>
+    <div class="vocab-item"><div class="fi">Olla, puhua ja asua</div><div class="ja">「〜です」「話す」「住む」動詞</div></div>
+  </div>
+
+  <h3>会話：スーザンとユハニ</h3>
+
+  <div class="dialogue">
+    <div class="dialogue-line">
+      <div class="fi"><span class="speaker">Susan:</span> Hei!</div>
+      <div class="ja">こんにちは！ / Hi!</div>
+    </div>
+    <div class="dialogue-line">
+      <div class="fi"><span class="speaker">Juhani:</span> Hei!</div>
+      <div class="ja">こんにちは！ / Hi!</div>
+    </div>
+    <div class="dialogue-line">
+      <div class="fi"><span class="speaker">Susan:</span> Minä olen Susan Mäntylä. Anteeksi, että häiritsen.</div>
+      <div class="ja">私はスーザン・マンテュラです。お邪魔してすみません。<br><em>I am Susan Mäntylä. Sorry to bother you.</em></div>
+    </div>
+    <div class="dialogue-line">
+      <div class="fi"><span class="speaker">Juhani:</span> Juhani Virtanen. Onko joku ongelma?</div>
+      <div class="ja">ユハニ・ヴィルタネンです。何か問題がありますか？<br><em>Juhani Virtanen. Is there a problem?</em></div>
+    </div>
+    <div class="dialogue-line">
+      <div class="fi"><span class="speaker">Susan:</span> Ongelma? ... Anteeksi, en ymmärrä. Minä puhun vain vähän suomea.</div>
+      <div class="ja">問題？…すみません、わかりません。私はフィンランド語を少ししか話しません。<br><em>Problem? ... Sorry, I don't understand. I speak only a little Finnish.</em></div>
+    </div>
+    <div class="dialogue-line">
+      <div class="fi"><span class="speaker">Susan:</span> Mikä "ongelma" on englanniksi?</div>
+      <div class="ja">「ongelma」は英語で何ですか？<br><em>What is "ongelma" in English?</em></div>
+    </div>
+    <div class="dialogue-line">
+      <div class="fi"><span class="speaker">Juhani:</span> Problem.</div>
+      <div class="ja">Problem（問題）です。</div>
+    </div>
+    <div class="dialogue-line">
+      <div class="fi"><span class="speaker">Susan:</span> Aaa! Ei! No problem! Olen uusi naapuri.</div>
+      <div class="ja">ああ！いいえ！問題ないです！私は新しいお隣さんです。<br><em>Aaa! No! No problem! I am a new neighbor.</em></div>
+    </div>
+  </div>
+
+  <h3>重要な単語とフレーズ</h3>
+
+  <div class="vocab-grid">
+    <div class="vocab-item"><div class="fi">Minä olen ...</div><div class="ja">私は〜です / I am ...</div></div>
+    <div class="vocab-item"><div class="fi">Anteeksi</div><div class="ja">すみません / Sorry, Excuse me</div></div>
+    <div class="vocab-item"><div class="fi">en ymmärrä</div><div class="ja">わかりません / I don't understand</div></div>
+    <div class="vocab-item"><div class="fi">vain vähän</div><div class="ja">少しだけ / only a little</div></div>
+    <div class="vocab-item"><div class="fi">Mikä ... on englanniksi?</div><div class="ja">〜は英語で何ですか？ / What is ... in English?</div></div>
+    <div class="vocab-item"><div class="fi">uusi naapuri</div><div class="ja">新しいお隣さん / new neighbor</div></div>
+  </div>
+
+  <div class="explanation">
+    <strong>英語・日本語との比較：</strong> フィンランド語の語順は<strong>英語とほぼ同じ</strong>です！<br><br>🇫🇮 <strong>Minä olen</strong> Susan = 🇬🇧 <strong>I am</strong> Susan = 🇯🇵 私はスーザン<strong>です</strong><br><br>フィンランド語も英語も「主語→動詞→名前」の順番（SVO）。日本語は「主語→名前→動詞」（SOV）なので、英語の語順で考えた方がわかりやすいです。また、日本語と同じく「minä」（= I）を省略して「Olen Susan」とも言えます。
+  </div>
+
+  <h3>会話の続き</h3>
+
+  <div class="dialogue">
+    <div class="dialogue-line">
+      <div class="fi"><span class="speaker">Susan:</span> Minkä maalainen sinä olet?</div>
+      <div class="ja">あなたはどこの国の方ですか？<br><em>What nationality are you?</em></div>
+    </div>
+    <div class="dialogue-line">
+      <div class="fi"><span class="speaker">Juhani:</span> Olen suomalainen.</div>
+      <div class="ja">フィンランド人です。/ <em>I am Finnish.</em></div>
+    </div>
+    <div class="dialogue-line">
+      <div class="fi"><span class="speaker">Susan:</span> Puhutko englantia?</div>
+      <div class="ja">英語を話しますか？ / <em>Do you speak English?</em></div>
+    </div>
+    <div class="dialogue-line">
+      <div class="fi"><span class="speaker">Juhani:</span> Joo, puhun.</div>
+      <div class="ja">はい、話します。/ <em>Yes, I do.</em></div>
+    </div>
+    <div class="dialogue-line">
+      <div class="fi"><span class="speaker">Susan:</span> Mutta nyt me puhumme suomea, me olemme Suomessa.</div>
+      <div class="ja">でも今はフィンランド語を話しましょう、フィンランドにいるんですから。<br><em>But now we speak Finnish, we are in Finland.</em></div>
+    </div>
+  </div>
+
+  <div class="explanation">
+    <strong>「Minkä maalainen sinä olet?」について：</strong> 直訳すると「何の国の人　あなたは　ですか？」。日本語の「どこの国の人ですか」に当たります。答え方：国名 + <strong>-lainen / -läinen</strong>（〜人）。例：suomalainen（フィンランド人）、japanilainen（日本人）。
+  </div>
+
+  <div class="tip">
+    <strong>「Puhutko」の構造：</strong> puhut（you speak）+ <strong>-ko</strong>（疑問を作る接尾辞）= Puhut<strong>ko</strong>?（Do you speak?）<br><br>英語では「Do you speak?」のように助動詞 do を文頭に置く。フィンランド語では動詞に <strong>-ko/-kö</strong> をくっつける。日本語の「〜か？」に似ているが、文末ではなく動詞にくっつく点が違う。
+  </div>
+
+</section>
+
+<!-- ============================================================ -->
+<!-- PAGE 7                                                        -->
+<!-- ============================================================ -->
+<section class="page-section" id="p7">
+  <div class="page-header">
+    <span class="page-badge">7ページ</span>
+    <h2>練習：自己紹介</h2>
+    <p>会話をもとにした練習問題のページ。質問と答えのマッチング、そして自分自身の情報で答える練習。</p>
+  </div>
+
+  <h3>練習 2: 質問と答えを結ぶ</h3>
+  <p>左の質問に合う答えを右から選びます。</p>
+
+  <table>
+    <thead>
+      <tr><th>フィンランド語</th><th>English</th><th>日本語</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="fi-word">Hei, kuka sinä olet?</td><td>Hi, who are you?</td><td>こんにちは、あなたはだれ？</td></tr>
+      <tr><td class="fi-word">Miten sinun etunimi kirjoitetaan?</td><td>How is your first name spelled?</td><td>名前のスペルは？</td></tr>
+      <tr><td class="fi-word">Minkä maalainen olet?</td><td>What nationality are you?</td><td>どこの国の人？</td></tr>
+      <tr><td class="fi-word">Mitä kieltä sinä puhut?</td><td>What language do you speak?</td><td>何語を話す？</td></tr>
+      <tr><td class="fi-word">Puhutko ranskaa?</td><td>Do you speak French?</td><td>フランス語を話す？</td></tr>
+      <tr><td class="fi-word">Ymmärrätkö sinä englantia?</td><td>Do you understand English?</td><td>英語がわかる？</td></tr>
+    </tbody>
+  </table>
+
+  <div class="explanation">
+    <strong>疑問詞の整理（英語と比較するとわかりやすい！）：</strong><br>
+    <strong>Kuka</strong> = Who = だれ<br>
+    <strong>Mikä</strong> = What = 何<br>
+    <strong>Miten</strong> = How = どうやって<br>
+    <strong>Missä</strong> = Where = どこ<br>
+    <strong>Minkä maalainen</strong> = What nationality = 何人<br>
+    <strong>Mitä kieltä</strong> = What language = 何語<br>
+    英語と同じく、疑問詞は文の最初に来る。日本語と違うポイント！
+  </div>
+
+  <h3>練習 3: 自分のことを答える</h3>
+  <p>自分自身の情報を使って以下の質問に答えましょう。</p>
+
+  <table>
+    <thead>
+      <tr><th>質問</th><th>English</th><th>答え方の例</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="fi-word">Kuka sinä olet?</td><td>Who are you?</td><td>Olen [名前].</td></tr>
+      <tr><td class="fi-word">Mikä sinun etunimi on?</td><td>What is your first name?</td><td>Minun etunimi on [名前].</td></tr>
+      <tr><td class="fi-word">Mikä sinun sukunimi on?</td><td>What is your last name?</td><td>Minun sukunimi on [名字].</td></tr>
+      <tr><td class="fi-word">Miten sinun nimi kirjoitetaan?</td><td>How is your name spelled?</td><td>一文字ずつ言う</td></tr>
+      <tr><td class="fi-word">Minkä maalainen olet?</td><td>What nationality are you?</td><td>Olen japanilainen.</td></tr>
+      <tr><td class="fi-word">Missä sinä asut?</td><td>Where do you live?</td><td>Asun Suomessa.</td></tr>
+      <tr><td class="fi-word">Mitä kieltä puhut?</td><td>What language do you speak?</td><td>Puhun japania.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="tip">
+    <strong>etunimi と sukunimi：</strong> etunimi = first name（名前）、sukunimi = last name（名字）。英語と同じく名前→名字の順番（日本語とは逆）。例：Susan Mäntylä（Susan = first name, Mäntylä = last name）。
+  </div>
+
+  <h3>新しい単語</h3>
+
+  <div class="vocab-grid">
+    <div class="vocab-item"><div class="fi">etunimi</div><div class="ja">名前 / first name</div></div>
+    <div class="vocab-item"><div class="fi">sukunimi</div><div class="ja">名字 / last name</div></div>
+    <div class="vocab-item"><div class="fi">kirjoitetaan</div><div class="ja">書く / is written, is spelled</div></div>
+    <div class="vocab-item"><div class="fi">Missä?</div><div class="ja">どこ？ / Where?</div></div>
+    <div class="vocab-item"><div class="fi">Hauska tutustua!</div><div class="ja">はじめまして！ / Nice to meet you!</div></div>
+    <div class="vocab-item"><div class="fi">kurssikaveri</div><div class="ja">クラスメート / classmate</div></div>
+  </div>
+
+</section>
+
+<!-- ============================================================ -->
+<!-- PAGE 8                                                        -->
+<!-- ============================================================ -->
+<section class="page-section" id="p8">
+  <div class="page-header">
+    <span class="page-badge">8ページ</span>
+    <h2>Numerot — 数字</h2>
+    <p>フィンランド語の数字と、電話番号・住所・メールアドレスなどの個人情報の聞き方。</p>
+  </div>
+
+  <h3>基本の数字 0〜10</h3>
+
+  <table>
+    <thead>
+      <tr><th>数字</th><th>フィンランド語</th><th>読み方（カタカナ）</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>0</td><td class="fi-word">nolla</td><td>ノッラ</td></tr>
+      <tr><td>1</td><td class="fi-word">yksi</td><td>ユクシ</td></tr>
+      <tr><td>2</td><td class="fi-word">kaksi</td><td>カクシ</td></tr>
+      <tr><td>3</td><td class="fi-word">kolme</td><td>コルメ</td></tr>
+      <tr><td>4</td><td class="fi-word">neljä</td><td>ネリヤ</td></tr>
+      <tr><td>5</td><td class="fi-word">viisi</td><td>ヴィーシ</td></tr>
+      <tr><td>6</td><td class="fi-word">kuusi</td><td>クーシ</td></tr>
+      <tr><td>7</td><td class="fi-word">seitsemän</td><td>セイツェマン</td></tr>
+      <tr><td>8</td><td class="fi-word">kahdeksan</td><td>カハデクサン</td></tr>
+      <tr><td>9</td><td class="fi-word">yhdeksän</td><td>ユフデクサン</td></tr>
+      <tr><td>10</td><td class="fi-word">kymmenen</td><td>キュンメネン</td></tr>
+    </tbody>
+  </table>
+
+  <h3>11〜19: 〇〇 + toista</h3>
+
+  <div class="explanation">
+    <strong>構造：</strong> 数字 + <strong>toista</strong>。英語の thirteen, fourteen...の「-teen」に似た感覚です。<br>yksi + toista = 11（英語: one + teen → eleven）。日本語の「十一」とは逆の発想。
+  </div>
+
+  <table>
+    <thead>
+      <tr><th>数字</th><th>フィンランド語</th><th>分解</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>11</td><td class="fi-word">yksitoista</td><td>yksi + toista</td></tr>
+      <tr><td>12</td><td class="fi-word">kaksitoista</td><td>kaksi + toista</td></tr>
+      <tr><td>13</td><td class="fi-word">kolmetoista</td><td>kolme + toista</td></tr>
+      <tr><td>14</td><td class="fi-word">neljätoista</td><td>neljä + toista</td></tr>
+      <tr><td>15</td><td class="fi-word">viisitoista</td><td>viisi + toista</td></tr>
+      <tr><td>16</td><td class="fi-word">kuusitoista</td><td>kuusi + toista</td></tr>
+      <tr><td>17</td><td class="fi-word">seitsemäntoista</td><td>seitsemän + toista</td></tr>
+      <tr><td>18</td><td class="fi-word">kahdeksantoista</td><td>kahdeksan + toista</td></tr>
+      <tr><td>19</td><td class="fi-word">yhdeksäntoista</td><td>yhdeksän + toista</td></tr>
+    </tbody>
+  </table>
+
+  <h3>20〜100: 〇〇 + kymmentä</h3>
+
+  <div class="explanation">
+    <strong>日本語とも英語とも同じ構造！</strong><br>25 = kaksi<strong>kymmentä</strong>viisi = twenty-<strong>five</strong> = 二十五<br>どの言語も「2×10 + 5」の構造。フィンランド語はこの3言語の中で一番規則的です（英語のtwenty, thirtyのような不規則がない）。
+  </div>
+
+  <table>
+    <thead>
+      <tr><th>数字</th><th>フィンランド語</th><th>カタカナ</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>20</td><td class="fi-word">kaksikymmentä</td><td>カクシキュンメンタ</td></tr>
+      <tr><td>30</td><td class="fi-word">kolmekymmentä</td><td>コルメキュンメンタ</td></tr>
+      <tr><td>40</td><td class="fi-word">neljäkymmentä</td><td>ネリヤキュンメンタ</td></tr>
+      <tr><td>50</td><td class="fi-word">viisikymmentä</td><td>ヴィーシキュンメンタ</td></tr>
+      <tr><td>100</td><td class="fi-word">sata</td><td>サタ</td></tr>
+      <tr><td>1000</td><td class="fi-word">tuhat</td><td>トゥハト</td></tr>
+      <tr><td>1 000 000</td><td class="fi-word">miljoona</td><td>ミリヨーナ</td></tr>
+    </tbody>
+  </table>
+
+  <h3>個人情報の聞き方</h3>
+
+  <div class="phrase-pair">
+    <div class="fi">Mikä sinun puhelinnumero on?</div>
+    <div class="ja">あなたの電話番号は？ / What is your phone number?</div>
+  </div>
+  <div class="phrase-pair">
+    <div class="fi">Mikä sinun osoite on?</div>
+    <div class="ja">あなたの住所は？ / What is your address?</div>
+  </div>
+  <div class="phrase-pair">
+    <div class="fi">Mikä sinun sähköpostiosoite on?</div>
+    <div class="ja">あなたのメールアドレスは？ / What is your email address?</div>
+  </div>
+  <div class="phrase-pair">
+    <div class="fi">Minkä ikäinen olet? / Kuinka vanha olet?</div>
+    <div class="ja">何歳ですか？ / How old are you?</div>
+  </div>
+
+  <div class="tip">
+    <strong>住所の読み方：</strong> 「Numerotie 12 B 35, 00500 Helsinki」= Street + Number + Building + Apartment, Postal code + City。英語の住所と同じ順番です（日本の住所とは逆順）。
+  </div>
+
+</section>
+
+<!-- ============================================================ -->
+<!-- PAGE 9                                                        -->
+<!-- ============================================================ -->
+<section class="page-section" id="p9">
+  <div class="page-header">
+    <span class="page-badge">9ページ</span>
+    <h2>Tervehdyksiä ja fraaseja — あいさつとフレーズ</h2>
+    <p>日常で使う基本的なあいさつ表現と便利なフレーズ集。</p>
+  </div>
+
+  <h3>基本のあいさつ</h3>
+
+  <div class="vocab-grid">
+    <div class="vocab-item"><div class="fi">Hei!</div><div class="ja">こんにちは！ / Hi!</div></div>
+    <div class="vocab-item"><div class="fi">Moikka!</div><div class="ja">やあ！ / Hey! (very casual)</div></div>
+    <div class="vocab-item"><div class="fi">Tervetuloa!</div><div class="ja">ようこそ！ / Welcome!</div></div>
+    <div class="vocab-item"><div class="fi">Hei-hei!</div><div class="ja">バイバイ！ / Bye-bye!</div></div>
+  </div>
+
+  <div class="explanation">
+    <strong>日本語・英語との比較：</strong> 日本語には「おはよう」「こんにちは」「こんばんは」と時間帯によるあいさつがありますが、フィンランド語の「Hei」は英語の「Hi」と同じく<strong>いつでも使えます</strong>。朝でも夜でもOK！しかも音も似ている：Hei ≈ Hey/Hi。
+  </div>
+
+  <h3>お礼とお詫び</h3>
+
+  <div class="phrase-pair">
+    <div class="fi">Kiitos!</div>
+    <div class="ja">ありがとう！ / Thank you!</div>
+  </div>
+  <div class="phrase-pair">
+    <div class="fi">Ole hyvä!</div>
+    <div class="ja">どうぞ／どういたしまして / You're welcome! / Here you go!</div>
+  </div>
+  <div class="phrase-pair">
+    <div class="fi">Anteeksi!</div>
+    <div class="ja">すみません / Sorry! / Excuse me!</div>
+  </div>
+  <div class="phrase-pair">
+    <div class="fi">Ei se mitään!</div>
+    <div class="ja">大丈夫ですよ / It's nothing! / No problem!</div>
+  </div>
+
+  <h3>教室で使える便利フレーズ</h3>
+
+  <div class="phrase-pair">
+    <div class="fi">Anteeksi, en ymmärrä.</div>
+    <div class="ja">すみません、わかりません。/ Sorry, I don't understand.</div>
+  </div>
+  <div class="phrase-pair">
+    <div class="fi">Sanotko vielä kerran?</div>
+    <div class="ja">もう一度言って？ / Can you say it again?</div>
+  </div>
+  <div class="phrase-pair">
+    <div class="fi">Hitaasti.</div>
+    <div class="ja">ゆっくり / Slowly.</div>
+  </div>
+  <div class="phrase-pair">
+    <div class="fi">Mitä "money" on suomeksi?</div>
+    <div class="ja">「money」はフィンランド語で何？ / What is "money" in Finnish?</div>
+  </div>
+
+  <div class="tip">
+    <strong>授業中にとても便利！</strong> これらは英語の "Sorry, I don't understand. Can you say it again? Slowly." と全く同じ場面で使えます。セットで覚えましょう：<br>「Anteeksi, en ymmärrä. Sanotko vielä kerran? Hitaasti.」
+  </div>
+
+  <h3>単語を聞くときのパターン</h3>
+
+  <div class="explanation">
+    <strong>Mitä "[word]" on suomeksi?</strong> = What is "[word]" in Finnish?<br><br>
+    英語の "What is ... in Finnish?" と同じ構造です。授業中に使えるとても便利なパターン。<br>
+    例：Mitä "thank you" on suomeksi? → Kiitos!
+  </div>
+
+</section>
+
+<!-- ============================================================ -->
+<!-- PAGE 10                                                       -->
+<!-- ============================================================ -->
+<section class="page-section" id="p10">
+  <div class="page-header">
+    <span class="page-badge">10ページ</span>
+    <h2>人物紹介 — Henkilötiedot</h2>
+    <p>登場人物の個人情報カードを読んで、質問に答える練習。実際のフィンランド生活で必要な情報を読み取る力をつけます。</p>
+  </div>
+
+  <h3>登場人物</h3>
+
+  <div class="dialogue">
+    <div class="dialogue-line">
+      <div class="fi"><strong>Jere Mäntylä</strong> — Susan Mäntylän mies（スーザンの夫）</div>
+      <div class="ja">住所: Suomentie 6 A 35, 01230 Helsinki / 42歳 / suomalainen（フィンランド人）<br>言語: suomi, ruotsi, englanti ja venäjä（フィンランド語・スウェーデン語・英語・ロシア語）</div>
+    </div>
+    <div class="dialogue-line">
+      <div class="fi"><strong>Oscar Henrique</strong></div>
+      <div class="ja">37歳 / kuubalainen（キューバ人）<br>言語: suomi, espanja, englanti（フィンランド語・スペイン語・英語）</div>
+    </div>
+    <div class="dialogue-line">
+      <div class="fi"><strong>Aleksi Virtanen</strong></div>
+      <div class="ja">13歳 / suomalainen ja ranskalainen（フィンランド人でフランス人）<br>言語: suomi, ranska, englanti（フィンランド語・フランス語・英語）/ 出身: Pariisi（パリ）</div>
+    </div>
+    <div class="dialogue-line">
+      <div class="fi"><strong>Tyyne Virtanen</strong> — Juhani Virtasen vaimo（ユハニの妻）</div>
+      <div class="ja">住所: Suomentie 6 A 36, 01230 Helsinki / 65歳 / suomalainen（フィンランド人）<br>言語: suomi, ranska vähän（フィンランド語、少しフランス語）</div>
+    </div>
+  </div>
+
+  <h3>練習 6: 質問に答える</h3>
+
+  <table>
+    <thead>
+      <tr><th>質問</th><th>English</th><th>答え</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="fi-word">Minkä maalainen Jere on?</td><td>What nationality is Jere?</td><td><span class="reveal">Jere on suomalainen.</span></td></tr>
+      <tr><td class="fi-word">Minkä ikäinen Jere on?</td><td>How old is Jere?</td><td><span class="reveal">Jere on 42 vuotta.</span></td></tr>
+      <tr><td class="fi-word">Mikä Tyynen sukunimi on?</td><td>What is Tyyne's last name?</td><td><span class="reveal">Tyynen sukunimi on Virtanen.</span></td></tr>
+      <tr><td class="fi-word">Mikä Tyynen puhelinnumero on?</td><td>What is Tyyne's phone number?</td><td><span class="reveal">Se on 034 224 43711.</span></td></tr>
+      <tr><td class="fi-word">Missä Aleksi asuu?</td><td>Where does Aleksi live?</td><td><span class="reveal">Aleksi asuu Pariisissa.</span></td></tr>
+      <tr><td class="fi-word">Mikä Aleksin sähköpostiosoite on?</td><td>What is Aleksi's email?</td><td><span class="reveal">Se on alexiihv@email.fr.</span></td></tr>
+      <tr><td class="fi-word">Kuka puhuu venäjää?</td><td>Who speaks Russian?</td><td><span class="reveal">Jere puhuu venäjää.</span></td></tr>
+      <tr><td class="fi-word">Kuka asuu Helsingissä?</td><td>Who lives in Helsinki?</td><td><span class="reveal">Jere ja Tyyne asuvat Helsingissä.</span></td></tr>
+      <tr><td class="fi-word">Mitä kieltä Jere puhuu?</td><td>What language does Jere speak?</td><td><span class="reveal">Jere puhuu suomea, ruotsia, englantia ja venäjää.</span></td></tr>
+    </tbody>
+  </table>
+
+  <div class="explanation">
+    <strong>「Minkä ikäinen」と「Kuinka vanha」：</strong> どちらも "How old are you?" の意味。答え：「42 vuotta」= "42 years old"。<br>英語の "years old" = フィンランド語の "vuotta"。
+  </div>
+
+  <div class="tip">
+    <strong>新しい単語：</strong><br>
+    <strong>mies</strong> = husband, man（夫・男）/ <strong>vaimo</strong> = wife（妻）<br>
+    <strong>kotikaupunki</strong> = hometown（koti = home + kaupunki = city）<br>
+    <strong>kansalaisuus</strong> = nationality（国籍）/ <strong>kielet</strong> = languages（言語・複数形）
+  </div>
+
+</section>
+
+<!-- ============================================================ -->
+<!-- PAGE 11                                                       -->
+<!-- ============================================================ -->
+<section class="page-section" id="p11">
+  <div class="page-header">
+    <span class="page-badge">11ページ</span>
+    <h2>国と国籍 — Maat ja kansalaisuudet</h2>
+    <p>このページは主にイラストで国旗と国名・国籍を結びつける練習です。ここでは国名と国籍の一覧を日本語で整理します。</p>
+  </div>
+
+  <h3>国名と国籍の作り方</h3>
+
+  <div class="explanation">
+    <strong>パターン：</strong> フィンランド語では、国名 + <strong>-lainen / -läinen</strong> で国籍を作ります。<br>
+    英語の "-ish / -an / -ese" に相当しますが、フィンランド語は全部 <strong>-lainen</strong> で統一されているので英語より簡単！<br>
+    Japan → Japan<strong>ese</strong> / Japani → japani<strong>lainen</strong> / Suomi → suoma<strong>lainen</strong>
+  </div>
+
+  <table>
+    <thead>
+      <tr><th>フィンランド語</th><th>国籍</th><th>English</th><th>日本語</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="fi-word">Suomi</td><td class="fi-word">suomalainen</td><td>Finland / Finnish</td><td>フィンランド</td></tr>
+      <tr><td class="fi-word">Japani</td><td class="fi-word">japanilainen</td><td>Japan / Japanese</td><td>日本</td></tr>
+      <tr><td class="fi-word">Kiina</td><td class="fi-word">kiinalainen</td><td>China / Chinese</td><td>中国</td></tr>
+      <tr><td class="fi-word">Venäjä</td><td class="fi-word">venäläinen</td><td>Russia / Russian</td><td>ロシア</td></tr>
+      <tr><td class="fi-word">Ranska</td><td class="fi-word">ranskalainen</td><td>France / French</td><td>フランス</td></tr>
+      <tr><td class="fi-word">Saksa</td><td class="fi-word">saksalainen</td><td>Germany / German</td><td>ドイツ</td></tr>
+      <tr><td class="fi-word">Espanja</td><td class="fi-word">espanjalainen</td><td>Spain / Spanish</td><td>スペイン</td></tr>
+      <tr><td class="fi-word">Italia</td><td class="fi-word">italialainen</td><td>Italy / Italian</td><td>イタリア</td></tr>
+      <tr><td class="fi-word">Englanti / Britannia</td><td class="fi-word">englantilainen / brittil&auml;inen</td><td>England / British</td><td>イギリス</td></tr>
+      <tr><td class="fi-word">Amerikka / USA</td><td class="fi-word">amerikkalainen</td><td>America / American</td><td>アメリカ</td></tr>
+      <tr><td class="fi-word">Kanada</td><td class="fi-word">kanadalainen</td><td>Canada / Canadian</td><td>カナダ</td></tr>
+      <tr><td class="fi-word">Kuuba</td><td class="fi-word">kuubalainen</td><td>Cuba / Cuban</td><td>キューバ</td></tr>
+      <tr><td class="fi-word">Korea</td><td class="fi-word">korealainen</td><td>Korea / Korean</td><td>韓国</td></tr>
+      <tr><td class="fi-word">Puola</td><td class="fi-word">puolalainen</td><td>Poland / Polish</td><td>ポーランド</td></tr>
+      <tr><td class="fi-word">Hollanti</td><td class="fi-word">hollantilainen</td><td>Netherlands / Dutch</td><td>オランダ</td></tr>
+      <tr><td class="fi-word">Marokko</td><td class="fi-word">marokkolainen</td><td>Morocco / Moroccan</td><td>モロッコ</td></tr>
+    </tbody>
+  </table>
+
+  <div class="explanation">
+    <strong>母音調和に注意！</strong><br>
+    国名に a, o, u が含まれる → <strong>-lainen</strong>（例：japani<strong>lainen</strong>、suoma<strong>lainen</strong>）<br>
+    国名に ä, ö, y が含まれる → <strong>-läinen</strong>（例：venä<strong>läinen</strong>）<br>
+    13ページで学ぶ母音調和のルールがここでも適用されます。
+  </div>
+
+  <h3>車の国籍クイズ（練習 7）</h3>
+
+  <p>「Minkä maalainen auto on ○○?」（〇〇はどこの国の車？）という質問に答える練習です。</p>
+
+  <table>
+    <thead>
+      <tr><th>車</th><th>質問</th><th>答え</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Fiat</td><td class="fi-word">Minkä maalainen auto on Fiat?</td><td><span class="reveal">Se on <strong>italialainen</strong> auto.</span></td></tr>
+      <tr><td>Ford</td><td class="fi-word">Minkä maalainen auto on Ford?</td><td><span class="reveal">Se on <strong>amerikkalainen</strong> auto.</span></td></tr>
+      <tr><td>Mercedes-Benz</td><td class="fi-word">Minkä maalainen auto on Mercedes-Benz?</td><td><span class="reveal">Se on <strong>saksalainen</strong> auto.</span></td></tr>
+      <tr><td>Renault</td><td class="fi-word">Minkä maalainen auto on Renault?</td><td><span class="reveal">Se on <strong>ranskalainen</strong> auto.</span></td></tr>
+      <tr><td>Kia</td><td class="fi-word">Minkä maalainen auto on Kia?</td><td><span class="reveal">Se on <strong>korealainen</strong> auto.</span></td></tr>
+      <tr><td>Toyota</td><td class="fi-word">Minkä maalainen auto on Toyota?</td><td><span class="reveal">Se on <strong>japanilainen</strong> auto.</span></td></tr>
+    </tbody>
+  </table>
+
+  <div class="tip">
+    <strong>「Se on」= "It is"（それは〜です）。</strong> 英語の "It is" と同じ使い方。人については「Hän on」= "He/She is" を使います。
+  </div>
+
+</section>
+
+<!-- ============================================================ -->
+<!-- PAGE 12                                                       -->
+<!-- ============================================================ -->
+<section class="page-section" id="p12">
+  <div class="page-header">
+    <span class="page-badge">12ページ</span>
+    <h2>質問を書く練習 — Kirjoita kysymys</h2>
+    <p>答えを見て、正しい質問を自分で考えて書く練習。これまで学んだ疑問文を総復習します。</p>
+  </div>
+
+  <h3>練習 8: 答えに合う質問を書こう</h3>
+
+  <div class="explanation">
+    <strong>この練習の考え方：</strong> 答えを見て正しい質問を書く練習。英語で例えると、Answer: "I live in Tokyo" → Question: "Where do you live?" を考えるのと同じです。
+  </div>
+
+  <table>
+    <thead>
+      <tr><th>答え</th><th>English</th><th>書くべき質問</th><th>疑問詞</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="fi-word">Olen Maria Valentinova.</td>
+        <td>I am Maria Valentinova.</td>
+        <td class="fi-word"><span class="reveal">Kuka sinä olet? / Mikä sinun nimi on?</span></td>
+        <td><span class="reveal">Kuka (Who) / Mikä (What)</span></td>
+      </tr>
+      <tr>
+        <td class="fi-word">Olen venäläinen.</td>
+        <td>I am Russian.</td>
+        <td class="fi-word"><span class="reveal">Minkä maalainen sinä olet?</span></td>
+        <td><span class="reveal">Minkä maalainen (What nationality)</span></td>
+      </tr>
+      <tr>
+        <td class="fi-word">Asun Suomessa.</td>
+        <td>I live in Finland.</td>
+        <td class="fi-word"><span class="reveal">Missä sinä asut?</span></td>
+        <td><span class="reveal">Missä (Where)</span></td>
+      </tr>
+      <tr>
+        <td class="fi-word">Puhun venäjää, kiinaa, arabiaa ja vähän suomea.</td>
+        <td>I speak Russian, Chinese, Arabic and a little Finnish.</td>
+        <td class="fi-word"><span class="reveal">Mitä kieltä sinä puhut?</span></td>
+        <td><span class="reveal">Mitä kieltä (What language)</span></td>
+      </tr>
+      <tr>
+        <td class="fi-word">Olen 53 vuotta.</td>
+        <td>I am 53 years old.</td>
+        <td class="fi-word"><span class="reveal">Minkä ikäinen sinä olet?</span></td>
+        <td><span class="reveal">Minkä ikäinen (How old)</span></td>
+      </tr>
+      <tr>
+        <td class="fi-word">Se on 042 564 332.</td>
+        <td>It is 042 564 332.</td>
+        <td class="fi-word"><span class="reveal">Mikä sinun puhelinnumero on?</span></td>
+        <td><span class="reveal">Mikä (What)</span></td>
+      </tr>
+      <tr>
+        <td class="fi-word">Se on Välitie 45 B 67, 55651 Imatra.</td>
+        <td>It is Välitie 45 B 67...</td>
+        <td class="fi-word"><span class="reveal">Mikä sinun osoite on?</span></td>
+        <td><span class="reveal">Mikä (What)</span></td>
+      </tr>
+      <tr>
+        <td class="fi-word">Se on mariav123@postiposti.fi.</td>
+        <td>It is mariav123@postiposti.fi.</td>
+        <td class="fi-word"><span class="reveal">Mikä sinun sähköpostiosoite on?</span></td>
+        <td><span class="reveal">Mikä (What)</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>あいさつの受け答え</h3>
+
+  <p>ページの最後にはあいさつのやりとりもあります。</p>
+
+  <div class="phrase-pair">
+    <div class="fi">— Kiitos!</div>
+    <div class="ja">Thank you! → <strong>Ole hyvä!</strong> (You're welcome!)</div>
+  </div>
+  <div class="phrase-pair">
+    <div class="fi">— Hei-hei!</div>
+    <div class="ja">Bye-bye! → <strong>Hei-hei!</strong> / <strong>Moikka!</strong></div>
+  </div>
+  <div class="phrase-pair">
+    <div class="fi">— (Anteeksi!)</div>
+    <div class="ja">Sorry! → <strong>Ei se mitään!</strong> (It's nothing! / No problem!)</div>
+  </div>
+
+  <div class="tip">
+    <strong>疑問詞の総まとめ：</strong><br>
+    <strong>Kuka</strong> = Who（だれ）/ <strong>Mikä</strong> = What（何）/ <strong>Missä</strong> = Where（どこ）<br>
+    <strong>Miten</strong> = How（どうやって）/ <strong>Mitä kieltä</strong> = What language（何語）<br>
+    <strong>Minkä maalainen</strong> = What nationality（何人）/ <strong>Minkä ikäinen</strong> = How old（何歳）<br>
+    英語の疑問詞と1対1で対応しているので、英語で考えると覚えやすいです！
+  </div>
+
+</section>
+
+<!-- ============================================================ -->
+<!-- PAGE 13                                                       -->
+<!-- ============================================================ -->
+<section class="page-section" id="p13">
+  <div class="page-header">
+    <span class="page-badge">13ページ</span>
+    <h2>動詞の人称変化と母音調和</h2>
+    <p>フィンランド語の最も重要な文法のひとつ。動詞OLLA・ASUA・PUHUAの活用と、母音調和のルール。</p>
+  </div>
+
+  <h3>人称変化とは？</h3>
+
+  <div class="explanation">
+    <strong>英語を知っていればわかりやすい！</strong> 英語でも "I <strong>am</strong>" / "you <strong>are</strong>" / "he <strong>is</strong>" と主語によって動詞が変わりますよね？フィンランド語も同じです。しかもフィンランド語は<strong>すべての動詞</strong>が人称変化します（英語では be 動詞と三人称-s だけ）。<br><br>日本語では「住む」はだれが主語でも「住む」のままなので、この感覚は英語で考えた方がわかりやすいです。
+  </div>
+
+  <h3>OLLA（〜です・〜いる・〜ある）</h3>
+
+  <table>
+    <thead>
+      <tr><th>人称</th><th>肯定</th><th>否定</th><th>English</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>minä（私）</td><td class="pos">olen</td><td class="neg">en ole</td><td>I am / I am not</td></tr>
+      <tr><td>sinä（あなた）</td><td class="pos">olet</td><td class="neg">et ole</td><td>you are / you are not</td></tr>
+      <tr><td>hän（彼/彼女）</td><td class="pos">on</td><td class="neg">ei ole</td><td>he/she is / he/she is not</td></tr>
+      <tr><td>me（私たち）</td><td class="pos">olemme</td><td class="neg">emme ole</td><td>we are / we are not</td></tr>
+      <tr><td>te（あなたたち）</td><td class="pos">olette</td><td class="neg">ette ole</td><td>you (pl.) are / you are not</td></tr>
+      <tr><td>he（彼ら）</td><td class="pos">ovat</td><td class="neg">eivät ole</td><td>they are / they are not</td></tr>
+    </tbody>
+  </table>
+
+  <h3>ASUA（住む）</h3>
+
+  <table>
+    <thead>
+      <tr><th>人称</th><th>肯定</th><th>否定</th><th>English</th><th>語尾</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>minä</td><td class="pos">asun</td><td class="neg">en asu</td><td>I live / I don't live</td><td>-n</td></tr>
+      <tr><td>sinä</td><td class="pos">asut</td><td class="neg">et asu</td><td>you live / you don't live</td><td>-t</td></tr>
+      <tr><td>hän</td><td class="pos">asuu</td><td class="neg">ei asu</td><td>he/she lives / doesn't live</td><td>母音×2</td></tr>
+      <tr><td>me</td><td class="pos">asumme</td><td class="neg">emme asu</td><td>we live / we don't live</td><td>-mme</td></tr>
+      <tr><td>te</td><td class="pos">asutte</td><td class="neg">ette asu</td><td>you live / you don't live</td><td>-tte</td></tr>
+      <tr><td>he</td><td class="pos">asuvat</td><td class="neg">eivät asu</td><td>they live / they don't live</td><td>-vat</td></tr>
+    </tbody>
+  </table>
+
+  <h3>PUHUA（話す）</h3>
+
+  <table>
+    <thead>
+      <tr><th>人称</th><th>肯定</th><th>否定</th><th>English</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>minä</td><td class="pos">puhun</td><td class="neg">en puhu</td><td>I speak / I don't speak</td></tr>
+      <tr><td>sinä</td><td class="pos">puhut</td><td class="neg">et puhu</td><td>you speak / you don't speak</td></tr>
+      <tr><td>hän</td><td class="pos">puhuu</td><td class="neg">ei puhu</td><td>he/she speaks / doesn't speak</td></tr>
+      <tr><td>me</td><td class="pos">puhumme</td><td class="neg">emme puhu</td><td>we speak / we don't speak</td></tr>
+      <tr><td>te</td><td class="pos">puhutte</td><td class="neg">ette puhu</td><td>you speak / you don't speak</td></tr>
+      <tr><td>he</td><td class="pos">puhuvat</td><td class="neg">eivät puhu</td><td>they speak / they don't speak</td></tr>
+    </tbody>
+  </table>
+
+  <div class="explanation">
+    <strong>否定形は英語に似ている！</strong><br>
+    英語: I <strong>do not</strong> live → "do not" が否定を作り、live はそのまま<br>
+    フィンランド語: Minä <strong>en</strong> asu → "en" が否定を作り、asu（語幹）はそのまま<br><br>
+    大きな違い：英語の "don't" は誰でも同じ形だが、フィンランド語の否定助動詞は人称変化する（en / et / ei / emme / ette / eivät）。<br>
+    日本語の「〜ない」とは構造が違うので、英語の "do not + 動詞" で考えた方がわかりやすい。
+  </div>
+
+  <h3>母音調和（Vokaaliharmonia）</h3>
+
+  <p>フィンランド語では、一つの単語の中で<strong>後母音と前母音が混ざらない</strong>ルールがある。語尾をつけるとき、単語の母音に合わせて語尾も変わります。</p>
+
+  <table>
+    <thead>
+      <tr><th>グループ</th><th>母音</th><th>説明</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>後母音</strong></td><td class="fi-word">a, o, u</td><td>口の奥で発音</td></tr>
+      <tr><td><strong>前母音</strong></td><td class="fi-word">ä, ö, y</td><td>口の前で発音</td></tr>
+      <tr><td><strong>中立</strong></td><td class="fi-word">e, i</td><td>どちらとも使える</td></tr>
+    </tbody>
+  </table>
+
+  <h4>「〜に（住んでいる）」: -ssa / -ssä</h4>
+
+  <table>
+    <thead>
+      <tr><th>場所</th><th>母音</th><th>語尾</th><th>形</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Oulu</td><td>o, u → 後母音</td><td class="pos">-ssa</td><td class="fi-word">Oulussa</td></tr>
+      <tr><td>Suomi</td><td>u, o → 後母音</td><td class="pos">-ssa</td><td class="fi-word">Suomessa</td></tr>
+      <tr><td>Kiina</td><td>a → 後母音</td><td class="pos">-ssa</td><td class="fi-word">Kiinassa</td></tr>
+      <tr><td>Helsinki</td><td>e, i → 中立のみ</td><td class="pos">-ssä</td><td class="fi-word">Helsingissä</td></tr>
+      <tr><td>Egypti</td><td>e → 中立のみ</td><td class="pos">-ssä</td><td class="fi-word">Egyptissä</td></tr>
+    </tbody>
+  </table>
+
+  <h4>「〇〇語を（話す）」: -a / -ä</h4>
+
+  <table>
+    <thead>
+      <tr><th>言語</th><th>母音</th><th>語尾</th><th>形</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>suomi</td><td>u, o → 後</td><td class="pos">-a</td><td class="fi-word">suomea</td></tr>
+      <tr><td>englanti</td><td>a → 後</td><td class="pos">-a</td><td class="fi-word">englantia</td></tr>
+      <tr><td>japani</td><td>a → 後</td><td class="pos">-a</td><td class="fi-word">japania</td></tr>
+      <tr><td>hindi</td><td>i → 中立のみ</td><td class="pos">-ä</td><td class="fi-word">hindiä</td></tr>
+      <tr><td>kymri</td><td>y → 前</td><td class="pos">-ä</td><td class="fi-word">kymriä</td></tr>
+    </tbody>
+  </table>
+
+  <div class="tip">
+    <strong>簡単な覚え方：</strong> 声に出して、「あ・お・う」の音が聞こえたら → <strong>-ssa / -a</strong>（後母音系）。聞こえなかったら → <strong>-ssä / -ä</strong>（前母音系）。
+  </div>
+
+</section>
+
+<!-- ============================================================ -->
+<!-- PAGE 14                                                       -->
+<!-- ============================================================ -->
+<section class="page-section" id="p14">
+  <div class="page-header">
+    <span class="page-badge">14ページ</span>
+    <h2>練習：否定形と母音調和</h2>
+    <p>動詞の活用、否定形、母音調和（-ssa/-ssä, -a/-ä）を使った練習問題。</p>
+  </div>
+
+  <h3>練習 9: 文を作ろう</h3>
+
+  <p>左・真ん中・右の列から一つずつ単語を選んで正しい文を作ります。主語と動詞の人称を必ず合わせること！</p>
+
+  <div class="explanation">
+    <strong>やり方のポイント：</strong> 主語→動詞→補語の順で組み立てる（英語と同じSVO語順）。<br><br>
+    <strong>例文：</strong><br>
+    ・Minä <strong>puhun</strong> suomea. = I <strong>speak</strong> Finnish.<br>
+    ・Hän <strong>on</strong> opiskelija. = He/She <strong>is</strong> a student.<br>
+    ・Me <strong>asumme</strong> Helsingissä. = We <strong>live</strong> in Helsinki.
+  </div>
+
+  <h3>練習 10: 否定形 + -ssa / -ssä</h3>
+
+  <p>「〜に住んでいない、〜に住んでいる」の形で書く練習。否定形と場所の語尾（母音調和）の両方を使います。</p>
+
+  <table>
+    <thead>
+      <tr><th>問題</th><th>答え</th><th>ポイント</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>a. Minä ___</td>
+        <td class="fi-word"><span class="reveal">en asu Ranskassa, asun Suomessa.</span></td>
+        <td>Ranska → a → -ssa / Suomi → o,u → -ssa</td>
+      </tr>
+      <tr>
+        <td>c. Hän ___</td>
+        <td class="fi-word"><span class="reveal">ei asu Jyväskylässä, asuu Kemissä.</span></td>
+        <td>Jyväskylä → ä,y → -ssä / Kemi → e,i → -ssä</td>
+      </tr>
+      <tr>
+        <td>f. He ___</td>
+        <td class="fi-word"><span class="reveal">eivät asu Espoossa, asuvat Hämeenlinnassa.</span></td>
+        <td>Espoo → o → -ssa / Hämeenlinna → a → -ssa</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="tip">
+    <strong>この練習の手順：</strong><br>
+    ① 主語を確認 → 正しい否定助動詞を選ぶ（minä→en, hän→ei, he→eivät...）<br>
+    ② 場所の単語の母音を確認 → -ssa か -ssä を選ぶ<br>
+    ③ 肯定文の動詞は人称に合わせて活用する
+  </div>
+
+  <h3>練習 11: 否定形 + -a / -ä（言語）</h3>
+
+  <p>「〇〇語を話さない、△△語を話す」の形で書く練習。</p>
+
+  <table>
+    <thead>
+      <tr><th>問題</th><th>答え</th><th>ポイント</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>c. Hän ___</td>
+        <td class="fi-word"><span class="reveal">ei puhu italiaa, puhuu espanjaa.</span></td>
+        <td>italia → a → -a / espanja → a → -a</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="explanation">
+    <strong>練習のコツ：</strong> 否定文の動詞はいつも語幹（puhu）のまま。肯定文だけ人称変化させます。例：Hän <span style="color:var(--negative)">ei puhu</span>（否定＝語幹のまま）→ Hän <span style="color:var(--positive)">puhuu</span>（肯定＝hänなので母音を伸ばす）。
+  </div>
+
+</section>
+
+<!-- ============================================================ -->
+<!-- PAGE 15                                                       -->
+<!-- ============================================================ -->
+<section class="page-section" id="p15">
+  <div class="page-header">
+    <span class="page-badge">15ページ</span>
+    <h2>さらに練習 — もっと動詞と母音調和</h2>
+    <p>13〜14ページで学んだ動詞の活用・否定形・母音調和をさらに定着させるための追加練習です。（このページは本ではイラスト中心です）</p>
+  </div>
+
+  <h3>ここまでの復習チェックリスト</h3>
+
+  <div class="explanation">
+    <strong>自分でチェックしてみましょう：</strong> 英語→フィンランド語で言えますか？<br><br>
+    ✅ I am Japanese → <strong>Olen japanilainen.</strong><br>
+    ✅ I live in Finland → <strong>Asun Suomessa.</strong><br>
+    ✅ I speak Japanese → <strong>Puhun japania.</strong><br>
+    ✅ I don't speak English → <strong>En puhu englantia.</strong><br>
+    ✅ He doesn't live in Helsinki → <strong>Hän ei asu Helsingissä.</strong><br>
+    ✅ They speak French → <strong>He puhuvat ranskaa.</strong>
+  </div>
+
+  <h3>追加練習：肯定と否定のペアを作ろう</h3>
+
+  <p>以下のフィンランド語の文を否定形に変えてみましょう。</p>
+
+  <table>
+    <thead>
+      <tr><th>肯定文</th><th>English</th><th>否定形</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="pos">Minä asun Tokiossa.</td>
+        <td>I live in Tokyo</td>
+        <td class="neg"><span class="reveal">Minä en asu Tokiossa.</span></td>
+      </tr>
+      <tr>
+        <td class="pos">Sinä puhut japania.</td>
+        <td>You speak Japanese</td>
+        <td class="neg"><span class="reveal">Sinä et puhu japania.</span></td>
+      </tr>
+      <tr>
+        <td class="pos">Hän on suomalainen.</td>
+        <td>He/She is Finnish</td>
+        <td class="neg"><span class="reveal">Hän ei ole suomalainen.</span></td>
+      </tr>
+      <tr>
+        <td class="pos">Me asumme Helsingissä.</td>
+        <td>We live in Helsinki</td>
+        <td class="neg"><span class="reveal">Me emme asu Helsingissä.</span></td>
+      </tr>
+      <tr>
+        <td class="pos">Te puhutte arabiaa.</td>
+        <td>You (pl.) speak Arabic</td>
+        <td class="neg"><span class="reveal">Te ette puhu arabiaa.</span></td>
+      </tr>
+      <tr>
+        <td class="pos">He ovat opiskelijoita.</td>
+        <td>They are students</td>
+        <td class="neg"><span class="reveal">He eivät ole opiskelijoita.</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>追加練習：母音調和クイズ</h3>
+
+  <p>正しい語尾を選びましょう：<strong>-ssa</strong> か <strong>-ssä</strong>？</p>
+
+  <table>
+    <thead>
+      <tr><th>場所</th><th>母音チェック</th><th>正解</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="fi-word">Tokio</td><td>o → 後母音</td><td class="pos"><span class="reveal">Tokio<strong>ssa</strong></span></td></tr>
+      <tr><td class="fi-word">Pariisi</td><td>a → 後母音</td><td class="pos"><span class="reveal">Pariisi<strong>ssa</strong></span></td></tr>
+      <tr><td class="fi-word">Helsinki</td><td>e, i → 中立のみ</td><td class="pos"><span class="reveal">Helsingis<strong>sä</strong></span></td></tr>
+      <tr><td class="fi-word">Tampere</td><td>a → 後母音</td><td class="pos"><span class="reveal">Tamperee<strong>ssa</strong></span></td></tr>
+      <tr><td class="fi-word">Jyväskylä</td><td>y, ä → 前母音</td><td class="pos"><span class="reveal">Jyväskyläs<strong>sä</strong></span></td></tr>
+      <tr><td class="fi-word">Turku</td><td>u → 後母音</td><td class="pos"><span class="reveal">Turu<strong>ssa</strong></span></td></tr>
+      <tr><td class="fi-word">Oulu</td><td>o, u → 後母音</td><td class="pos"><span class="reveal">Oulu<strong>ssa</strong></span></td></tr>
+    </tbody>
+  </table>
+
+  <p>正しい語尾を選びましょう：<strong>-a</strong> か <strong>-ä</strong>？（「〇〇語を」）</p>
+
+  <table>
+    <thead>
+      <tr><th>言語</th><th>母音チェック</th><th>正解</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="fi-word">japani</td><td>a → 後母音</td><td class="pos"><span class="reveal">japani<strong>a</strong></span></td></tr>
+      <tr><td class="fi-word">suomi</td><td>u, o → 後母音</td><td class="pos"><span class="reveal">suome<strong>a</strong></span></td></tr>
+      <tr><td class="fi-word">saksa</td><td>a → 後母音</td><td class="pos"><span class="reveal">saksa<strong>a</strong></span></td></tr>
+      <tr><td class="fi-word">venäjä</td><td>ä → 前母音</td><td class="pos"><span class="reveal">venäjä<strong>ä</strong></span></td></tr>
+      <tr><td class="fi-word">turkki</td><td>u → 後母音</td><td class="pos"><span class="reveal">turkki<strong>a</strong></span></td></tr>
+    </tbody>
+  </table>
+
+  <div class="tip">
+    <strong>困ったときのルール：</strong> 単語の中に <strong>a, o, u</strong> が一つでもあれば → 後母音系（-ssa, -a）。なければ → 前母音系（-ssä, -ä）。e と i は中立なので無視してOK。
+  </div>
+
+</section>
+
+<!-- ============================================================ -->
+<!-- PAGE 16                                                       -->
+<!-- ============================================================ -->
+<section class="page-section" id="p16">
+  <div class="page-header">
+    <span class="page-badge">16ページ</span>
+    <h2>数字の練習</h2>
+    <p>数字の読み方、電話番号、空港のアナウンスを聞き取る練習。</p>
+  </div>
+
+  <h3>練習 1: 数字を読む</h3>
+
+  <p>表の数字をパートナーと交互に読みましょう。</p>
+
+  <table>
+    <thead>
+      <tr><th colspan="5">練習する数字</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td>2</td><td>4</td><td>7</td><td>8</td></tr>
+      <tr><td>9</td><td>10</td><td>11</td><td>16</td><td>19</td></tr>
+      <tr><td>20</td><td>24</td><td>25</td><td>28</td><td>31</td></tr>
+      <tr><td>36</td><td>42</td><td>47</td><td>51</td><td>58</td></tr>
+      <tr><td>59</td><td>63</td><td>64</td><td>72</td><td>75</td></tr>
+      <tr><td>80</td><td>87</td><td>92</td><td>96</td><td>100</td></tr>
+    </tbody>
+  </table>
+
+  <div class="tip">
+    <strong>読み方の例：</strong><br>
+    24 = kaksi<strong>kymmentä</strong>neljä（カクシキュンメンタネリヤ）<br>
+    47 = neljä<strong>kymmentä</strong>seitsemän（ネリヤキュンメンタセイツェマン）<br>
+    96 = yhdeksän<strong>kymmentä</strong>kuusi（ユフデクサンキュンメンタクーシ）
+  </div>
+
+  <h3>練習 3: 電話番号を聞き取る</h3>
+
+  <p>音声を聞いて、以下の人たちの電話番号を書き取りましょう。</p>
+
+  <div class="vocab-grid">
+    <div class="vocab-item"><div class="fi">a. Jussi</div><div class="ja">電話番号：___</div></div>
+    <div class="vocab-item"><div class="fi">b. Hanna</div><div class="ja">電話番号：___</div></div>
+    <div class="vocab-item"><div class="fi">c. Onni</div><div class="ja">電話番号：___</div></div>
+    <div class="vocab-item"><div class="fi">d. Reetta</div><div class="ja">電話番号：___</div></div>
+    <div class="vocab-item"><div class="fi">e. Torsti</div><div class="ja">電話番号：___</div></div>
+    <div class="vocab-item"><div class="fi">f. Maija</div><div class="ja">電話番号：___</div></div>
+  </div>
+
+  <div class="explanation">
+    <strong>フィンランドの電話番号：</strong> フィンランドの携帯番号は通常「04」で始まり、10桁程度です。数字を一つずつ（nolla-neljä-viisi...）読み上げることが多いです。日本の携帯番号（090, 080...で始まる）と同じように、グループに分けて読みます。
+  </div>
+
+  <h3>練習 4: 空港のアナウンス</h3>
+
+  <p>音声を聞いて、空いている部分を埋めましょう。</p>
+
+  <div class="vocab-grid">
+    <div class="vocab-item"><div class="fi">lento</div><div class="ja">フライト / 便</div></div>
+    <div class="vocab-item"><div class="fi">portti</div><div class="ja">ゲート</div></div>
+    <div class="vocab-item"><div class="fi">lähtee portilta</div><div class="ja">ゲートから出発する</div></div>
+    <div class="vocab-item"><div class="fi">kello</div><div class="ja">時間 / 〜時</div></div>
+    <div class="vocab-item"><div class="fi">kuulutus</div><div class="ja">アナウンス</div></div>
+    <div class="vocab-item"><div class="fi">viimeinen kuulutus</div><div class="ja">最終アナウンス</div></div>
+  </div>
+
+  <div class="tip">
+    <strong>空港の表現：</strong> 日本の空港でも同じような放送がありますね。「フィンエアー○○便、ヘルシンキ発ベルリン行き、ゲート○番から出発します」のような内容です。数字とアルファベットを聞き取る練習に最適です。
+  </div>
+
+</section>
+
+<!-- ============================================================ -->
+<!-- PAGE 17                                                       -->
+<!-- ============================================================ -->
+<section class="page-section" id="p17">
+  <div class="page-header">
+    <span class="page-badge">17ページ</span>
+    <h2>個人情報の会話練習 — Henkilötiedot</h2>
+    <p>表の人物情報を使って、パートナーと個人情報を聞き合う会話練習。名前のスペル、電話番号、メールアドレスを正確にやりとりします。</p>
+  </div>
+
+  <h3>モデル会話</h3>
+
+  <div class="dialogue">
+    <div class="dialogue-line">
+      <div class="fi"><span class="speaker">A:</span> Hei, mikä sinun nimi on?</div>
+      <div class="ja">Hi, what is your name?（お名前は？）</div>
+    </div>
+    <div class="dialogue-line">
+      <div class="fi"><span class="speaker">B:</span> Liisa Mäkelä.</div>
+      <div class="ja">Liisa Mäkelä.（リーサ・マケラです）</div>
+    </div>
+    <div class="dialogue-line">
+      <div class="fi"><span class="speaker">A:</span> Miten se kirjoitetaan?</div>
+      <div class="ja">How is it spelled?（スペルは？）</div>
+    </div>
+    <div class="dialogue-line">
+      <div class="fi"><span class="speaker">B:</span> L-i-i-s-a M-ä-k-e-l-ä.</div>
+      <div class="ja">エル・イ・イ・エス・ア　エム・ア（ウムラウト）・ケー・エー・エル・ア（ウムラウト）</div>
+    </div>
+    <div class="dialogue-line">
+      <div class="fi"><span class="speaker">A:</span> Mikä sinun puhelinnumero on?</div>
+      <div class="ja">What is your phone number?（電話番号は？）</div>
+    </div>
+    <div class="dialogue-line">
+      <div class="fi"><span class="speaker">B:</span> 051 402 679.</div>
+      <div class="ja">ノッラ・ヴィーシ・ユクシ…</div>
+    </div>
+    <div class="dialogue-line">
+      <div class="fi"><span class="speaker">A:</span> Okei. Mikä sinun sähköpostiosoite on?</div>
+      <div class="ja">OK. What is your email address?（メールアドレスは？）</div>
+    </div>
+    <div class="dialogue-line">
+      <div class="fi"><span class="speaker">B:</span> liisa.h.makela@gmail.com</div>
+      <div class="ja">リーサ・ピステ・ホー・ピステ・マケラ・アット・ジーメール・ピステ・コム</div>
+    </div>
+    <div class="dialogue-line">
+      <div class="fi"><span class="speaker">A:</span> Anteeksi, sanotko vielä kerran hitaasti.</div>
+      <div class="ja">Sorry, can you say it again slowly?（もう一度ゆっくり）</div>
+    </div>
+    <div class="dialogue-line">
+      <div class="fi"><span class="speaker">B:</span> liisa.h.makela@gmail.com</div>
+      <div class="ja">（ゆっくり繰り返す）</div>
+    </div>
+    <div class="dialogue-line">
+      <div class="fi"><span class="speaker">A:</span> Kiitos!</div>
+      <div class="ja">Thank you!（ありがとう！）</div>
+    </div>
+  </div>
+
+  <h3>メールアドレスの読み方</h3>
+
+  <div class="explanation">
+    <strong>メールアドレスの読み方（英語との比較）：</strong><br>
+    <strong>.</strong> = <strong>piste</strong>（英語: dot / 日本語: ドット）<br>
+    <strong>@</strong> = <strong>ät-merkki</strong> / <strong>at</strong>（英語と同じ！）<br>
+    <strong>-</strong> = <strong>viiva</strong>（英語: hyphen / ハイフン）<br>
+    <strong>_</strong> = <strong>alaviiva</strong>（英語: underscore / アンダースコア）<br><br>
+    例：liisa.h.makela@gmail.com → 「liisa <strong>piste</strong> h <strong>piste</strong> makela <strong>at</strong> gmail <strong>piste</strong> com」
+  </div>
+
+  <h3>練習 5: 表の人物情報で会話する</h3>
+
+  <p>以下の人物の情報を使って、上のモデル会話のように練習しましょう。</p>
+
+  <table>
+    <thead>
+      <tr><th>名前</th><th>電話番号</th><th>メール</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="fi-word">Liisa Mäkelä</td><td>051 402 679</td><td>liisa.h.makela@gmail.com</td></tr>
+      <tr><td class="fi-word">Sarua Verso</td><td>012 865 104</td><td>—</td></tr>
+      <tr><td class="fi-word">Juuso Kyllönen</td><td>091 842 551</td><td>—</td></tr>
+      <tr><td class="fi-word">Mikko Piippu</td><td>156 742 911</td><td>—</td></tr>
+      <tr><td class="fi-word">Ootta Rantala</td><td>020 419 561</td><td>—</td></tr>
+    </tbody>
+  </table>
+
+  <div class="tip">
+    <strong>フィンランド語の特別な文字：</strong><br>
+    <strong>Ä</strong> = 英語の "cat" の "a" に近い音（日本語にはない音）<br>
+    <strong>Ö</strong> = 英語にはない音。ドイツ語のöと同じ<br>
+    <strong>Å</strong> = スウェーデン語由来の文字（フィンランド語ではほぼ使わない）<br><br>
+    名前のスペルで大切！ Mäkelä の <strong>ä</strong> を普通の a と間違えると別の単語になります。
+  </div>
+
+</section>
+
+<!-- ============================================================ -->
+<!-- PAGE 18                                                       -->
+<!-- ============================================================ -->
+<section class="page-section" id="p18">
+  <div class="page-header">
+    <span class="page-badge">18ページ</span>
+    <h2>リスニング：書類記入 — Henkilötietolomake</h2>
+    <p>音声を聞いて個人情報フォームに記入する練習と、場面に合ったフレーズを選ぶ練習。</p>
+  </div>
+
+  <h3>練習 6: 個人情報フォームを埋める</h3>
+
+  <p>音声で人物が自己紹介をします。聞き取って以下の項目を埋めましょう。</p>
+
+  <div class="explanation">
+    <strong>フォームに出てくる単語：</strong> これらはフィンランドの公的書類でよく見る単語です。実生活でも役立ちます！
+  </div>
+
+  <table>
+    <thead>
+      <tr><th>フィンランド語</th><th>English</th><th>日本語</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="fi-word">Etunimi</td><td>First name</td><td>名前</td></tr>
+      <tr><td class="fi-word">Sukunimi</td><td>Last name</td><td>名字</td></tr>
+      <tr><td class="fi-word">Osoite</td><td>Address</td><td>住所</td></tr>
+      <tr><td class="fi-word">Postinumero</td><td>Postal code</td><td>郵便番号</td></tr>
+      <tr><td class="fi-word">Postitoimipaikka</td><td>City / Town</td><td>市区町村</td></tr>
+      <tr><td class="fi-word">Puhelinnumero</td><td>Phone number</td><td>電話番号</td></tr>
+      <tr><td class="fi-word">Sähköpostiosoite</td><td>Email address</td><td>メールアドレス</td></tr>
+    </tbody>
+  </table>
+
+  <div class="tip">
+    <strong>「Sähköpostiosoite」の分解：</strong><br>
+    sähkö (electric) + posti (mail) + osoite (address) = email address<br>
+    英語の "e-mail address" と同じ構造！ フィンランド語は複合語が多いですが、分解すると英語と対応しています。
+  </div>
+
+  <h3>練習 7: 場面に合うフレーズを選ぶ</h3>
+
+  <p>音声を聞いて、以下のフレーズから正しいものを選びます。</p>
+
+  <div class="vocab-grid">
+    <div class="vocab-item"><div class="fi">Ei se mitään!</div><div class="ja">No problem! / 大丈夫！</div></div>
+    <div class="vocab-item"><div class="fi">Anteeksi, en ymmärrä.</div><div class="ja">Sorry, I don't understand. / わかりません</div></div>
+    <div class="vocab-item"><div class="fi">Sanotko vielä kerran?</div><div class="ja">Can you say it again? / もう一度？</div></div>
+    <div class="vocab-item"><div class="fi">Se on ongelma.</div><div class="ja">It is a problem. / 問題です</div></div>
+    <div class="vocab-item"><div class="fi">Hei!</div><div class="ja">Hi! / こんにちは</div></div>
+    <div class="vocab-item"><div class="fi">Nähdään!</div><div class="ja">See you! / またね！</div></div>
+    <div class="vocab-item"><div class="fi">Kiitos!</div><div class="ja">Thank you! / ありがとう</div></div>
+  </div>
+
+  <div class="explanation">
+    <strong>「Nähdään!」= "See you!"</strong><br>
+    英語の "See you!" とほぼ同じ意味とニュアンス。「Hei-hei!」= "Bye-bye!" よりも「また会える」という感じ。日本語の「じゃあまた」に近いです。
+  </div>
+
+  <h3>フレーズの使い分け</h3>
+
+  <table>
+    <thead>
+      <tr><th>場面</th><th>使うフレーズ</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Meeting someone / 会ったとき</td><td class="fi-word">Hei!</td></tr>
+      <tr><td>Saying goodbye / 別れるとき</td><td class="fi-word">Nähdään! / Hei-hei!</td></tr>
+      <tr><td>Don't understand / わからないとき</td><td class="fi-word">Anteeksi, en ymmärrä.</td></tr>
+      <tr><td>Want to hear again / もう一度</td><td class="fi-word">Sanotko vielä kerran?</td></tr>
+      <tr><td>Thanking / お礼</td><td class="fi-word">Kiitos!</td></tr>
+      <tr><td>Someone apologizes / 謝られたとき</td><td class="fi-word">Ei se mitään!</td></tr>
+    </tbody>
+  </table>
+
+</section>
+
+<!-- ============================================================ -->
+<!-- PAGE 19                                                       -->
+<!-- ============================================================ -->
+<section class="page-section" id="p19">
+  <div class="page-header">
+    <span class="page-badge">19ページ</span>
+    <h2>リスニング：人物情報 — Kuuntele ja kirjoita</h2>
+    <p>音声を聞いて、4人の人物の名前・年齢・電話番号・国籍を書き取る練習。</p>
+  </div>
+
+  <h3>練習 8: 聞いて書き取ろう</h3>
+
+  <p>4人の人物について音声が流れます。以下の情報を聞き取りましょう。</p>
+
+  <table>
+    <thead>
+      <tr><th></th><th>Nimi（名前）</th><th>Ikä（年齢）</th><th>Puhelinnumero（電話番号）</th><th>Kansallisuus（国籍）</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>a.</strong></td><td>___</td><td>___</td><td>___</td><td>___</td></tr>
+      <tr><td><strong>b.</strong></td><td>___</td><td>___</td><td>___</td><td>___</td></tr>
+      <tr><td><strong>c.</strong></td><td>___</td><td>___</td><td>___</td><td>___</td></tr>
+      <tr><td><strong>d.</strong></td><td>___</td><td>___</td><td>___</td><td>___</td></tr>
+    </tbody>
+  </table>
+
+  <div class="explanation">
+    <strong>リスニングのコツ：</strong><br>
+    音声では以下のパターンで情報が出てきます。これを知っていれば聞き取りやすくなります：<br><br>
+    名前：「Minä olen [名前].」または「[名前].」<br>
+    年齢：「Olen [数字] vuotta.」<br>
+    電話番号：「Minun puhelinnumero on [数字].」<br>
+    国籍：「Olen [国籍-lainen/-läinen].」
+  </div>
+
+  <h3>聞き取りで使う重要な単語</h3>
+
+  <div class="vocab-grid">
+    <div class="vocab-item"><div class="fi">Nimi</div><div class="ja">Name / 名前</div></div>
+    <div class="vocab-item"><div class="fi">Ikä</div><div class="ja">Age / 年齢</div></div>
+    <div class="vocab-item"><div class="fi">Puhelinnumero</div><div class="ja">Phone number / 電話番号</div></div>
+    <div class="vocab-item"><div class="fi">Kansallisuus</div><div class="ja">Nationality / 国籍</div></div>
+    <div class="vocab-item"><div class="fi">vuotta</div><div class="ja">years old / 歳</div></div>
+    <div class="vocab-item"><div class="fi">-vuotias</div><div class="ja">...-year-old / 〜歳の</div></div>
+  </div>
+
+  <div class="tip">
+    <strong>「vuotta」と「-vuotias」の違い：</strong><br>
+    <strong>Olen 42 vuotta.</strong> = I am 42 years old.（42歳です）<br>
+    <strong>42-vuotias</strong> = a 42-year-old ...（42歳<strong>の</strong>〜）<br>
+    英語と同じ違い： "42 years old"（述語）vs "42-year-old"（形容詞）。
+  </div>
+
+  <h3>自分で練習してみよう</h3>
+
+  <div class="explanation">
+    <strong>音声なしでもできる練習：</strong> 自分自身の情報をフィンランド語で言ってみましょう。<br><br>
+    ・Minun nimi on ___.<br>
+    ・Olen ___ vuotta.<br>
+    ・Minun puhelinnumero on ___.<br>
+    ・Olen japanilainen.<br><br>
+    パートナーと互いに質問し合うのも良い練習になります。
+  </div>
+
+</section>
+
+<!-- ============================================================ -->
+<!-- PAGE 20                                                       -->
+<!-- ============================================================ -->
+<section class="page-section" id="p20">
+  <div class="page-header">
+    <span class="page-badge">20ページ</span>
+    <h2>読解：論理パズル — Lue ja täytä taulukko</h2>
+    <p>文章を読んで、表を完成させる論理パズル。複数のヒントを組み合わせて推理します。</p>
+  </div>
+
+  <h3>TEKSTIT JA KIRJOITTAMINEN（テキストと作文）</h3>
+
+  <p>以下の文章をすべて読んで、下の表を完成させましょう。</p>
+
+  <h4>ヒントの文（日本語訳付き）</h4>
+
+  <table>
+    <thead>
+      <tr><th>フィンランド語</th><th>English</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="fi-word">Suomalainen on 65-vuotias.</td><td>The Finnish person is 65 years old.</td></tr>
+      <tr><td class="fi-word">Oscar on 37 vuotta.</td><td>Oscar is 37 years old.</td></tr>
+      <tr><td class="fi-word">34-vuotias on kanadalainen.</td><td>The 34-year-old is Canadian.</td></tr>
+      <tr><td class="fi-word">Ranskalainen on Marie.</td><td>The French person is Marie.</td></tr>
+      <tr><td class="fi-word">Kuubalainen puhuu espanjaa.</td><td>The Cuban speaks Spanish.</td></tr>
+      <tr><td class="fi-word">65-vuotias puhuu suomea.</td><td>The 65-year-old speaks Finnish.</td></tr>
+      <tr><td class="fi-word">Ranskalaisen puhelinnumero on 012 956 8.</td><td>The French person's phone number is 012 956 8.</td></tr>
+      <tr><td class="fi-word">36-vuotias puhuu ranskaa.</td><td>The 36-year-old speaks French.</td></tr>
+      <tr><td class="fi-word">Tyynen puhelinnumero on 043 129 87.</td><td>Tyyne's phone number is 043 129 87.</td></tr>
+      <tr><td class="fi-word">Kanadalaisen puhelinnumero on 071 693 52.</td><td>The Canadian's phone number is 071 693 52.</td></tr>
+      <tr><td class="fi-word">Kanadalainen puhuu englantia.</td><td>The Canadian speaks English.</td></tr>
+      <tr><td class="fi-word">36-vuotias on ranskalainen.</td><td>The 36-year-old is French.</td></tr>
+      <tr><td class="fi-word">Oscar puhuu espanjaa.</td><td>Oscar speaks Spanish.</td></tr>
+    </tbody>
+  </table>
+
+  <h4>完成させる表</h4>
+
+  <table>
+    <thead>
+      <tr><th>名前</th><th>何歳？</th><th>何語を話す？</th><th>何人？</th><th>電話番号</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="fi-word">Susan</td><td>?</td><td>?</td><td>?</td><td>?</td></tr>
+      <tr><td class="fi-word">Tyyne</td><td>?</td><td>?</td><td>suomalainen</td><td>043 129 87</td></tr>
+      <tr><td class="fi-word">Oscar</td><td>?</td><td>?</td><td>?</td><td>?</td></tr>
+      <tr><td class="fi-word">Marie</td><td>?</td><td>ranskaa</td><td>?</td><td>?</td></tr>
+    </tbody>
+  </table>
+
+  <div class="explanation">
+    <strong>解き方のヒント：</strong><br>
+    ① まず、直接わかる情報を埋める（例：Oscar on 37 vuotta → Oscarは37歳）<br>
+    ② 次に、組み合わせで推理する（例：Kuubalainen puhuu espanjaa + Oscar puhuu espanjaa → Oscarはキューバ人）<br>
+    ③ 残りを消去法で埋める<br><br>
+    日本語の論理パズルと同じ考え方です。フィンランド語の文を正確に読み取る練習にもなります。
+  </div>
+
+  <h3>この練習で出てくる新しい文法</h3>
+
+  <div class="tip">
+    <strong>「-laisen / -läisen」= "...'s"（所有を表す）：</strong><br>
+    Ranska<strong>laisen</strong> puhelinnumero = The French person<strong>'s</strong> phone number<br>
+    Kanada<strong>laisen</strong> puhelinnumero = The Canadian<strong>'s</strong> phone number<br>
+    Tyyne<strong>n</strong> puhelinnumero = Tyyne<strong>'s</strong> phone number<br><br>
+    英語の <strong>'s</strong>（所有格）と同じ機能！ フィンランド語では語尾が <strong>-n</strong> に変わります。これは「属格」（genetiivi）と呼ばれ、第2章で詳しく学びます。
+  </div>
+
+  <h3>パズルの答え（自分で解いた後に確認）</h3>
+
+  <details style="margin: 16px 0; cursor: pointer;">
+    <summary style="font-weight: 600; color: var(--accent); padding: 8px 0;">クリックして答えを表示</summary>
+    <table style="margin-top: 12px;">
+      <thead>
+        <tr><th>名前</th><th>年齢</th><th>言語</th><th>国籍</th><th>電話番号</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="fi-word">Susan</td><td>34</td><td>englantia</td><td>kanadalainen</td><td>071 693 52</td></tr>
+        <tr><td class="fi-word">Tyyne</td><td>65</td><td>suomea</td><td>suomalainen</td><td>043 129 87</td></tr>
+        <tr><td class="fi-word">Oscar</td><td>37</td><td>espanjaa</td><td>kuubalainen</td><td>050 227 61</td></tr>
+        <tr><td class="fi-word">Marie</td><td>36</td><td>ranskaa</td><td>ranskalainen</td><td>012 956 8</td></tr>
+      </tbody>
+    </table>
+  </details>
+
+</section>
+
+<!-- ============================================================ -->
+<!-- QUIZ: Type 1 Verbs                                            -->
+<!-- ============================================================ -->
+<section class="page-section" id="quiz-verbs1">
+  <div class="quiz-header">
+    <h2>🎮 動詞クイズ — タイプ1</h2>
+    <p class="quiz-subtitle">Type 1 verbs (taivutusryhmä 1) — 50 most common</p>
+  </div>
+
+  <div class="quiz-settings" data-quiz="verbs1">
+    <button class="qcount active" data-count="10">10問</button>
+    <button class="qcount" data-count="20">20問</button>
+    <button class="qcount" data-count="50">全50問</button>
+  </div>
+
+  <div class="quiz-score-bar">
+    <span class="correct">⭕ <span id="v1-correct">0</span></span>
+    <span class="wrong">❌ <span id="v1-wrong">0</span></span>
+    <span class="remaining">残り <span id="v1-remaining">10</span></span>
+  </div>
+
+  <div class="quiz-progress"><div class="quiz-progress-fill" id="v1-progress" style="width:0%"></div></div>
+
+  <div id="v1-card">
+    <div class="quiz-word" id="v1-word">—</div>
+    <div class="quiz-hint" id="v1-hint"></div>
+    <div class="quiz-options" id="v1-options"></div>
+    <div class="quiz-feedback" id="v1-feedback"></div>
+  </div>
+
+  <div class="quiz-result" id="v1-result" style="display:none">
+    <h3>クイズ終了！</h3>
+    <div class="big-score" id="v1-final-score"></div>
+    <div class="message" id="v1-final-msg"></div>
+    <button class="quiz-next-btn" onclick="quizzes.verbs1.start()">もう一回 🔄</button>
+  </div>
+
+  <div style="margin-top:32px; padding:16px; background:var(--highlight); border-radius:8px; font-size:14px;">
+    <strong>タイプ1動詞とは？</strong><br>
+    Type 1 verbs end in <strong>two vowels</strong> (e.g. puhu<strong>a</strong>, sano<strong>a</strong>, luke<strong>a</strong>).<br>
+    Conjugation: drop the final vowel → add personal ending.<br>
+    タイプ1動詞は<strong>母音2つ</strong>で終わる動詞です。活用：最後の母音を取って人称語尾をつけます。<br>
+    例: puhua → puhu → puhun (I speak)
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- QUIZ: Nouns                                                    -->
+<!-- ============================================================ -->
+<section class="page-section" id="quiz-nouns">
+  <div class="quiz-header">
+    <h2>🎮 名詞クイズ</h2>
+    <p class="quiz-subtitle">100 most common everyday nouns — 日常の名詞100語</p>
+  </div>
+
+  <div class="quiz-settings" data-quiz="nouns">
+    <button class="qcount active" data-count="10">10問</button>
+    <button class="qcount" data-count="25">25問</button>
+    <button class="qcount" data-count="50">50問</button>
+    <button class="qcount" data-count="100">全100問</button>
+  </div>
+
+  <div class="quiz-score-bar">
+    <span class="correct">⭕ <span id="n-correct">0</span></span>
+    <span class="wrong">❌ <span id="n-wrong">0</span></span>
+    <span class="remaining">残り <span id="n-remaining">10</span></span>
+  </div>
+
+  <div class="quiz-progress"><div class="quiz-progress-fill" id="n-progress" style="width:0%"></div></div>
+
+  <div id="n-card">
+    <div class="quiz-word" id="n-word">—</div>
+    <div class="quiz-hint" id="n-hint"></div>
+    <div class="quiz-options" id="n-options"></div>
+    <div class="quiz-feedback" id="n-feedback"></div>
+  </div>
+
+  <div class="quiz-result" id="n-result" style="display:none">
+    <h3>クイズ終了！</h3>
+    <div class="big-score" id="n-final-score"></div>
+    <div class="message" id="n-final-msg"></div>
+    <button class="quiz-next-btn" onclick="quizzes.nouns.start()">もう一回 🔄</button>
+  </div>
+</section>
+
+</main>
+
+<script>
+  // Enable JS-powered navigation (if this runs, pages show one-at-a-time; if not, all pages scroll)
+  document.querySelector('main').classList.add('js-nav');
+
+  // Page navigation
+  var links = document.querySelectorAll('nav a[data-page]');
+  var sections = document.querySelectorAll('.page-section');
+
+  function showPage(pageId) {
+    sections.forEach(function(s) { s.classList.remove('active'); });
+    links.forEach(function(l) { l.classList.remove('active'); });
+    var target = document.getElementById(pageId);
+    if (target) {
+      target.classList.add('active');
+      var link = document.querySelector('nav a[data-page="' + pageId + '"]');
+      if (link) link.classList.add('active');
+      window.scrollTo(0, 0);
+      document.querySelector('nav').classList.remove('open');
+      history.replaceState(null, '', '#' + pageId);
+    }
+  }
+
+  links.forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      var pageId = link.getAttribute('data-page');
+      showPage(pageId);
+    });
+  });
+
+  // Tap-to-reveal
+  document.addEventListener('click', function(e) {
+    var r = e.target.closest ? e.target.closest('.reveal') : null;
+    if (r && !r.classList.contains('shown')) {
+      r.classList.add('shown');
+    }
+  });
+
+  // Show page from hash or default to first page
+  var hash = location.hash.slice(1);
+  if (hash && document.getElementById(hash)) {
+    showPage(hash);
+  } else {
+    showPage('p6');
+  }
+
+  // ====== QUIZ ENGINE (multi-quiz) ======
+  try {
+  const VERBS1 = [
+    {fi:"puhua",en:"to speak",ja:"話す"},
+    {fi:"sanoa",en:"to say",ja:"言う"},
+    {fi:"antaa",en:"to give",ja:"あげる"},
+    {fi:"ottaa",en:"to take",ja:"取る"},
+    {fi:"lukea",en:"to read",ja:"読む"},
+    {fi:"kirjoittaa",en:"to write",ja:"書く"},
+    {fi:"asua",en:"to live/reside",ja:"住む"},
+    {fi:"kysyä",en:"to ask",ja:"聞く・尋ねる"},
+    {fi:"vastata",en:"to answer",ja:"答える"},
+    {fi:"ostaa",en:"to buy",ja:"買う"},
+    {fi:"myydä",en:"to sell",ja:"売る"},
+    {fi:"opiskella",en:"to study",ja:"勉強する"},
+    {fi:"ymmärtää",en:"to understand",ja:"理解する"},
+    {fi:"tietää",en:"to know (a fact)",ja:"知っている"},
+    {fi:"odottaa",en:"to wait",ja:"待つ"},
+    {fi:"maksaa",en:"to pay / to cost",ja:"払う・かかる"},
+    {fi:"soittaa",en:"to call / to play (instrument)",ja:"電話する・弾く"},
+    {fi:"kuunnella",en:"to listen",ja:"聞く"},
+    {fi:"katsoa",en:"to look / to watch",ja:"見る"},
+    {fi:"etsiä",en:"to search / to look for",ja:"探す"},
+    {fi:"löytää",en:"to find",ja:"見つける"},
+    {fi:"auttaa",en:"to help",ja:"助ける"},
+    {fi:"laulaa",en:"to sing",ja:"歌う"},
+    {fi:"tanssia",en:"to dance",ja:"踊る"},
+    {fi:"uida",en:"to swim",ja:"泳ぐ"},
+    {fi:"juoda",en:"to drink",ja:"飲む"},
+    {fi:"syödä",en:"to eat",ja:"食べる"},
+    {fi:"nukkua",en:"to sleep",ja:"寝る"},
+    {fi:"herätä",en:"to wake up",ja:"起きる"},
+    {fi:"lähteä",en:"to leave / to depart",ja:"出発する"},
+    {fi:"saapua",en:"to arrive",ja:"到着する"},
+    {fi:"matkustaa",en:"to travel",ja:"旅行する"},
+    {fi:"ajaa",en:"to drive",ja:"運転する"},
+    {fi:"kävellä",en:"to walk",ja:"歩く"},
+    {fi:"juosta",en:"to run",ja:"走る"},
+    {fi:"istua",en:"to sit",ja:"座る"},
+    {fi:"seisoa",en:"to stand",ja:"立つ"},
+    {fi:"avata",en:"to open",ja:"開ける"},
+    {fi:"sulkea",en:"to close",ja:"閉める"},
+    {fi:"aloittaa",en:"to start / to begin",ja:"始める"},
+    {fi:"lopettaa",en:"to stop / to finish",ja:"やめる・終える"},
+    {fi:"muistaa",en:"to remember",ja:"覚えている"},
+    {fi:"unohtaa",en:"to forget",ja:"忘れる"},
+    {fi:"rakastaa",en:"to love",ja:"愛する"},
+    {fi:"pelätä",en:"to fear / to be afraid",ja:"怖がる"},
+    {fi:"nauraa",en:"to laugh",ja:"笑う"},
+    {fi:"itkeä",en:"to cry",ja:"泣く"},
+    {fi:"kokeilla",en:"to try",ja:"試す"},
+    {fi:"käyttää",en:"to use",ja:"使う"},
+    {fi:"valita",en:"to choose",ja:"選ぶ"}
+  ];
+
+  const NOUNS = [
+    {fi:"aika",en:"time",ja:"時間"},
+    {fi:"vuosi",en:"year",ja:"年"},
+    {fi:"päivä",en:"day",ja:"日"},
+    {fi:"asia",en:"thing / matter",ja:"こと・物事"},
+    {fi:"maa",en:"country",ja:"国"},
+    {fi:"mies",en:"man",ja:"男性"},
+    {fi:"nainen",en:"woman",ja:"女性"},
+    {fi:"elämä",en:"life",ja:"生活・人生"},
+    {fi:"lapsi",en:"child",ja:"子供"},
+    {fi:"työ",en:"work / job",ja:"仕事"},
+    {fi:"käsi",en:"hand",ja:"手"},
+    {fi:"paikka",en:"place",ja:"場所"},
+    {fi:"hetki",en:"moment",ja:"瞬間"},
+    {fi:"auto",en:"car",ja:"車"},
+    {fi:"koti",en:"home",ja:"家庭"},
+    {fi:"talo",en:"house",ja:"家"},
+    {fi:"poika",en:"boy / son",ja:"息子・男の子"},
+    {fi:"sana",en:"word",ja:"言葉"},
+    {fi:"ystävä",en:"friend",ja:"友達"},
+    {fi:"silmä",en:"eye",ja:"目"},
+    {fi:"pää",en:"head",ja:"頭"},
+    {fi:"vesi",en:"water",ja:"水"},
+    {fi:"kaupunki",en:"city",ja:"都市"},
+    {fi:"perhe",en:"family",ja:"家族"},
+    {fi:"ruoka",en:"food",ja:"食べ物"},
+    {fi:"isä",en:"father",ja:"父"},
+    {fi:"äiti",en:"mother",ja:"母"},
+    {fi:"huone",en:"room",ja:"部屋"},
+    {fi:"nimi",en:"name",ja:"名前"},
+    {fi:"kieli",en:"language",ja:"言語"},
+    {fi:"raha",en:"money",ja:"お金"},
+    {fi:"numero",en:"number",ja:"番号"},
+    {fi:"osa",en:"part",ja:"部分"},
+    {fi:"tieto",en:"information / knowledge",ja:"情報・知識"},
+    {fi:"oikeus",en:"right / justice",ja:"権利"},
+    {fi:"kuva",en:"picture / photo",ja:"写真・絵"},
+    {fi:"kirja",en:"book",ja:"本"},
+    {fi:"tunti",en:"hour",ja:"時間（1時間）"},
+    {fi:"viikko",en:"week",ja:"週"},
+    {fi:"kuukausi",en:"month",ja:"月"},
+    {fi:"ilta",en:"evening",ja:"夕方"},
+    {fi:"aamu",en:"morning",ja:"朝"},
+    {fi:"yö",en:"night",ja:"夜"},
+    {fi:"tyttö",en:"girl / daughter",ja:"女の子・娘"},
+    {fi:"ovi",en:"door",ja:"ドア"},
+    {fi:"tie",en:"road",ja:"道"},
+    {fi:"puhelin",en:"phone",ja:"電話"},
+    {fi:"kauppa",en:"shop / store",ja:"店"},
+    {fi:"avain",en:"key",ja:"鍵"},
+    {fi:"ongelma",en:"problem",ja:"問題"},
+    {fi:"vastaus",en:"answer",ja:"答え"},
+    {fi:"kysymys",en:"question",ja:"質問"},
+    {fi:"bussi",en:"bus",ja:"バス"},
+    {fi:"juna",en:"train",ja:"電車"},
+    {fi:"asunto",en:"apartment",ja:"アパート"},
+    {fi:"lääkäri",en:"doctor",ja:"医者"},
+    {fi:"sairaala",en:"hospital",ja:"病院"},
+    {fi:"ravintola",en:"restaurant",ja:"レストラン"},
+    {fi:"pankki",en:"bank",ja:"銀行"},
+    {fi:"hinta",en:"price",ja:"値段"},
+    {fi:"matka",en:"trip / journey",ja:"旅"},
+    {fi:"laukku",en:"bag",ja:"カバン"},
+    {fi:"vaate",en:"clothing",ja:"服"},
+    {fi:"kenkä",en:"shoe",ja:"靴"},
+    {fi:"ikkuna",en:"window",ja:"窓"},
+    {fi:"keittiö",en:"kitchen",ja:"台所"},
+    {fi:"juoma",en:"drink / beverage",ja:"飲み物"},
+    {fi:"jalka",en:"foot / leg",ja:"足"},
+    {fi:"sää",en:"weather",ja:"天気"},
+    {fi:"lumi",en:"snow",ja:"雪"},
+    {fi:"sade",en:"rain",ja:"雨"},
+    {fi:"tuuli",en:"wind",ja:"風"},
+    {fi:"kesä",en:"summer",ja:"夏"},
+    {fi:"talvi",en:"winter",ja:"冬"},
+    {fi:"joulu",en:"Christmas",ja:"クリスマス"},
+    {fi:"lasi",en:"glass",ja:"グラス"},
+    {fi:"lautanen",en:"plate",ja:"皿"},
+    {fi:"tuoli",en:"chair",ja:"椅子"},
+    {fi:"pöytä",en:"table",ja:"テーブル"},
+    {fi:"sänky",en:"bed",ja:"ベッド"},
+    {fi:"valo",en:"light",ja:"光"},
+    {fi:"ääni",en:"sound / voice",ja:"音・声"},
+    {fi:"posti",en:"mail / post",ja:"郵便"},
+    {fi:"lippu",en:"ticket",ja:"切符"},
+    {fi:"kartta",en:"map",ja:"地図"},
+    {fi:"lääke",en:"medicine",ja:"薬"},
+    {fi:"apteekki",en:"pharmacy",ja:"薬局"},
+    {fi:"koira",en:"dog",ja:"犬"},
+    {fi:"kissa",en:"cat",ja:"猫"},
+    {fi:"järvi",en:"lake",ja:"湖"},
+    {fi:"meri",en:"sea",ja:"海"},
+    {fi:"metsä",en:"forest",ja:"森"},
+    {fi:"puisto",en:"park",ja:"公園"},
+    {fi:"katu",en:"street",ja:"通り"},
+    {fi:"kerros",en:"floor / layer",ja:"階"},
+    {fi:"hissi",en:"elevator",ja:"エレベーター"},
+    {fi:"makuuhuone",en:"bedroom",ja:"寝室"},
+    {fi:"olohuone",en:"living room",ja:"リビング"},
+    {fi:"suihku",en:"shower",ja:"シャワー"},
+    {fi:"suu",en:"mouth",ja:"口"}
+  ];
+
+  // Generic quiz engine
+  function shuffle(arr) {
+    const a = [...arr];
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
+  function createQuiz(prefix, wordList, sectionId) {
+    const el = id => document.getElementById(prefix + '-' + id);
+    const state = {list:[], idx:0, correct:0, wrong:0, total:10, answered:false};
+
+    function start() {
+      state.list = shuffle(wordList).slice(0, state.total);
+      state.idx = 0;
+      state.correct = 0;
+      state.wrong = 0;
+      state.answered = false;
+      el('result').style.display = 'none';
+      el('card').style.display = 'block';
+      render();
+    }
+
+    function render() {
+      const v = state.list[state.idx];
+      el('word').textContent = v.fi;
+      el('hint').textContent = (state.idx + 1) + ' / ' + state.total;
+      el('correct').textContent = state.correct;
+      el('wrong').textContent = state.wrong;
+      el('remaining').textContent = state.total - state.idx;
+      el('progress').style.width = ((state.idx / state.total) * 100) + '%';
+      el('feedback').textContent = '';
+      state.answered = false;
+
+      const wrongPool = wordList.filter(w => w.fi !== v.fi);
+      const wrongs = shuffle(wrongPool).slice(0, 3);
+      const options = shuffle([v, ...wrongs]);
+
+      const container = el('options');
+      container.innerHTML = '';
+      options.forEach(opt => {
+        const btn = document.createElement('div');
+        btn.className = 'quiz-option';
+        btn.innerHTML = opt.ja + '<br><span style="font-size:13px;color:var(--muted)">' + opt.en + '</span>';
+        btn.dataset.fi = opt.fi;
+        btn.addEventListener('click', () => answer(btn, opt, v));
+        container.appendChild(btn);
+      });
+    }
+
+    function answer(btn, chosen, correct) {
+      if (state.answered) return;
+      state.answered = true;
+
+      const allBtns = el('options').querySelectorAll('.quiz-option');
+      if (chosen.fi === correct.fi) {
+        btn.classList.add('correct-answer');
+        state.correct++;
+        el('feedback').innerHTML = '<span style="color:var(--positive)">⭕ 正解！</span>';
+      } else {
+        btn.classList.add('wrong-answer');
+        state.wrong++;
+        allBtns.forEach(b => { if (b.dataset.fi === correct.fi) b.classList.add('correct-answer'); });
+        el('feedback').innerHTML = '<span style="color:var(--negative)">❌ ' + correct.fi + ' = ' + correct.ja + ' (' + correct.en + ')</span>';
+      }
+      allBtns.forEach(b => { if (!b.classList.contains('correct-answer') && !b.classList.contains('wrong-answer')) b.classList.add('disabled'); });
+
+      el('correct').textContent = state.correct;
+      el('wrong').textContent = state.wrong;
+      el('remaining').textContent = state.total - state.idx - 1;
+
+      setTimeout(() => {
+        state.idx++;
+        if (state.idx >= state.total) { end(); } else { render(); }
+      }, 1200);
+    }
+
+    function end() {
+      el('card').style.display = 'none';
+      el('result').style.display = 'block';
+      const pct = Math.round((state.correct / state.total) * 100);
+      el('progress').style.width = '100%';
+      el('final-score').textContent = state.correct + ' / ' + state.total + '（' + pct + '%）';
+      let msg = '';
+      if (pct === 100) msg = '🎉 完璧！ Perfect! Täydellinen!';
+      else if (pct >= 80) msg = '🌟 すごい！ Great job! Hienoa!';
+      else if (pct >= 60) msg = '👍 いい感じ！ Not bad! Ihan hyvä!';
+      else if (pct >= 40) msg = '💪 もう少し！ Keep going! Jatka!';
+      else msg = '📚 練習あるのみ！ Practice makes perfect! Harjoitus tekee mestarin!';
+      el('final-msg').textContent = msg;
+    }
+
+    // Auto-start when section becomes visible
+    const observer = new MutationObserver(() => {
+      if (document.getElementById(sectionId).classList.contains('active')) {
+        if (state.list.length === 0) start();
+      }
+    });
+    observer.observe(document.getElementById(sectionId), {attributes: true, attributeFilter: ['class']});
+
+    return {start, state};
+  }
+
+  // Create quiz instances
+  const quizzes = {
+    verbs1: createQuiz('v1', VERBS1, 'quiz-verbs1'),
+    nouns: createQuiz('n', NOUNS, 'quiz-nouns')
+  };
+
+  // Wire up count buttons per quiz
+  document.querySelectorAll('.quiz-settings').forEach(settings => {
+    const quizKey = settings.dataset.quiz;
+    const quiz = quizKey === 'verbs1' ? quizzes.verbs1 : quizzes.nouns;
+    settings.querySelectorAll('.qcount').forEach(btn => {
+      btn.addEventListener('click', () => {
+        settings.querySelectorAll('.qcount').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        quiz.state.total = parseInt(btn.dataset.count);
+        quiz.start();
+      });
+    });
+  });
+  } catch(e) { console.error('Quiz init error:', e); }
+</script>
+
+</body>
+</html>
