@@ -34,15 +34,16 @@
   /* --- Sidebar --- */
   nav {
     width: 260px;
-    height: 100vh;
-    background: var(--card);
-    border-right: 1px solid var(--border);
-    padding: 24px 0;
     position: fixed;
     top: 0;
     left: 0;
-    overflow-y: auto;
+    bottom: 0;
+    background: var(--card);
+    border-right: 1px solid var(--border);
+    padding: 24px 0 80px;
+    overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
     z-index: 100;
     transition: transform 0.3s ease;
   }
@@ -586,6 +587,11 @@
   <div class="chapter-group">
     <div class="chapter-title">2章 — Susanin naapurit</div>
     <a href="#" data-page="p24"><span class="page-num">p.24</span> 隣人たちの紹介</a>
+    <a href="#" data-page="p26"><span class="page-num">p.26</span> 語彙と職業</a>
+    <a href="#" data-page="p27"><span class="page-num">p.27</span> 正誤・選択問題</a>
+    <a href="#" data-page="p28"><span class="page-num">p.28</span> 会話：家族の写真</a>
+    <a href="#" data-page="p29"><span class="page-num">p.29</span> 家族の関係図</a>
+    <a href="#" data-page="p30"><span class="page-num">p.30</span> 穴埋め・反対語</a>
   </div>
 
   <div class="chapter-group">
@@ -2327,6 +2333,599 @@
 </section>
 
 <!-- ============================================================ -->
+<!-- PAGES 25-26 (image exercise + vocab)                          -->
+<!-- ============================================================ -->
+<section class="page-section" id="p26">
+  <div class="page-header">
+    <span class="page-badge">25–26ページ</span>
+    <h2>語彙と職業 — Sanasto ja ammatit</h2>
+    <p>p.25は画像ページです（本を見てください）。p.26は絵に合う単語を選ぶ練習です。</p>
+  </div>
+
+  <h3>婚姻状況の語彙 — Siviilisääty</h3>
+
+  <div class="vocab-grid">
+    <div class="vocab-card"><span class="fi-word">sinkku</span><br>single / 独身</div>
+    <div class="vocab-card"><span class="fi-word">eronnut</span><br>divorced / 離婚</div>
+    <div class="vocab-card"><span class="fi-word">naimisissa</span><br>married / 既婚</div>
+    <div class="vocab-card"><span class="fi-word">yksinhuoltaja</span><br>single parent / ひとり親</div>
+    <div class="vocab-card"><span class="fi-word">avoliitossa</span><br>common-law / 事実婚</div>
+    <div class="vocab-card"><span class="fi-word">asuvat yhdessä</span><br>living together / 同棲</div>
+  </div>
+
+  <h3>家族の語彙 — Perhe</h3>
+
+  <div class="vocab-grid">
+    <div class="vocab-card"><span class="fi-word">lapsi</span><br>child / 子供</div>
+    <div class="vocab-card"><span class="fi-word">vauva</span><br>baby / 赤ちゃん</div>
+    <div class="vocab-card"><span class="fi-word">poika</span><br>boy, son / 息子</div>
+    <div class="vocab-card"><span class="fi-word">tyttö</span><br>girl, daughter / 娘</div>
+    <div class="vocab-card"><span class="fi-word">mies</span><br>husband, man / 夫・男性</div>
+    <div class="vocab-card"><span class="fi-word">vaimo</span><br>wife / 妻</div>
+    <div class="vocab-card"><span class="fi-word">kumppani</span><br>partner / パートナー</div>
+    <div class="vocab-card"><span class="fi-word">avovaimo</span><br>common-law wife / 事実婚の妻</div>
+    <div class="vocab-card"><span class="fi-word">vanhemmat</span><br>parents / 両親</div>
+    <div class="vocab-card"><span class="fi-word">naapuri</span><br>neighbor / 隣人</div>
+    <div class="vocab-card"><span class="fi-word">sukulaiset</span><br>relatives / 親戚</div>
+    <div class="vocab-card"><span class="fi-word">isä</span><br>father / 父</div>
+  </div>
+
+  <h3>練習：正しい単語を選ぶ — Kirjoita kuvan alle oikea sana</h3>
+
+  <p>本のp.26にはイラストがあり、それに合う単語を下の選択肢から選びます。</p>
+
+  <table>
+    <thead>
+      <tr><th>グループ</th><th>選択肢</th><th>意味</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>a.</td>
+        <td class="fi-word">opiskelija / laborantti / tyttö / kokki</td>
+        <td>student / lab technician / girl / cook</td>
+      </tr>
+      <tr>
+        <td>b.</td>
+        <td class="fi-word">avovaimo / kumppani / mies / sairaanhoitaja</td>
+        <td>common-law wife / partner / husband / nurse</td>
+      </tr>
+      <tr>
+        <td>c.</td>
+        <td class="fi-word">vanhemmat / naapuri / isä / sukulaiset</td>
+        <td>parents / neighbor / father / relatives</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="explanation">
+    <strong>💡 ammatti（職業）の語彙まとめ：</strong><br>
+    <span class="fi-word">opiskelija</span> = student / 学生<br>
+    <span class="fi-word">laborantti</span> = lab technician / 検査技師<br>
+    <span class="fi-word">kokki</span> = cook / 料理人<br>
+    <span class="fi-word">sairaanhoitaja</span> = nurse / 看護師<br>
+    <span class="fi-word">lääkäri</span> = doctor / 医者<br>
+    <span class="fi-word">insinööri</span> = engineer / エンジニア<br>
+    <span class="fi-word">toimittaja</span> = journalist / 記者<br>
+    <span class="fi-word">kampaaja</span> = hairdresser / 美容師<br>
+    <span class="fi-word">yrittäjä</span> = entrepreneur / 起業家<br>
+    <span class="fi-word">opettaja</span> = teacher / 先生
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- PAGE 27                                                       -->
+<!-- ============================================================ -->
+<section class="page-section" id="p27">
+  <div class="page-header">
+    <span class="page-badge">27ページ</span>
+    <h2>正誤問題と選択問題 — Oikein vai väärin?</h2>
+    <p>p.24–25の隣人テキストを読んで、文が正しいか間違いかを判断します。</p>
+  </div>
+
+  <h3>練習1：正しい（O）か間違い（V）か？</h3>
+
+  <p>p.24–25のテキストを読んで答えましょう。<span class="fi-word">Oikein</span> (O) = correct / 正しい、<span class="fi-word">Väärin</span> (V) = wrong / 間違い</p>
+
+  <table>
+    <thead>
+      <tr><th>文</th><th>English</th><th>O/V</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="fi-word">Susan on naimisissa.</td>
+        <td>Susan is married.</td>
+        <td><span class="reveal">O（正しい）</span></td>
+      </tr>
+      <tr>
+        <td class="fi-word">Susanin mies on Erik.</td>
+        <td>Susan's husband is Erik.</td>
+        <td><span class="reveal">V（間違い — Jere）</span></td>
+      </tr>
+      <tr>
+        <td class="fi-word">Pekka on Kallen naapuri.</td>
+        <td>Pekka is Kalle's neighbor.</td>
+        <td><span class="reveal">V（間違い — kumppani）</span></td>
+      </tr>
+      <tr>
+        <td class="fi-word">Oscar ei ole naimisissa.</td>
+        <td>Oscar is not married.</td>
+        <td><span class="reveal">O（正しい — eronnut）</span></td>
+      </tr>
+      <tr>
+        <td class="fi-word">Annalla ja Erikillä on 3 lasta.</td>
+        <td>Anna and Erik have 3 children.</td>
+        <td><span class="reveal">V（間違い — 2 lasta）</span></td>
+      </tr>
+      <tr>
+        <td class="fi-word">Samuli ja Sunee asuvat yhdessä.</td>
+        <td>Samuli and Sunee live together.</td>
+        <td><span class="reveal">O（正しい）</span></td>
+      </tr>
+      <tr>
+        <td class="fi-word">Heikki ei ole naimisissa.</td>
+        <td>Heikki is not married.</td>
+        <td><span class="reveal">O（正しい — sinkku）</span></td>
+      </tr>
+      <tr>
+        <td class="fi-word">Tyyne on Juhanin lapsi.</td>
+        <td>Tyyne is Juhani's child.</td>
+        <td><span class="reveal">V（間違い — vaimo）</span></td>
+      </tr>
+      <tr>
+        <td class="fi-word">Marjan sukunimi on Virtanen.</td>
+        <td>Marja's family name is Virtanen.</td>
+        <td><span class="reveal">V（間違い — Hirvelä）</span></td>
+      </tr>
+      <tr>
+        <td class="fi-word">Markus on Lillin veli.</td>
+        <td>Markus is Lilli's brother.</td>
+        <td><span class="reveal">O（正しい）</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="explanation">
+    <strong>💡 veli = brother / 兄弟、sisko = sister / 姉妹</strong><br>
+    These are new family words! <span class="fi-word">Markus on Lillin veli</span> = Markus is Lilli's brother.<br>
+    Notice the genetiivi again: Lilli → Lilli<strong>n</strong> (Lilli's).
+  </div>
+
+  <h3>練習2：正しい選択肢を選ぶ — Valitse oikea vaihtoehto</h3>
+
+  <table>
+    <thead>
+      <tr><th>文</th><th>選択肢</th><th>答え</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="fi-word">Oscar on...</td>
+        <td>ruotsalainen / kuubalainen</td>
+        <td><span class="reveal">kuubalainen（キューバ人）</span></td>
+      </tr>
+      <tr>
+        <td class="fi-word">Oscar on...</td>
+        <td>naimisissa / eronnut</td>
+        <td><span class="reveal">eronnut（離婚）</span></td>
+      </tr>
+      <tr>
+        <td class="fi-word">Oscar asuu...</td>
+        <td>Suomessa / Kuubassa</td>
+        <td><span class="reveal">Suomessa（フィンランドに）</span></td>
+      </tr>
+      <tr>
+        <td class="fi-word">Heikki on kotoisin...</td>
+        <td>Jyväskylästä / Helsingistä</td>
+        <td><span class="reveal">Jyväskylästä</span></td>
+      </tr>
+      <tr>
+        <td class="fi-word">Heikki on Oscarin...</td>
+        <td>veli / naapuri</td>
+        <td><span class="reveal">naapuri（隣人）</span></td>
+      </tr>
+      <tr>
+        <td class="fi-word">Heikki on...</td>
+        <td>sinkku / eronnut</td>
+        <td><span class="reveal">sinkku（独身）</span></td>
+      </tr>
+      <tr>
+        <td class="fi-word">Marja on...</td>
+        <td>naimisissa / eronnut</td>
+        <td><span class="reveal">eronnut（離婚）</span></td>
+      </tr>
+      <tr>
+        <td class="fi-word">Marja on...</td>
+        <td>äiti / isä</td>
+        <td><span class="reveal">äiti（母）</span></td>
+      </tr>
+      <tr>
+        <td class="fi-word">Annalla on...</td>
+        <td>kaksi / kolme lasta</td>
+        <td><span class="reveal">kaksi lasta（子供2人）</span></td>
+      </tr>
+      <tr>
+        <td class="fi-word">Anna ja Erik puhuvat...</td>
+        <td>ruotsia / kiinaa</td>
+        <td><span class="reveal">ruotsia（スウェーデン語）</span></td>
+      </tr>
+      <tr>
+        <td class="fi-word">Samuli on...</td>
+        <td>29 / 26 vuotta</td>
+        <td><span class="reveal">29 vuotta（29歳）</span></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============================================================ -->
+<!-- PAGE 28                                                       -->
+<!-- ============================================================ -->
+<section class="page-section" id="p28">
+  <div class="page-header">
+    <span class="page-badge">28ページ</span>
+    <h2>会話：Tyynen perhe — テューネの家族</h2>
+    <p>テューネがオスカルのカフェで家族の写真を見せながら話す会話。話し言葉（puhekieli）が多く使われています。</p>
+  </div>
+
+  <div class="explanation">
+    <strong>⚡ 話し言葉（puhekieli）vs 書き言葉（kirjakieli）：</strong><br>
+    This dialogue uses <strong>spoken Finnish</strong>, which is different from textbook Finnish!<br>
+    この会話では<strong>話し言葉</strong>が使われています。教科書のフィンランド語と少し違います。<br><br>
+    <span class="fi-word">mun</span> = minun (my) — spoken form<br>
+    <span class="fi-word">sun</span> = sinun (your) — spoken form<br>
+    <span class="fi-word">mä</span> = minä (I) — spoken form<br>
+    <span class="fi-word">sä</span> = sinä (you) — spoken form<br>
+    <span class="fi-word">ne</span> = he (they) — spoken form<br>
+    <span class="fi-word">se</span> = hän (he/she) — spoken form<br><br>
+    Think of it like English "gonna" vs "going to", or Japanese 「じゃん」vs「ではないか」.
+  </div>
+
+  <h3>会話テキスト</h3>
+
+  <div class="dialogue">
+    <p><strong>Tyyne:</strong> <span class="fi-word">Tässä on mun perhe. Tässä on Juhani.</span></p>
+    <p>Here's my family. Here's Juhani.</p>
+  </div>
+
+  <div class="dialogue">
+    <p><strong>Oscar:</strong> <span class="fi-word">Juhani? Sun mies? Hyvä kuva.</span></p>
+    <p>Juhani? Your husband? Good photo.</p>
+  </div>
+
+  <div class="dialogue">
+    <p><strong>Tyyne:</strong> <span class="fi-word">Joo. Ja meidän kolme lasta: Inkeri, Eero ja Jaakko. Eero on naimisissa, hänen vaimo Marie on ranskalainen. Marie on kuvassa vasemmalla. Heidän tyttö, Leena, on 9 vuotta ja poika, Aleksi, on 13-vuotias. He eivät asu Suomessa.</span></p>
+    <p>Yeah. And our three children: Inkeri, Eero, and Jaakko. Eero is married, his wife Marie is French. Marie is on the left in the photo. Their daughter Leena is 9 and their son Aleksi is 13. They don't live in Finland.</p>
+  </div>
+
+  <div class="dialogue">
+    <p><strong>Oscar:</strong> <span class="fi-word">Joo, mä muistan. Ne asuu Ranskassa. Pariisissa?</span></p>
+    <p>Yeah, I remember. They live in France. In Paris?</p>
+  </div>
+
+  <div class="dialogue">
+    <p><strong>Tyyne:</strong> <span class="fi-word">Joo. Ja tässä keskellä seisoo Jaakko. Jaakko ei ole naimisissa, mutta hänellä on tyttöystävä, Pipsa.</span></p>
+    <p>Yeah. And here in the middle stands Jaakko. Jaakko isn't married, but he has a girlfriend, Pipsa.</p>
+  </div>
+
+  <div class="dialogue">
+    <p><strong>Oscar:</strong> <span class="fi-word">Minkä ikäinen Jaakko on?</span></p>
+    <p>How old is Jaakko?</p>
+  </div>
+
+  <div class="dialogue">
+    <p><strong>Tyyne:</strong> <span class="fi-word">32. Ja tässä oikealla on Inkeri. Inkeri on sinkku. Se asuu yksin ja on töissä koulussa.</span></p>
+    <p>32. And here on the right is Inkeri. Inkeri is single. She lives alone and works at a school.</p>
+  </div>
+
+  <div class="dialogue">
+    <p><strong>Oscar:</strong> <span class="fi-word">Ai onko Inkeri sinkku?</span></p>
+    <p>Oh, is Inkeri single?</p>
+  </div>
+
+  <div class="dialogue">
+    <p><strong>Oscar:</strong> <span class="fi-word">Asuuko se Helsingissä?</span></p>
+    <p>Does she live in Helsinki?</p>
+  </div>
+
+  <div class="dialogue">
+    <p><strong>Oscar:</strong> <span class="fi-word">Mitä se tekee?</span></p>
+    <p>What does she do?</p>
+  </div>
+
+  <div class="dialogue">
+    <p><strong>Tyyne:</strong> <span class="fi-word">Se on musiikinopettaja.</span></p>
+    <p>She's a music teacher.</p>
+  </div>
+
+  <div class="dialogue">
+    <p><strong>Oscar:</strong> <span class="fi-word">Ai jaa! Mielenkiintoista. Minkä ikäinen Inkeri on?</span></p>
+    <p>Oh really! Interesting. How old is Inkeri?</p>
+  </div>
+
+  <div class="dialogue">
+    <p><strong>Tyyne:</strong> <span class="fi-word">29. Oscar! Mitä sä ajattelet?</span></p>
+    <p>29. Oscar! What are you thinking?</p>
+  </div>
+
+  <div class="dialogue">
+    <p><strong>Oscar:</strong> <span class="fi-word">En mitään. Sä tiedät, että olen vasta eronnut, en halua taas vaimoa!</span></p>
+    <p>Nothing. You know I just got divorced, I don't want a wife again!</p>
+  </div>
+
+  <div class="dialogue">
+    <p><strong>Tyyne:</strong> <span class="fi-word">Tiedän, tiedän. Mutta Inkeri on kiva ja iloinen tyttö. Ja mä olen kiva anoppi. No, kiitos kahvista! Menen nyt, Juhani odottaa kotona.</span></p>
+    <p>I know, I know. But Inkeri is nice and cheerful. And I'd be a nice mother-in-law. Well, thanks for the coffee! I'm going now, Juhani is waiting at home.</p>
+  </div>
+
+  <div class="tip">
+    <strong>😂 この会話のポイント：</strong><br>
+    Tyyne is clearly trying to set up Oscar with her daughter Inkeri!<br>
+    テューネは明らかにオスカルを娘のインケリとくっつけようとしています！<br>
+    <span class="fi-word">anoppi</span> = mother-in-law / 義母 — Tyyne is already imagining herself as Oscar's mother-in-law!
+  </div>
+
+  <h3>新しい語彙 — Uudet sanat</h3>
+
+  <div class="vocab-grid">
+    <div class="vocab-card"><span class="fi-word">valokuva</span><br>photograph / 写真</div>
+    <div class="vocab-card"><span class="fi-word">kuva</span><br>picture / 写真・絵</div>
+    <div class="vocab-card"><span class="fi-word">vasemmalla</span><br>on the left / 左に</div>
+    <div class="vocab-card"><span class="fi-word">keskellä</span><br>in the middle / 真ん中に</div>
+    <div class="vocab-card"><span class="fi-word">oikealla</span><br>on the right / 右に</div>
+    <div class="vocab-card"><span class="fi-word">tyttöystävä</span><br>girlfriend / 彼女</div>
+    <div class="vocab-card"><span class="fi-word">musiikinopettaja</span><br>music teacher / 音楽の先生</div>
+    <div class="vocab-card"><span class="fi-word">anoppi</span><br>mother-in-law / 義母</div>
+    <div class="vocab-card"><span class="fi-word">iloinen</span><br>happy, cheerful / 陽気な</div>
+    <div class="vocab-card"><span class="fi-word">mielenkiintoista</span><br>interesting / 面白い</div>
+    <div class="vocab-card"><span class="fi-word">muistaa</span><br>to remember / 覚えている</div>
+    <div class="vocab-card"><span class="fi-word">seisoa</span><br>to stand / 立つ</div>
+    <div class="vocab-card"><span class="fi-word">ajatella</span><br>to think / 考える</div>
+    <div class="vocab-card"><span class="fi-word">haluta</span><br>to want / 欲しい</div>
+    <div class="vocab-card"><span class="fi-word">odottaa</span><br>to wait / 待つ</div>
+    <div class="vocab-card"><span class="fi-word">vasta</span><br>just (recently) / 最近</div>
+  </div>
+
+  <div class="explanation">
+    <strong>💡 位置を表す言葉（puhekieli風ですがよく使います）：</strong><br>
+    <span class="fi-word">vasemmalla</span> = on the left / 左<br>
+    <span class="fi-word">oikealla</span> = on the right / 右<br>
+    <span class="fi-word">keskellä</span> = in the middle / 真ん中<br><br>
+    In Japanese: 左に・右に・真ん中に — same concept, Finnish uses adessive case (-lla/-llä).
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- PAGE 29                                                       -->
+<!-- ============================================================ -->
+<section class="page-section" id="p29">
+  <div class="page-header">
+    <span class="page-badge">29ページ</span>
+    <h2>家族関係の語彙 — Sukulaisuussanat</h2>
+    <p>テューネの家族写真に名前と関係を書き入れる練習。家族の語彙を覚えましょう。</p>
+  </div>
+
+  <h3>家族の関係語 — 完全リスト</h3>
+
+  <table>
+    <thead>
+      <tr><th>フィンランド語</th><th>English</th><th>日本語</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="fi-word">äiti</td><td>mother</td><td>母</td></tr>
+      <tr><td class="fi-word">isä</td><td>father</td><td>父</td></tr>
+      <tr><td class="fi-word">vanhemmat</td><td>parents</td><td>両親</td></tr>
+      <tr><td class="fi-word">vaimo</td><td>wife</td><td>妻</td></tr>
+      <tr><td class="fi-word">mies</td><td>husband</td><td>夫</td></tr>
+      <tr><td class="fi-word">poika</td><td>son / boy</td><td>息子</td></tr>
+      <tr><td class="fi-word">tyttö</td><td>daughter / girl</td><td>娘</td></tr>
+      <tr><td class="fi-word">lapsi</td><td>child</td><td>子供</td></tr>
+      <tr><td class="fi-word">veli</td><td>brother</td><td>兄弟</td></tr>
+      <tr><td class="fi-word">sisko</td><td>sister</td><td>姉妹</td></tr>
+      <tr><td class="fi-word">isoäiti / mummo</td><td>grandmother</td><td>祖母・おばあちゃん</td></tr>
+      <tr><td class="fi-word">isoisä / pappa / ukki</td><td>grandfather</td><td>祖父・おじいちゃん</td></tr>
+      <tr><td class="fi-word">anoppi</td><td>mother-in-law</td><td>義母</td></tr>
+      <tr><td class="fi-word">appi</td><td>father-in-law</td><td>義父</td></tr>
+      <tr><td class="fi-word">perhe</td><td>family</td><td>家族</td></tr>
+    </tbody>
+  </table>
+
+  <div class="explanation">
+    <strong>💡 mummo / pappa / ukki — カジュアルな呼び方：</strong><br>
+    <span class="fi-word">isoäiti</span> is the formal word for grandmother, but <span class="fi-word">mummo</span> is the everyday word (like おばあちゃん vs 祖母).<br>
+    <span class="fi-word">isoisä</span> is formal for grandfather, but <span class="fi-word">pappa</span> or <span class="fi-word">ukki</span> are casual (like おじいちゃん vs 祖父).<br><br>
+    Finnish grandparent words: <span class="fi-word">iso</span> = big, <span class="fi-word">äiti</span> = mother → <span class="fi-word">isoäiti</span> = "big mother" = grandmother! 😊
+  </div>
+
+  <h3>練習：テューネの家族図 — Tyynen perhe</h3>
+
+  <p>p.28の会話を読んで、テューネの各家族メンバーの関係を考えましょう：</p>
+
+  <table>
+    <thead>
+      <tr><th>名前</th><th>テューネとの関係</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="fi-word">Juhani</td><td><span class="reveal">mies（夫）</span></td></tr>
+      <tr><td class="fi-word">Inkeri</td><td><span class="reveal">tyttö（娘）</span></td></tr>
+      <tr><td class="fi-word">Eero</td><td><span class="reveal">poika（息子）</span></td></tr>
+      <tr><td class="fi-word">Jaakko</td><td><span class="reveal">poika（息子）</span></td></tr>
+      <tr><td class="fi-word">Marie</td><td><span class="reveal">Eeron vaimo（息子の妻）</span></td></tr>
+      <tr><td class="fi-word">Leena</td><td><span class="reveal">Eeron tyttö（孫娘）</span></td></tr>
+      <tr><td class="fi-word">Aleksi</td><td><span class="reveal">Eeron poika（孫息子）</span></td></tr>
+      <tr><td class="fi-word">Pipsa</td><td><span class="reveal">Jaakon tyttöystävä（息子の彼女）</span></td></tr>
+    </tbody>
+  </table>
+
+  <p>テューネ自身の役割は：</p>
+  <table>
+    <thead>
+      <tr><th>役割</th><th>フィンランド語</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Juhaniの妻</td><td><span class="reveal">vaimo</span></td></tr>
+      <tr><td>Inkeri・Eero・Jaakkoの母</td><td><span class="reveal">äiti</span></td></tr>
+      <tr><td>Leena・Aleksiの祖母</td><td><span class="reveal">isoäiti / mummo</span></td></tr>
+      <tr><td>Marieの義母</td><td><span class="reveal">anoppi</span></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============================================================ -->
+<!-- PAGE 30                                                       -->
+<!-- ============================================================ -->
+<section class="page-section" id="p30">
+  <div class="page-header">
+    <span class="page-badge">30–31ページ</span>
+    <h2>穴埋め・反対語・職業パズル</h2>
+    <p>テキストの穴埋め、反対語のペア、職業名の文字並べ替えパズル。</p>
+  </div>
+
+  <h3>練習1：穴埋め — Kirjoita sanat sopivaan kohtaan</h3>
+
+  <p>テューネの視点でナレーションする文章。使える単語：</p>
+
+  <div style="background:var(--highlight); padding:12px; border-radius:8px; margin-bottom:16px; font-size:14px;">
+    <span class="fi-word">kuubalainen, yhdessä, sinkku, suomea, ystävä, vaimo, naapuri, vähän, avoliitossa, Suomessa, lasta, eronnut, ammatti, en puhu, vuotta, naimisissa, mies, eivät asu, ymmärrän, perhe</span>
+  </div>
+
+  <table>
+    <thead>
+      <tr><th>文</th><th>English hint</th><th>答え</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="fi-word">Olen Tyyne Virtanen, Susanin a. ___</td>
+        <td>Susan's ___</td>
+        <td><span class="reveal">naapuri</span></td>
+      </tr>
+      <tr>
+        <td class="fi-word">Olen Juhanin b. ___</td>
+        <td>Juhani's ___</td>
+        <td><span class="reveal">vaimo</span></td>
+      </tr>
+      <tr>
+        <td class="fi-word">Meillä on kolme c. ___, mutta he d. ___ täällä.</td>
+        <td>three ___, but they ___ here</td>
+        <td><span class="reveal">c. lasta, d. eivät asu</span></td>
+      </tr>
+      <tr>
+        <td class="fi-word">Yksi tyttö ja poika asuvat e. ___</td>
+        <td>live ___ (in a country)</td>
+        <td><span class="reveal">Suomessa</span></td>
+      </tr>
+      <tr>
+        <td class="fi-word">Hän on f. ___ ja hänen vaimo on ranskalainen.</td>
+        <td>He is ___</td>
+        <td><span class="reveal">naimisissa</span></td>
+      </tr>
+      <tr>
+        <td class="fi-word">He puhuvat ranskaa, englantia ja g. ___</td>
+        <td>and ___</td>
+        <td><span class="reveal">suomea</span></td>
+      </tr>
+      <tr>
+        <td class="fi-word">Minä h. ___ englantia, mutta i. ___ vähän ranskaa.</td>
+        <td>I ___ English, but ___ a little French</td>
+        <td><span class="reveal">h. en puhu, i. ymmärrän</span></td>
+      </tr>
+      <tr>
+        <td class="fi-word">Juhani puhuu suomea ja ymmärtää j. ___ englantia.</td>
+        <td>understands ___ English</td>
+        <td><span class="reveal">vähän</span></td>
+      </tr>
+      <tr>
+        <td class="fi-word">Oscar on k. ___</td>
+        <td>Oscar is ___</td>
+        <td><span class="reveal">kuubalainen</span></td>
+      </tr>
+      <tr>
+        <td class="fi-word">Hän on asunut täällä 16 l. ___</td>
+        <td>16 ___</td>
+        <td><span class="reveal">vuotta</span></td>
+      </tr>
+      <tr>
+        <td class="fi-word">Hänen m. ___ on yrittäjä.</td>
+        <td>His ___ is entrepreneur</td>
+        <td><span class="reveal">ammatti</span></td>
+      </tr>
+      <tr>
+        <td class="fi-word">Hän on n. ___</td>
+        <td>He is ___</td>
+        <td><span class="reveal">eronnut</span></td>
+      </tr>
+      <tr>
+        <td class="fi-word">Oscarin o. ___ Heikki on p. ___</td>
+        <td>Oscar's ___ Heikki is ___</td>
+        <td><span class="reveal">o. ystävä, p. sinkku</span></td>
+      </tr>
+      <tr>
+        <td class="fi-word">Anna Ström on lääkäri ja Annan r. ___ on insinööri.</td>
+        <td>Anna's ___ is an engineer</td>
+        <td><span class="reveal">mies</span></td>
+      </tr>
+      <tr>
+        <td class="fi-word">He ovat s. ___</td>
+        <td>They are ___</td>
+        <td><span class="reveal">avoliitossa</span></td>
+      </tr>
+      <tr>
+        <td class="fi-word">Pekka ja Kalle asuvat t. ___</td>
+        <td>live ___</td>
+        <td><span class="reveal">yhdessä</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>練習2：反対語・ペア — Kirjoita vastakohta/pari</h3>
+
+  <p>例：<span class="fi-word">mies</span> ↔ <span class="fi-word">nainen</span></p>
+
+  <table>
+    <thead>
+      <tr><th>単語</th><th>English</th><th>反対語/ペア</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="fi-word">vaimo</td><td>wife</td><td><span class="reveal">mies（husband）</span></td></tr>
+      <tr><td class="fi-word">naimisissa</td><td>married</td><td><span class="reveal">eronnut（divorced）</span></td></tr>
+      <tr><td class="fi-word">äiti</td><td>mother</td><td><span class="reveal">isä（father）</span></td></tr>
+      <tr><td class="fi-word">veli</td><td>brother</td><td><span class="reveal">sisko（sister）</span></td></tr>
+      <tr><td class="fi-word">töissä</td><td>at work</td><td><span class="reveal">kotona（at home）</span></td></tr>
+      <tr><td class="fi-word">sinkku</td><td>single</td><td><span class="reveal">naimisissa（married）</span></td></tr>
+      <tr><td class="fi-word">vanhemmat</td><td>parents</td><td><span class="reveal">lapset（children）</span></td></tr>
+      <tr><td class="fi-word">etunimi</td><td>first name</td><td><span class="reveal">sukunimi（family name）</span></td></tr>
+      <tr><td class="fi-word">anoppi</td><td>mother-in-law</td><td><span class="reveal">appi（father-in-law）</span></td></tr>
+    </tbody>
+  </table>
+
+  <h3>練習3：職業パズル — Mikä ammatti?</h3>
+
+  <p>文字を並べ替えて職業名を作りましょう。</p>
+
+  <table>
+    <thead>
+      <tr><th>文字</th><th>答え</th><th>意味</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="fi-word">SPISKEJALIO</td><td><span class="reveal">opiskelija</span></td><td>student / 学生</td></tr>
+      <tr><td class="fi-word">TÄRYÄIJT</td><td><span class="reveal">yrittäjä</span></td><td>entrepreneur / 起業家</td></tr>
+      <tr><td class="fi-word">AIRASATAHONAIJ</td><td><span class="reveal">sairaanhoitaja</span></td><td>nurse / 看護師</td></tr>
+      <tr><td class="fi-word">BORATLANTI</td><td><span class="reveal">laborantti</span></td><td>lab technician / 検査技師</td></tr>
+      <tr><td class="fi-word">MITIAOJATI</td><td><span class="reveal">toimittaja</span></td><td>journalist / 記者</td></tr>
+      <tr><td class="fi-word">ÄRIKÄÄL</td><td><span class="reveal">lääkäri</span></td><td>doctor / 医者</td></tr>
+      <tr><td class="fi-word">ÖRISINÖNI</td><td><span class="reveal">insinööri</span></td><td>engineer / エンジニア</td></tr>
+      <tr><td class="fi-word">KIKKO</td><td><span class="reveal">kokki</span></td><td>cook / 料理人</td></tr>
+      <tr><td class="fi-word">PAJAKAMA</td><td><span class="reveal">kampaaja</span></td><td>hairdresser / 美容師</td></tr>
+    </tbody>
+  </table>
+
+  <div class="explanation">
+    <strong>💡 töissä vs kotona：</strong><br>
+    <span class="fi-word">töissä</span> = at work（仕事中）— from <span class="fi-word">työ</span> (work)<br>
+    <span class="fi-word">kotona</span> = at home（家で）— from <span class="fi-word">koti</span> (home)<br><br>
+    Both use special location forms. You'll learn these cases later, but for now just memorize these two as set phrases.
+  </div>
+</section>
+
+<!-- ============================================================ -->
 <!-- QUIZ: Type 1 Verbs                                            -->
 <!-- ============================================================ -->
 <section class="page-section" id="quiz-verbs1">
@@ -2335,6 +2934,10 @@
     <p class="quiz-subtitle">Type 1 verbs (taivutusryhmä 1) — 50 most common</p>
   </div>
 
+  <div class="quiz-settings" data-quiz="verbs1">
+    <button class="qdir active" data-dir="fi">🇫🇮→🇯🇵 Finnish→意味</button>
+    <button class="qdir" data-dir="rev">🇯🇵→🇫🇮 意味→Finnish</button>
+  </div>
   <div class="quiz-settings" data-quiz="verbs1">
     <button class="qcount active" data-count="10">10問</button>
     <button class="qcount" data-count="20">20問</button>
@@ -2381,6 +2984,10 @@
     <p class="quiz-subtitle">100 most common everyday nouns — 日常の名詞100語</p>
   </div>
 
+  <div class="quiz-settings" data-quiz="nouns">
+    <button class="qdir active" data-dir="fi">🇫🇮→🇯🇵 Finnish→意味</button>
+    <button class="qdir" data-dir="rev">🇯🇵→🇫🇮 意味→Finnish</button>
+  </div>
   <div class="quiz-settings" data-quiz="nouns">
     <button class="qcount active" data-count="10">10問</button>
     <button class="qcount" data-count="25">25問</button>
@@ -2462,56 +3069,56 @@
   // ====== QUIZ ENGINE (multi-quiz) ======
   try {
   const VERBS1 = [
-    {fi:"puhua",en:"to speak",ja:"話す"},
-    {fi:"sanoa",en:"to say",ja:"言う"},
-    {fi:"antaa",en:"to give",ja:"あげる"},
-    {fi:"ottaa",en:"to take",ja:"取る"},
-    {fi:"lukea",en:"to read",ja:"読む"},
-    {fi:"kirjoittaa",en:"to write",ja:"書く"},
-    {fi:"asua",en:"to live/reside",ja:"住む"},
-    {fi:"kysyä",en:"to ask",ja:"聞く・尋ねる"},
-    {fi:"vastata",en:"to answer",ja:"答える"},
-    {fi:"ostaa",en:"to buy",ja:"買う"},
-    {fi:"myydä",en:"to sell",ja:"売る"},
-    {fi:"opiskella",en:"to study",ja:"勉強する"},
-    {fi:"ymmärtää",en:"to understand",ja:"理解する"},
-    {fi:"tietää",en:"to know (a fact)",ja:"知っている"},
-    {fi:"odottaa",en:"to wait",ja:"待つ"},
-    {fi:"maksaa",en:"to pay / to cost",ja:"払う・かかる"},
-    {fi:"soittaa",en:"to call / to play (instrument)",ja:"電話する・弾く"},
-    {fi:"kuunnella",en:"to listen",ja:"聞く"},
-    {fi:"katsoa",en:"to look / to watch",ja:"見る"},
-    {fi:"etsiä",en:"to search / to look for",ja:"探す"},
-    {fi:"löytää",en:"to find",ja:"見つける"},
-    {fi:"auttaa",en:"to help",ja:"助ける"},
-    {fi:"laulaa",en:"to sing",ja:"歌う"},
-    {fi:"tanssia",en:"to dance",ja:"踊る"},
-    {fi:"uida",en:"to swim",ja:"泳ぐ"},
-    {fi:"juoda",en:"to drink",ja:"飲む"},
-    {fi:"syödä",en:"to eat",ja:"食べる"},
-    {fi:"nukkua",en:"to sleep",ja:"寝る"},
-    {fi:"herätä",en:"to wake up",ja:"起きる"},
-    {fi:"lähteä",en:"to leave / to depart",ja:"出発する"},
-    {fi:"saapua",en:"to arrive",ja:"到着する"},
-    {fi:"matkustaa",en:"to travel",ja:"旅行する"},
-    {fi:"ajaa",en:"to drive",ja:"運転する"},
-    {fi:"kävellä",en:"to walk",ja:"歩く"},
-    {fi:"juosta",en:"to run",ja:"走る"},
-    {fi:"istua",en:"to sit",ja:"座る"},
-    {fi:"seisoa",en:"to stand",ja:"立つ"},
-    {fi:"avata",en:"to open",ja:"開ける"},
-    {fi:"sulkea",en:"to close",ja:"閉める"},
-    {fi:"aloittaa",en:"to start / to begin",ja:"始める"},
-    {fi:"lopettaa",en:"to stop / to finish",ja:"やめる・終える"},
-    {fi:"muistaa",en:"to remember",ja:"覚えている"},
-    {fi:"unohtaa",en:"to forget",ja:"忘れる"},
-    {fi:"rakastaa",en:"to love",ja:"愛する"},
-    {fi:"pelätä",en:"to fear / to be afraid",ja:"怖がる"},
-    {fi:"nauraa",en:"to laugh",ja:"笑う"},
-    {fi:"itkeä",en:"to cry",ja:"泣く"},
-    {fi:"kokeilla",en:"to try",ja:"試す"},
-    {fi:"käyttää",en:"to use",ja:"使う"},
-    {fi:"valita",en:"to choose",ja:"選ぶ"}
+    {fi:"puhua",c1:"puhun",c2:"puhut",en:"to speak",ja:"話す"},
+    {fi:"sanoa",c1:"sanon",c2:"sanot",en:"to say",ja:"言う"},
+    {fi:"antaa",c1:"annan",c2:"annat",en:"to give",ja:"あげる"},
+    {fi:"ottaa",c1:"otan",c2:"otat",en:"to take",ja:"取る"},
+    {fi:"lukea",c1:"luen",c2:"luet",en:"to read",ja:"読む"},
+    {fi:"kirjoittaa",c1:"kirjoitan",c2:"kirjoitat",en:"to write",ja:"書く"},
+    {fi:"asua",c1:"asun",c2:"asut",en:"to live/reside",ja:"住む"},
+    {fi:"kysyä",c1:"kysyn",c2:"kysyt",en:"to ask",ja:"聞く・尋ねる"},
+    {fi:"vastata",c1:"vastaan",c2:"vastaat",en:"to answer",ja:"答える"},
+    {fi:"ostaa",c1:"ostan",c2:"ostat",en:"to buy",ja:"買う"},
+    {fi:"myydä",c1:"myyn",c2:"myyt",en:"to sell",ja:"売る"},
+    {fi:"opiskella",c1:"opiskelen",c2:"opiskelet",en:"to study",ja:"勉強する"},
+    {fi:"ymmärtää",c1:"ymmärrän",c2:"ymmärrät",en:"to understand",ja:"理解する"},
+    {fi:"tietää",c1:"tiedän",c2:"tiedät",en:"to know (a fact)",ja:"知っている"},
+    {fi:"odottaa",c1:"odotan",c2:"odotat",en:"to wait",ja:"待つ"},
+    {fi:"maksaa",c1:"maksan",c2:"maksat",en:"to pay / to cost",ja:"払う・かかる"},
+    {fi:"soittaa",c1:"soitan",c2:"soitat",en:"to call / to play (instrument)",ja:"電話する・弾く"},
+    {fi:"kuunnella",c1:"kuuntelen",c2:"kuuntelet",en:"to listen",ja:"聞く"},
+    {fi:"katsoa",c1:"katson",c2:"katsot",en:"to look / to watch",ja:"見る"},
+    {fi:"etsiä",c1:"etsin",c2:"etsit",en:"to search / to look for",ja:"探す"},
+    {fi:"löytää",c1:"löydän",c2:"löydät",en:"to find",ja:"見つける"},
+    {fi:"auttaa",c1:"autan",c2:"autat",en:"to help",ja:"助ける"},
+    {fi:"laulaa",c1:"laulan",c2:"laulat",en:"to sing",ja:"歌う"},
+    {fi:"tanssia",c1:"tanssin",c2:"tanssit",en:"to dance",ja:"踊る"},
+    {fi:"uida",c1:"uin",c2:"uit",en:"to swim",ja:"泳ぐ"},
+    {fi:"juoda",c1:"juon",c2:"juot",en:"to drink",ja:"飲む"},
+    {fi:"syödä",c1:"syön",c2:"syöt",en:"to eat",ja:"食べる"},
+    {fi:"nukkua",c1:"nukun",c2:"nukut",en:"to sleep",ja:"寝る"},
+    {fi:"herätä",c1:"herään",c2:"heräät",en:"to wake up",ja:"起きる"},
+    {fi:"lähteä",c1:"lähden",c2:"lähdet",en:"to leave / to depart",ja:"出発する"},
+    {fi:"saapua",c1:"saavun",c2:"saavut",en:"to arrive",ja:"到着する"},
+    {fi:"matkustaa",c1:"matkustan",c2:"matkustat",en:"to travel",ja:"旅行する"},
+    {fi:"ajaa",c1:"ajan",c2:"ajat",en:"to drive",ja:"運転する"},
+    {fi:"kävellä",c1:"kävelen",c2:"kävelet",en:"to walk",ja:"歩く"},
+    {fi:"juosta",c1:"juoksen",c2:"juokset",en:"to run",ja:"走る"},
+    {fi:"istua",c1:"istun",c2:"istut",en:"to sit",ja:"座る"},
+    {fi:"seisoa",c1:"seison",c2:"seisot",en:"to stand",ja:"立つ"},
+    {fi:"avata",c1:"avaan",c2:"avaat",en:"to open",ja:"開ける"},
+    {fi:"sulkea",c1:"suljen",c2:"suljet",en:"to close",ja:"閉める"},
+    {fi:"aloittaa",c1:"aloitan",c2:"aloitat",en:"to start / to begin",ja:"始める"},
+    {fi:"lopettaa",c1:"lopetan",c2:"lopetat",en:"to stop / to finish",ja:"やめる・終える"},
+    {fi:"muistaa",c1:"muistan",c2:"muistat",en:"to remember",ja:"覚えている"},
+    {fi:"unohtaa",c1:"unohdan",c2:"unohdat",en:"to forget",ja:"忘れる"},
+    {fi:"rakastaa",c1:"rakastan",c2:"rakastat",en:"to love",ja:"愛する"},
+    {fi:"pelätä",c1:"pelkään",c2:"pelkäät",en:"to fear / to be afraid",ja:"怖がる"},
+    {fi:"nauraa",c1:"nauran",c2:"naurat",en:"to laugh",ja:"笑う"},
+    {fi:"itkeä",c1:"itken",c2:"itket",en:"to cry",ja:"泣く"},
+    {fi:"kokeilla",c1:"kokeilen",c2:"kokeilet",en:"to try",ja:"試す"},
+    {fi:"käyttää",c1:"käytän",c2:"käytät",en:"to use",ja:"使う"},
+    {fi:"valita",c1:"valitsen",c2:"valitset",en:"to choose",ja:"選ぶ"}
   ];
 
   const NOUNS = [
@@ -2619,17 +3226,17 @@
 
   // Generic quiz engine
   function shuffle(arr) {
-    const a = [...arr];
-    for (let i = a.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [a[i], a[j]] = [a[j], a[i]];
+    var a = arr.slice();
+    for (var i = a.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
     }
     return a;
   }
 
   function createQuiz(prefix, wordList, sectionId) {
-    const el = id => document.getElementById(prefix + '-' + id);
-    const state = {list:[], idx:0, correct:0, wrong:0, total:10, answered:false};
+    var el = function(id) { return document.getElementById(prefix + '-' + id); };
+    var state = {list:[], idx:0, correct:0, wrong:0, total:10, answered:false, reverse:false};
 
     function start() {
       state.list = shuffle(wordList).slice(0, state.total);
@@ -2642,9 +3249,28 @@
       render();
     }
 
+    function fiLabel(w) {
+      // Show conjugations for verbs if available
+      if (w.c1 && w.c2) return w.fi + '<br><span style="font-size:14px;color:var(--muted)">' + w.c1 + ', ' + w.c2 + '</span>';
+      return w.fi;
+    }
+
+    function meaningLabel(w) {
+      return w.ja + '<br><span style="font-size:13px;color:var(--muted)">' + w.en + '</span>';
+    }
+
     function render() {
-      const v = state.list[state.idx];
-      el('word').textContent = v.fi;
+      var v = state.list[state.idx];
+
+      // Question: show the prompt word
+      if (state.reverse) {
+        // meaning→Finnish: show Japanese+English as question, Finnish options as answers
+        el('word').innerHTML = '<span style="font-size:28px">' + v.ja + '</span><br><span style="font-size:18px;color:var(--muted)">' + v.en + '</span>';
+      } else {
+        // Finnish→meaning: show Finnish as question
+        el('word').innerHTML = fiLabel(v);
+      }
+
       el('hint').textContent = (state.idx + 1) + ' / ' + state.total;
       el('correct').textContent = state.correct;
       el('wrong').textContent = state.wrong;
@@ -2653,18 +3279,25 @@
       el('feedback').textContent = '';
       state.answered = false;
 
-      const wrongPool = wordList.filter(w => w.fi !== v.fi);
-      const wrongs = shuffle(wrongPool).slice(0, 3);
-      const options = shuffle([v, ...wrongs]);
+      var wrongPool = wordList.filter(function(w) { return w.fi !== v.fi; });
+      var wrongs = shuffle(wrongPool).slice(0, 3);
+      var options = shuffle([v].concat(wrongs));
 
-      const container = el('options');
+      var container = el('options');
       container.innerHTML = '';
-      options.forEach(opt => {
-        const btn = document.createElement('div');
+      options.forEach(function(opt) {
+        var btn = document.createElement('div');
         btn.className = 'quiz-option';
-        btn.innerHTML = opt.ja + '<br><span style="font-size:13px;color:var(--muted)">' + opt.en + '</span>';
+        if (state.reverse) {
+          // Answer options are Finnish words
+          btn.innerHTML = '<span style="color:var(--finnish);font-weight:600">' + opt.fi + '</span>';
+          if (opt.c1 && opt.c2) btn.innerHTML += '<br><span style="font-size:12px;color:var(--muted)">' + opt.c1 + ', ' + opt.c2 + '</span>';
+        } else {
+          // Answer options are meanings
+          btn.innerHTML = meaningLabel(opt);
+        }
         btn.dataset.fi = opt.fi;
-        btn.addEventListener('click', () => answer(btn, opt, v));
+        btn.addEventListener('click', function() { answer(btn, opt, v); });
         container.appendChild(btn);
       });
     }
@@ -2673,7 +3306,7 @@
       if (state.answered) return;
       state.answered = true;
 
-      const allBtns = el('options').querySelectorAll('.quiz-option');
+      var allBtns = el('options').querySelectorAll('.quiz-option');
       if (chosen.fi === correct.fi) {
         btn.classList.add('correct-answer');
         state.correct++;
@@ -2681,16 +3314,16 @@
       } else {
         btn.classList.add('wrong-answer');
         state.wrong++;
-        allBtns.forEach(b => { if (b.dataset.fi === correct.fi) b.classList.add('correct-answer'); });
+        allBtns.forEach(function(b) { if (b.dataset.fi === correct.fi) b.classList.add('correct-answer'); });
         el('feedback').innerHTML = '<span style="color:var(--negative)">❌ ' + correct.fi + ' = ' + correct.ja + ' (' + correct.en + ')</span>';
       }
-      allBtns.forEach(b => { if (!b.classList.contains('correct-answer') && !b.classList.contains('wrong-answer')) b.classList.add('disabled'); });
+      allBtns.forEach(function(b) { if (!b.classList.contains('correct-answer') && !b.classList.contains('wrong-answer')) b.classList.add('disabled'); });
 
       el('correct').textContent = state.correct;
       el('wrong').textContent = state.wrong;
       el('remaining').textContent = state.total - state.idx - 1;
 
-      setTimeout(() => {
+      setTimeout(function() {
         state.idx++;
         if (state.idx >= state.total) { end(); } else { render(); }
       }, 1200);
@@ -2699,10 +3332,10 @@
     function end() {
       el('card').style.display = 'none';
       el('result').style.display = 'block';
-      const pct = Math.round((state.correct / state.total) * 100);
+      var pct = Math.round((state.correct / state.total) * 100);
       el('progress').style.width = '100%';
       el('final-score').textContent = state.correct + ' / ' + state.total + '（' + pct + '%）';
-      let msg = '';
+      var msg = '';
       if (pct === 100) msg = '🎉 完璧！ Perfect! Täydellinen!';
       else if (pct >= 80) msg = '🌟 すごい！ Great job! Hienoa!';
       else if (pct >= 60) msg = '👍 いい感じ！ Not bad! Ihan hyvä!';
@@ -2711,33 +3344,47 @@
       el('final-msg').textContent = msg;
     }
 
+    function setReverse(rev) {
+      state.reverse = rev;
+      start();
+    }
+
     // Auto-start when section becomes visible
-    const observer = new MutationObserver(() => {
+    var observer = new MutationObserver(function() {
       if (document.getElementById(sectionId).classList.contains('active')) {
         if (state.list.length === 0) start();
       }
     });
     observer.observe(document.getElementById(sectionId), {attributes: true, attributeFilter: ['class']});
 
-    return {start, state};
+    return {start: start, state: state, setReverse: setReverse};
   }
 
   // Create quiz instances
-  const quizzes = {
+  var quizzes = {
     verbs1: createQuiz('v1', VERBS1, 'quiz-verbs1'),
     nouns: createQuiz('n', NOUNS, 'quiz-nouns')
   };
 
-  // Wire up count buttons per quiz
-  document.querySelectorAll('.quiz-settings').forEach(settings => {
-    const quizKey = settings.dataset.quiz;
-    const quiz = quizKey === 'verbs1' ? quizzes.verbs1 : quizzes.nouns;
-    settings.querySelectorAll('.qcount').forEach(btn => {
-      btn.addEventListener('click', () => {
-        settings.querySelectorAll('.qcount').forEach(b => b.classList.remove('active'));
+  // Wire up count buttons and direction buttons per quiz
+  document.querySelectorAll('.quiz-settings').forEach(function(settings) {
+    var quizKey = settings.dataset.quiz;
+    var quiz = quizKey === 'verbs1' ? quizzes.verbs1 : quizzes.nouns;
+
+    settings.querySelectorAll('.qcount').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        settings.querySelectorAll('.qcount').forEach(function(b) { b.classList.remove('active'); });
         btn.classList.add('active');
         quiz.state.total = parseInt(btn.dataset.count);
         quiz.start();
+      });
+    });
+
+    settings.querySelectorAll('.qdir').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        settings.querySelectorAll('.qdir').forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        quiz.setReverse(btn.dataset.dir === 'rev');
       });
     });
   });
