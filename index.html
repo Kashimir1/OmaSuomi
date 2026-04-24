@@ -447,9 +447,17 @@
   .quiz-options {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 12px;
+    gap: 10px;
     max-width: 500px;
     margin: 0 auto;
+  }
+  .quiz-options.cols-1 {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .quiz-options.cols-1 .quiz-option {
+    padding: 10px 12px;
+    font-size: 14px;
   }
 
   .quiz-option {
@@ -501,6 +509,61 @@
     -webkit-tap-highlight-color: transparent;
   }
   .quiz-next-btn:active { opacity: 0.85; }
+
+  .quiz-nav {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 16px;
+  }
+  .quiz-nav button {
+    padding: 10px 24px;
+    border: 2px solid var(--accent);
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    background: transparent;
+    color: var(--accent);
+  }
+  .quiz-nav button.primary {
+    background: var(--accent);
+    color: white;
+  }
+  .quiz-nav button:active { opacity: 0.85; }
+  .quiz-nav button:disabled {
+    opacity: 0.3;
+    cursor: default;
+  }
+
+  .quiz-mistakes {
+    text-align: left;
+    margin: 20px auto;
+    max-width: 500px;
+  }
+  .quiz-mistakes h4 {
+    font-size: 16px;
+    margin-bottom: 12px;
+    color: var(--negative);
+  }
+  .quiz-mistake-item {
+    background: var(--card);
+    border-left: 4px solid var(--negative);
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin-bottom: 8px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .quiz-mistake-item .mi-correct {
+    color: var(--positive);
+    font-weight: 600;
+  }
+  .quiz-mistake-item .mi-chosen {
+    color: var(--negative);
+    text-decoration: line-through;
+  }
 
   .quiz-result {
     text-align: center;
@@ -3017,6 +3080,11 @@
     <button class="qcount" data-count="20">20問</button>
     <button class="qcount" data-count="50">全50問</button>
   </div>
+  <div class="quiz-settings" data-quiz="verbs1">
+    <button class="qopts" data-opts="4">4択</button>
+    <button class="qopts active" data-opts="8">8択</button>
+    <button class="qopts" data-opts="0">全部</button>
+  </div>
 
   <div class="quiz-score-bar">
     <span class="correct">⭕ <span id="v1-correct">0</span></span>
@@ -3031,6 +3099,10 @@
     <div class="quiz-hint" id="v1-hint"></div>
     <div class="quiz-options" id="v1-options"></div>
     <div class="quiz-feedback" id="v1-feedback"></div>
+    <div class="quiz-nav">
+      <button id="v1-prev" disabled>← 前へ</button>
+      <button id="v1-next" class="primary" disabled>次へ →</button>
+    </div>
   </div>
 
   <div class="quiz-result" id="v1-result" style="display:none">
@@ -3038,6 +3110,7 @@
     <div class="big-score" id="v1-final-score"></div>
     <div class="message" id="v1-final-msg"></div>
     <button class="quiz-next-btn" onclick="quizzes.verbs1.start()">もう一回 🔄</button>
+    <div class="quiz-mistakes" id="v1-mistakes"></div>
   </div>
 
   <div style="margin-top:32px; padding:16px; background:var(--highlight); border-radius:8px; font-size:14px;">
@@ -3068,6 +3141,11 @@
     <button class="qcount" data-count="50">50問</button>
     <button class="qcount" data-count="100">全100問</button>
   </div>
+  <div class="quiz-settings" data-quiz="nouns">
+    <button class="qopts" data-opts="4">4択</button>
+    <button class="qopts active" data-opts="8">8択</button>
+    <button class="qopts" data-opts="0">全部</button>
+  </div>
 
   <div class="quiz-score-bar">
     <span class="correct">⭕ <span id="n-correct">0</span></span>
@@ -3082,6 +3160,10 @@
     <div class="quiz-hint" id="n-hint"></div>
     <div class="quiz-options" id="n-options"></div>
     <div class="quiz-feedback" id="n-feedback"></div>
+    <div class="quiz-nav">
+      <button id="n-prev" disabled>← 前へ</button>
+      <button id="n-next" class="primary" disabled>次へ →</button>
+    </div>
   </div>
 
   <div class="quiz-result" id="n-result" style="display:none">
@@ -3089,6 +3171,7 @@
     <div class="big-score" id="n-final-score"></div>
     <div class="message" id="n-final-msg"></div>
     <button class="quiz-next-btn" onclick="quizzes.nouns.start()">もう一回 🔄</button>
+    <div class="quiz-mistakes" id="n-mistakes"></div>
   </div>
 </section>
 
@@ -3108,6 +3191,11 @@
     <button class="qcount" data-count="20">20問</button>
     <button class="qcount" data-count="0">全部</button>
   </div>
+  <div class="quiz-settings" data-quiz="qwords">
+    <button class="qopts" data-opts="4">4択</button>
+    <button class="qopts active" data-opts="8">8択</button>
+    <button class="qopts" data-opts="0">全部</button>
+  </div>
 
   <div class="quiz-score-bar">
     <span class="correct">⭕ <span id="qw-correct">0</span></span>
@@ -3125,6 +3213,10 @@
     </div>
     <div class="quiz-options" id="qw-options"></div>
     <div class="quiz-feedback" id="qw-feedback"></div>
+    <div class="quiz-nav">
+      <button id="qw-prev" disabled>← 前へ</button>
+      <button id="qw-next" class="primary" disabled>次へ →</button>
+    </div>
   </div>
 
   <div class="quiz-result" id="qw-result" style="display:none">
@@ -3132,6 +3224,7 @@
     <div class="big-score" id="qw-final-score"></div>
     <div class="message" id="qw-final-msg"></div>
     <button class="quiz-next-btn" onclick="qwQuiz.start()">もう一回 🔄</button>
+    <div class="quiz-mistakes" id="qw-mistakes"></div>
   </div>
 </section>
 
@@ -3353,7 +3446,7 @@
 
   function createQuiz(prefix, wordList, sectionId) {
     var el = function(id) { return document.getElementById(prefix + '-' + id); };
-    var state = {list:[], idx:0, correct:0, wrong:0, total:10, answered:false, reverse:false};
+    var state = {list:[], idx:0, correct:0, wrong:0, total:10, answered:false, reverse:false, numOpts:8, history:[]};
 
     function start() {
       state.list = shuffle(wordList).slice(0, state.total);
@@ -3361,13 +3454,13 @@
       state.correct = 0;
       state.wrong = 0;
       state.answered = false;
+      state.history = [];
       el('result').style.display = 'none';
       el('card').style.display = 'block';
       render();
     }
 
     function fiLabel(w) {
-      // Show conjugations for verbs if available
       if (w.c1 && w.c2) return w.fi + '<br><span style="font-size:14px;color:var(--muted)">' + w.c1 + ', ' + w.c2 + '</span>';
       return w.fi;
     }
@@ -3376,15 +3469,58 @@
       return w.ja + '<br><span style="font-size:13px;color:var(--muted)">' + w.en + '</span>';
     }
 
-    function render() {
-      var v = state.list[state.idx];
+    function updateNav() {
+      el('prev').disabled = state.idx <= 0;
+      // "Next" enabled only after answering (or when reviewing old questions)
+      var h = state.history[state.idx];
+      el('next').disabled = !h;
+      el('next').textContent = (h && state.idx === state.history.length - 1 && state.idx === state.total - 1) ? '結果を見る →' : '次へ →';
+    }
 
-      // Question: show the prompt word
+    function renderReview(h) {
+      var v = h.word;
       if (state.reverse) {
-        // meaning→Finnish: show Japanese+English as question, Finnish options as answers
         el('word').innerHTML = '<span style="font-size:28px">' + v.ja + '</span><br><span style="font-size:18px;color:var(--muted)">' + v.en + '</span>';
       } else {
-        // Finnish→meaning: show Finnish as question
+        el('word').innerHTML = fiLabel(v);
+      }
+      el('hint').textContent = (state.idx + 1) + ' / ' + state.total;
+      el('progress').style.width = ((state.idx / state.total) * 100) + '%';
+
+      var container = el('options');
+      container.innerHTML = '';
+      container.className = 'quiz-options' + (h.options.length > 4 ? ' cols-1' : '');
+      h.options.forEach(function(opt) {
+        var btn = document.createElement('div');
+        btn.className = 'quiz-option disabled';
+        if (state.reverse) {
+          btn.innerHTML = '<span style="color:var(--finnish);font-weight:600">' + opt.fi + '</span>';
+          if (opt.c1 && opt.c2) btn.innerHTML += '<br><span style="font-size:12px;color:var(--muted)">' + opt.c1 + ', ' + opt.c2 + '</span>';
+        } else {
+          btn.innerHTML = meaningLabel(opt);
+        }
+        if (opt.fi === v.fi) btn.classList.add('correct-answer');
+        if (opt.fi === h.chosen.fi && !h.wasCorrect) btn.classList.add('wrong-answer');
+        container.appendChild(btn);
+      });
+
+      if (h.wasCorrect) {
+        el('feedback').innerHTML = '<span style="color:var(--positive)">⭕ 正解！</span>';
+      } else {
+        el('feedback').innerHTML = '<span style="color:var(--negative)">❌ ' + v.fi + ' = ' + v.ja + ' (' + v.en + ')</span>';
+      }
+      updateNav();
+    }
+
+    function render() {
+      // If this question was already answered, show review
+      var h = state.history[state.idx];
+      if (h) { renderReview(h); return; }
+
+      var v = state.list[state.idx];
+      if (state.reverse) {
+        el('word').innerHTML = '<span style="font-size:28px">' + v.ja + '</span><br><span style="font-size:18px;color:var(--muted)">' + v.en + '</span>';
+      } else {
         el('word').innerHTML = fiLabel(v);
       }
 
@@ -3397,34 +3533,38 @@
       state.answered = false;
 
       var wrongPool = wordList.filter(function(w) { return w.fi !== v.fi; });
-      var wrongs = shuffle(wrongPool).slice(0, 3);
+      var numWrongs = state.numOpts === 0 ? wrongPool.length : state.numOpts - 1;
+      var wrongs = shuffle(wrongPool).slice(0, numWrongs);
       var options = shuffle([v].concat(wrongs));
 
       var container = el('options');
       container.innerHTML = '';
+      container.className = 'quiz-options' + (options.length > 4 ? ' cols-1' : '');
       options.forEach(function(opt) {
         var btn = document.createElement('div');
         btn.className = 'quiz-option';
         if (state.reverse) {
-          // Answer options are Finnish words
           btn.innerHTML = '<span style="color:var(--finnish);font-weight:600">' + opt.fi + '</span>';
           if (opt.c1 && opt.c2) btn.innerHTML += '<br><span style="font-size:12px;color:var(--muted)">' + opt.c1 + ', ' + opt.c2 + '</span>';
         } else {
-          // Answer options are meanings
           btn.innerHTML = meaningLabel(opt);
         }
         btn.dataset.fi = opt.fi;
-        btn.addEventListener('click', function() { answer(btn, opt, v); });
+        btn.addEventListener('click', function() { answer(btn, opt, v, options); });
         container.appendChild(btn);
       });
+      updateNav();
     }
 
-    function answer(btn, chosen, correct) {
+    function answer(btn, chosen, correct, options) {
       if (state.answered) return;
       state.answered = true;
+      var wasCorrect = chosen.fi === correct.fi;
+
+      state.history[state.idx] = {word: correct, chosen: chosen, wasCorrect: wasCorrect, options: options};
 
       var allBtns = el('options').querySelectorAll('.quiz-option');
-      if (chosen.fi === correct.fi) {
+      if (wasCorrect) {
         btn.classList.add('correct-answer');
         state.correct++;
         el('feedback').innerHTML = '<span style="color:var(--positive)">⭕ 正解！</span>';
@@ -3439,12 +3579,23 @@
       el('correct').textContent = state.correct;
       el('wrong').textContent = state.wrong;
       el('remaining').textContent = state.total - state.idx - 1;
-
-      setTimeout(function() {
-        state.idx++;
-        if (state.idx >= state.total) { end(); } else { render(); }
-      }, 1200);
+      updateNav();
     }
+
+    function goNext() {
+      if (!state.history[state.idx]) return;
+      state.idx++;
+      if (state.idx >= state.total) { end(); } else { render(); }
+    }
+
+    function goPrev() {
+      if (state.idx <= 0) return;
+      state.idx--;
+      render();
+    }
+
+    el('next').addEventListener('click', goNext);
+    el('prev').addEventListener('click', goPrev);
 
     function end() {
       el('card').style.display = 'none';
@@ -3459,10 +3610,34 @@
       else if (pct >= 40) msg = '💪 もう少し！ Keep going! Jatka!';
       else msg = '📚 練習あるのみ！ Practice makes perfect! Harjoitus tekee mestarin!';
       el('final-msg').textContent = msg;
+
+      // Render mistake review
+      var mistakes = state.history.filter(function(h) { return !h.wasCorrect; });
+      var mDiv = el('mistakes');
+      mDiv.innerHTML = '';
+      if (mistakes.length > 0) {
+        mDiv.innerHTML = '<h4>間違えた問題 (' + mistakes.length + ')</h4>';
+        mistakes.forEach(function(h) {
+          var item = document.createElement('div');
+          item.className = 'quiz-mistake-item';
+          var fiLine = h.word.fi;
+          if (h.word.c1 && h.word.c2) fiLine += ' (' + h.word.c1 + ', ' + h.word.c2 + ')';
+          item.innerHTML = '<span style="color:var(--finnish);font-weight:600">' + fiLine + '</span>' +
+            ' = ' + h.word.ja + ' (' + h.word.en + ')' +
+            '<br><span class="mi-chosen">あなたの答え: ' + h.chosen.fi + '</span>' +
+            ' → <span class="mi-correct">正解: ' + h.word.fi + '</span>';
+          mDiv.appendChild(item);
+        });
+      }
     }
 
     function setReverse(rev) {
       state.reverse = rev;
+      start();
+    }
+
+    function setNumOpts(n) {
+      state.numOpts = n;
       start();
     }
 
@@ -3474,7 +3649,7 @@
     });
     observer.observe(document.getElementById(sectionId), {attributes: true, attributeFilter: ['class']});
 
-    return {start: start, state: state, setReverse: setReverse};
+    return {start: start, state: state, setReverse: setReverse, setNumOpts: setNumOpts};
   }
 
   // Create quiz instances
@@ -3504,129 +3679,144 @@
         quiz.setReverse(btn.dataset.dir === 'rev');
       });
     });
+
+    settings.querySelectorAll('.qopts').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        settings.querySelectorAll('.qopts').forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        quiz.setNumOpts(parseInt(btn.dataset.opts));
+      });
+    });
   });
   // ====== QUESTION WORD QUIZ ======
+  // Rules: (1) All verbs Type 1 except olla. (2) Each sentence has enough
+  // context so only ONE question word fits. (3) "ex" lists question words
+  // that could also fit — they are excluded from the wrong-answer pool.
   var QWORDS = [
-    // HENKILÖ - Kuka
-    {q:"___ sinä olet?",a:"Kuka",ja:"あなたは誰ですか？",en:"Who are you?",cat:"henkilö"},
-    {q:"___ asuu täällä?",a:"Kuka",ja:"誰がここに住んでいますか？",en:"Who lives here?",cat:"henkilö"},
-    {q:"___ on sinun opettaja?",a:"Kuka",ja:"あなたの先生は誰ですか？",en:"Who is your teacher?",cat:"henkilö"},
-    {q:"___ puhuu suomea?",a:"Kuka",ja:"誰がフィンランド語を話しますか？",en:"Who speaks Finnish?",cat:"henkilö"},
-    {q:"___ soitti sinulle?",a:"Kuka",ja:"誰があなたに電話しましたか？",en:"Who called you?",cat:"henkilö"},
-    {q:"___ saapui ensimmäisenä?",a:"Kuka",ja:"誰が最初に着きましたか？",en:"Who arrived first?",cat:"henkilö"},
-    // Ketkä
-    {q:"___ saapuvat juhliin?",a:"Ketkä",ja:"誰がパーティーに来ますか？",en:"Who (pl.) are coming to the party?",cat:"henkilö"},
-    {q:"___ asuvat yläkerrassa?",a:"Ketkä",ja:"誰が上の階に住んでいますか？",en:"Who (pl.) live upstairs?",cat:"henkilö"},
-    {q:"___ ovat sinun ystävät?",a:"Ketkä",ja:"あなたの友達は誰ですか？",en:"Who are your friends?",cat:"henkilö"},
-    {q:"___ puhuvat englantia?",a:"Ketkä",ja:"誰が英語を話しますか？",en:"Who (pl.) speak English?",cat:"henkilö"},
-    {q:"___ lukevat suomea?",a:"Ketkä",ja:"誰がフィンランド語を勉強していますか？",en:"Who (pl.) study Finnish?",cat:"henkilö"},
-    // Kenen
-    {q:"___ kirja tämä on?",a:"Kenen",ja:"これは誰の本ですか？",en:"Whose book is this?",cat:"henkilö"},
-    {q:"___ auto on tuolla?",a:"Kenen",ja:"あそこにあるのは誰の車ですか？",en:"Whose car is over there?",cat:"henkilö"},
-    {q:"___ vuoro on nyt?",a:"Kenen",ja:"今は誰の番ですか？",en:"Whose turn is it now?",cat:"henkilö"},
-    {q:"___ laukku on lattialla?",a:"Kenen",ja:"誰のカバンが床にありますか？",en:"Whose bag is on the floor?",cat:"henkilö"},
+    // ====== HENKILÖ 👤 Person ======
+    // Kuka (who, singular)
+    {q:"___ tuo nainen on?",a:"Kuka",ja:"あの女性は誰ですか？",en:"Who is that woman?",cat:"henkilö"},
+    {q:"___ asuu tuossa talossa?",a:"Kuka",ja:"あの家に住んでいるのは誰ですか？",en:"Who lives in that house?",cat:"henkilö"},
+    {q:"___ on sinun paras ystävä?",a:"Kuka",ja:"あなたの親友は誰ですか？",en:"Who is your best friend?",cat:"henkilö"},
+    {q:"___ soittaa sinulle joka ilta?",a:"Kuka",ja:"毎晩誰があなたに電話しますか？",en:"Who calls you every evening?",cat:"henkilö"},
+    {q:"___ on sinun suomen opettaja?",a:"Kuka",ja:"あなたのフィンランド語の先生は誰ですか？",en:"Who is your Finnish teacher?",cat:"henkilö"},
+    // Ketkä (who, plural)
+    {q:"___ kaikki saapuvat juhliin?",a:"Ketkä",ja:"パーティーには誰が全員来ますか？",en:"Who all are coming to the party?",cat:"henkilö"},
+    {q:"___ ovat sinun naapurit?",a:"Ketkä",ja:"あなたの隣人は誰ですか？（複数）",en:"Who are your neighbors?",cat:"henkilö"},
+    {q:"___ puhuvat suomea sinun perheessä?",a:"Ketkä",ja:"あなたの家族で誰がフィンランド語を話しますか？",en:"Who speak Finnish in your family?",cat:"henkilö"},
+    {q:"___ istuvat sinun kanssa lounaalla?",a:"Ketkä",ja:"昼食であなたと一緒に座るのは誰ですか？",en:"Who sit with you at lunch?",cat:"henkilö"},
+    // Kenen (whose)
+    {q:"___ tämä laukku on?",a:"Kenen",ja:"このカバンは誰のですか？",en:"Whose bag is this?",cat:"henkilö"},
+    {q:"___ auto on tuolla pihalla?",a:"Kenen",ja:"あそこの庭の車は誰のですか？",en:"Whose car is in the yard?",cat:"henkilö"},
+    {q:"___ vuoro on seuraavaksi?",a:"Kenen",ja:"次は誰の番ですか？",en:"Whose turn is next?",cat:"henkilö"},
     {q:"___ kanssa sinä asut?",a:"Kenen",ja:"あなたは誰と住んでいますか？",en:"With whom do you live?",cat:"henkilö"},
-    {q:"___ kanssa sinä matkustat?",a:"Kenen",ja:"あなたは誰と旅行しますか？",en:"With whom do you travel?",cat:"henkilö"},
-    // Ketä
-    {q:"___ sinä odotat?",a:"Ketä",ja:"あなたは誰を待っていますか？",en:"Whom are you waiting for?",cat:"henkilö"},
-    {q:"___ sinä rakastat?",a:"Ketä",ja:"あなたは誰を愛していますか？",en:"Whom do you love?",cat:"henkilö"},
-    {q:"___ sinä katsot?",a:"Ketä",ja:"あなたは誰を見ていますか？",en:"Whom are you looking at?",cat:"henkilö"},
-    {q:"___ sinä autat?",a:"Ketä",ja:"あなたは誰を助けていますか？",en:"Whom are you helping?",cat:"henkilö"},
-    {q:"___ sinä etsit?",a:"Ketä",ja:"あなたは誰を探していますか？",en:"Whom are you looking for?",cat:"henkilö"},
+    {q:"___ kanssa sinä matkustat kesällä?",a:"Kenen",ja:"あなたは夏に誰と旅行しますか？",en:"With whom do you travel in summer?",cat:"henkilö"},
+    {q:"___ avaimet nämä ovat?",a:"Kenen",ja:"これは誰の鍵ですか？",en:"Whose keys are these?",cat:"henkilö"},
+    // Ketä (whom, partitive — clearly about a person)
+    {q:"___ sinä rakastat eniten?",a:"Ketä",ja:"あなたは誰を一番愛していますか？",en:"Whom do you love the most?",cat:"henkilö"},
+    {q:"___ sinä autat kotona?",a:"Ketä",ja:"あなたは家で誰を手伝いますか？",en:"Whom do you help at home?",cat:"henkilö",ex:["Mitä"]},
+    {q:"___ sinä odotat koulun edessä?",a:"Ketä",ja:"あなたは学校の前で誰を待っていますか？",en:"Whom are you waiting for at school?",cat:"henkilö",ex:["Mitä"]},
+    {q:"___ sinä etset kaupasta?",a:"Ketä",ja:"あなたはお店で誰を探していますか？",en:"Whom are you looking for in the store?",cat:"henkilö",ex:["Mitä"]},
 
-    // ASIA - Mikä
-    {q:"___ tämä on?",a:"Mikä",ja:"これは何ですか？",en:"What is this?",cat:"asia"},
+    // ====== ASIA 📦 Thing ======
+    // Mikä (what, nominative — asking identity/name of something)
     {q:"___ sinun nimi on?",a:"Mikä",ja:"あなたの名前は何ですか？",en:"What is your name?",cat:"asia"},
-    {q:"___ on sinun ammatti?",a:"Mikä",ja:"あなたの職業は何ですか？",en:"What is your profession?",cat:"asia"},
-    {q:"___ päivä tänään on?",a:"Mikä",ja:"今日は何曜日ですか？",en:"What day is today?",cat:"asia"},
-    {q:"___ on sinun osoite?",a:"Mikä",ja:"あなたの住所は何ですか？",en:"What is your address?",cat:"asia"},
-    {q:"___ on sinun puhelinnumero?",a:"Mikä",ja:"あなたの電話番号は何ですか？",en:"What is your phone number?",cat:"asia"},
-    // Mitä
-    {q:"___ sinä kirjoitat?",a:"Mitä",ja:"あなたは何を書いていますか？",en:"What are you writing?",cat:"asia"},
-    {q:"___ sinä luet?",a:"Mitä",ja:"あなたは何を読んでいますか？",en:"What are you reading?",cat:"asia"},
-    {q:"___ sinä katsot?",a:"Mitä",ja:"あなたは何を見ていますか？",en:"What are you watching?",cat:"asia"},
-    {q:"___ sinä etsit?",a:"Mitä",ja:"あなたは何を探していますか？",en:"What are you looking for?",cat:"asia"},
-    {q:"___ kieltä sinä puhut?",a:"Mitä",ja:"あなたは何語を話しますか？",en:"What language do you speak?",cat:"asia"},
-    {q:"___ kuuluu?",a:"Mitä",ja:"お元気ですか？",en:"What's up?",cat:"asia"},
-    {q:"___ tämä maksaa?",a:"Mitä",ja:"これはいくらですか？",en:"What does this cost?",cat:"asia"},
-    {q:"___ sinä odotat?",a:"Mitä",ja:"あなたは何を待っていますか？",en:"What are you waiting for?",cat:"asia"},
-    // Minkä
-    {q:"___ värinen tämä on?",a:"Minkä",ja:"これは何色ですか？",en:"What color is this?",cat:"asia"},
-    {q:"___ kokoinen takki?",a:"Minkä",ja:"何サイズのジャケット？",en:"What size jacket?",cat:"asia"},
-    {q:"___ ikäinen sinä olet?",a:"Minkä",ja:"あなたは何歳ですか？",en:"How old are you?",cat:"asia"},
-    {q:"___ maalainen sinä olet?",a:"Minkä",ja:"あなたは何人ですか？",en:"What nationality are you?",cat:"asia"},
-    {q:"___ hintainen tämä on?",a:"Minkä",ja:"これはいくらぐらいですか？",en:"What price is this?",cat:"asia"},
+    {q:"___ tämä on?",a:"Mikä",ja:"これは何ですか？",en:"What is this?",cat:"asia"},
+    {q:"___ sinun lempiruoka on?",a:"Mikä",ja:"あなたの好きな食べ物は何ですか？",en:"What is your favorite food?",cat:"asia"},
+    {q:"___ päivä tänään on?",a:"Mikä",ja:"今日は何曜日ですか？",en:"What day is it today?",cat:"asia"},
+    {q:"___ sinun ammatti on?",a:"Mikä",ja:"あなたの職業は何ですか？",en:"What is your profession?",cat:"asia"},
+    {q:"___ sinun osoite on?",a:"Mikä",ja:"あなたの住所は何ですか？",en:"What is your address?",cat:"asia"},
+    {q:"___ sinun puhelinnumero on?",a:"Mikä",ja:"あなたの電話番号は何ですか？",en:"What is your phone number?",cat:"asia"},
+    // Mitä (what, partitive — asking about objects/actions)
+    {q:"___ kieltä sinä puhut kotona?",a:"Mitä",ja:"あなたは家で何語を話しますか？",en:"What language do you speak at home?",cat:"asia",ex:["Montako"]},
+    {q:"___ kuuluu?",a:"Mitä",ja:"お元気ですか？/ 調子はどう？",en:"What's up? / How are you?",cat:"asia"},
+    {q:"___ sinä luet iltaisin?",a:"Mitä",ja:"あなたは夜に何を読みますか？",en:"What do you read in the evenings?",cat:"asia"},
+    {q:"___ sinä ostat kaupasta tänään?",a:"Mitä",ja:"あなたは今日お店で何を買いますか？",en:"What are you buying at the store today?",cat:"asia"},
+    {q:"___ sinä kirjoitat vihkoon?",a:"Mitä",ja:"あなたはノートに何を書いていますか？",en:"What are you writing in the notebook?",cat:"asia"},
+    {q:"___ sinä katsot televisiosta?",a:"Mitä",ja:"あなたはテレビで何を見ますか？",en:"What do you watch on TV?",cat:"asia"},
+    // Minkä (genitive attribute — always with -nen adjectives)
+    {q:"___ värinen sinun takkisi on?",a:"Minkä",ja:"あなたのコートは何色ですか？",en:"What color is your coat?",cat:"asia"},
+    {q:"___ kokoinen asunto sinulla on?",a:"Minkä",ja:"あなたのアパートはどのくらいの大きさですか？",en:"What size is your apartment?",cat:"asia"},
+    {q:"___ maalainen sinä olet?",a:"Minkä",ja:"あなたは何人（何国人）ですか？",en:"What nationality are you?",cat:"asia"},
+    {q:"___ ikäinen sinun koirasi on?",a:"Minkä",ja:"あなたの犬は何歳ですか？",en:"How old is your dog?",cat:"asia"},
+    {q:"___ hintainen tämä paita on?",a:"Minkä",ja:"このシャツはいくらぐらいですか？",en:"What price is this shirt?",cat:"asia"},
 
-    // PAIKKA - Missä
-    {q:"___ sinä asut?",a:"Missä",ja:"あなたはどこに住んでいますか？",en:"Where do you live?",cat:"paikka"},
-    {q:"___ kauppa on?",a:"Missä",ja:"お店はどこにありますか？",en:"Where is the shop?",cat:"paikka"},
-    {q:"___ sinä olet?",a:"Missä",ja:"あなたはどこにいますか？",en:"Where are you?",cat:"paikka"},
-    {q:"___ sinä istut?",a:"Missä",ja:"あなたはどこに座っていますか？",en:"Where are you sitting?",cat:"paikka"},
+    // ====== PAIKKA 📍 Place ======
+    // Missä (where, static — with olla, asua, istua)
+    {q:"___ sinä asut nyt?",a:"Missä",ja:"あなたは今どこに住んでいますか？",en:"Where do you live now?",cat:"paikka"},
+    {q:"___ lähin kauppa on?",a:"Missä",ja:"一番近いお店はどこですか？",en:"Where is the nearest store?",cat:"paikka"},
     {q:"___ vessa on?",a:"Missä",ja:"トイレはどこですか？",en:"Where is the toilet?",cat:"paikka"},
-    {q:"___ lapset ovat?",a:"Missä",ja:"子供たちはどこにいますか？",en:"Where are the children?",cat:"paikka"},
-    {q:"___ sinä odotat?",a:"Missä",ja:"あなたはどこで待っていますか？",en:"Where are you waiting?",cat:"paikka"},
-    // Mistä
-    {q:"___ sinä olet kotoisin?",a:"Mistä",ja:"あなたはどこの出身ですか？",en:"Where are you originally from?",cat:"paikka"},
-    {q:"___ sinä saavut?",a:"Mistä",ja:"あなたはどこから着きますか？",en:"Where are you arriving from?",cat:"paikka"},
-    {q:"___ sinä ostit tämän?",a:"Mistä",ja:"あなたはこれをどこで買いましたか？",en:"Where did you buy this?",cat:"paikka"},
-    {q:"___ bussi saapuu?",a:"Mistä",ja:"バスはどこから来ますか？",en:"Where does the bus arrive from?",cat:"paikka"},
-    {q:"___ sinä tiedät sen?",a:"Mistä",ja:"あなたはそれをどうやって知っていますか？",en:"How do you know that?",cat:"paikka"},
-    {q:"___ sinä löysit tämän?",a:"Mistä",ja:"あなたはこれをどこで見つけましたか？",en:"Where did you find this?",cat:"paikka"},
-    // Minne / Mihin
-    {q:"___ sinä lähdet?",a:"Minne",ja:"あなたはどこへ出発しますか？",en:"Where are you heading?",cat:"paikka"},
-    {q:"___ sinä matkustat?",a:"Minne",ja:"あなたはどこへ旅行しますか？",en:"Where are you traveling?",cat:"paikka"},
+    {q:"___ sinun avaimet ovat?",a:"Missä",ja:"あなたの鍵はどこですか？",en:"Where are your keys?",cat:"paikka"},
+    {q:"___ lapset ovat nyt?",a:"Missä",ja:"子供たちは今どこにいますか？",en:"Where are the children now?",cat:"paikka"},
+    {q:"___ sinä olet nyt?",a:"Missä",ja:"あなたは今どこにいますか？",en:"Where are you now?",cat:"paikka"},
+    {q:"___ bussipysäkki on?",a:"Missä",ja:"バス停はどこですか？",en:"Where is the bus stop?",cat:"paikka"},
+    // Mistä (where from — with olla kotoisin, ostaa, löytää)
+    {q:"___ sinä olet kotoisin?",a:"Mistä",ja:"あなたはどこの出身ですか？",en:"Where are you from?",cat:"paikka"},
+    {q:"___ sinä ostat maitoa, K-kaupasta vai S-marketista?",a:"Mistä",ja:"あなたはどこで牛乳を買いますか？Kカウッパ？Sマーケット？",en:"Where do you buy milk, K-kauppa or S-market?",cat:"paikka"},
+    {q:"___ sinä tiedät sen?",a:"Mistä",ja:"それをどこから知っているの？",en:"How/where do you know that from?",cat:"paikka",ex:["Miten"]},
+    {q:"___ sinä soitat, kotoa vai töistä?",a:"Mistä",ja:"あなたはどこから電話していますか？家？職場？",en:"Where are you calling from, home or work?",cat:"paikka"},
+    {q:"___ sinä löydät tietoa suomen kielestä?",a:"Mistä",ja:"あなたはフィンランド語の情報をどこで見つけますか？",en:"Where do you find info about Finnish?",cat:"paikka"},
+    // Minne (where to, general direction — with lähteä, matkustaa, muuttaa)
+    {q:"___ sinä matkustat kesälomalla?",a:"Minne",ja:"あなたは夏休みにどこへ旅行しますか？",en:"Where are you traveling for summer vacation?",cat:"paikka"},
+    {q:"___ sinä muutat ensi kuussa?",a:"Minne",ja:"あなたは来月どこに引っ越しますか？",en:"Where are you moving next month?",cat:"paikka"},
+    {q:"___ sinä lähdet huomenna, töihin vai kauppaan?",a:"Minne",ja:"明日どこへ行きますか？仕事？お店？",en:"Where are you going tomorrow, work or the store?",cat:"paikka"},
+    {q:"___ sinä matkustat jouluna?",a:"Minne",ja:"あなたはクリスマスにどこへ旅行しますか？",en:"Where are you traveling for Christmas?",cat:"paikka"},
+    // Mihin (where to, specific spot — with laittaa)
     {q:"___ sinä laitat avaimet?",a:"Mihin",ja:"あなたは鍵をどこに置きますか？",en:"Where do you put the keys?",cat:"paikka"},
-    {q:"___ sinä muutat?",a:"Minne",ja:"あなたはどこに引っ越しますか？",en:"Where are you moving?",cat:"paikka"},
-    {q:"___ sinä soitat?",a:"Minne",ja:"あなたはどこに電話しますか？",en:"Where are you calling?",cat:"paikka"},
+    {q:"___ sinä laitat ostokset?",a:"Mihin",ja:"あなたは買い物をどこに置きますか？",en:"Where do you put the groceries?",cat:"paikka"},
 
-    // AIKA - Milloin / Koska
-    {q:"___ sinä saavut?",a:"Milloin",ja:"あなたはいつ着きますか？",en:"When are you arriving?",cat:"aika"},
-    {q:"___ kauppa sulkeutuu?",a:"Milloin",ja:"お店はいつ閉まりますか？",en:"When does the shop close?",cat:"aika"},
-    {q:"___ sinä lähdet?",a:"Milloin",ja:"あなたはいつ出発しますか？",en:"When are you leaving?",cat:"aika"},
+    // ====== AIKA ⏰ Time ======
+    // Milloin (when — specific time point)
+    {q:"___ kauppa sulkeutuu tänään?",a:"Milloin",ja:"今日お店は何時に閉まりますか？",en:"When does the store close today?",cat:"aika"},
+    {q:"___ sinun lentokone saapuu?",a:"Milloin",ja:"あなたの飛行機はいつ着きますか？",en:"When does your plane arrive?",cat:"aika"},
     {q:"___ tunti alkaa?",a:"Milloin",ja:"授業はいつ始まりますか？",en:"When does the class start?",cat:"aika"},
-    {q:"___ sinä aloitat?",a:"Milloin",ja:"あなたはいつ始めますか？",en:"When do you start?",cat:"aika"},
-    {q:"___ sinä lopetat?",a:"Milloin",ja:"あなたはいつ終わりますか？",en:"When do you finish?",cat:"aika"},
-    // Kuinka usein
-    {q:"___ sinä ostat ruokaa?",a:"Kuinka usein",ja:"あなたはどのくらい食べ物を買いますか？",en:"How often do you buy food?",cat:"aika"},
-    {q:"___ sinä soitat äidille?",a:"Kuinka usein",ja:"あなたはどのくらいお母さんに電話しますか？",en:"How often do you call your mother?",cat:"aika"},
-    {q:"___ bussi saapuu?",a:"Kuinka usein",ja:"バスはどのくらいの頻度で来ますか？",en:"How often does the bus arrive?",cat:"aika"},
-    {q:"___ sinä luet suomea?",a:"Kuinka usein",ja:"あなたはどのくらいフィンランド語を読みますか？",en:"How often do you read Finnish?",cat:"aika"},
-    {q:"___ sinä matkustat?",a:"Kuinka usein",ja:"あなたはどのくらい旅行しますか？",en:"How often do you travel?",cat:"aika"},
+    {q:"___ sinä aloitat työt aamulla?",a:"Milloin",ja:"あなたは朝何時に仕事を始めますか？",en:"When do you start work in the morning?",cat:"aika"},
+    {q:"___ sinä lopetat työt tänään?",a:"Milloin",ja:"あなたは今日何時に仕事を終わりますか？",en:"When do you finish work today?",cat:"aika"},
+    {q:"___ sinun syntymäpäivä on?",a:"Milloin",ja:"あなたの誕生日はいつですか？",en:"When is your birthday?",cat:"aika"},
+    // Kuinka usein (how often — frequency, with context clues)
+    {q:"___ sinä soitat äidille, joka päivä vai joka viikko?",a:"Kuinka usein",ja:"あなたはどのくらいの頻度でお母さんに電話しますか？毎日？毎週？",en:"How often do you call your mother, every day or every week?",cat:"aika"},
+    {q:"___ sinä ostat ruokaa viikossa?",a:"Kuinka usein",ja:"あなたは週に何回食べ物を買いますか？",en:"How often do you buy groceries per week?",cat:"aika"},
+    {q:"___ sinä luet suomea, joka päivä?",a:"Kuinka usein",ja:"あなたはどのくらいフィンランド語を勉強しますか？毎日？",en:"How often do you study Finnish, every day?",cat:"aika"},
+    {q:"___ sinä katsot elokuvia, joka viikko?",a:"Kuinka usein",ja:"あなたはどのくらいの頻度で映画を見ますか？毎週？",en:"How often do you watch movies, every week?",cat:"aika"},
+    {q:"___ sinä matkustat Japaniin, kerran vuodessa?",a:"Kuinka usein",ja:"あなたはどのくらいの頻度で日本に旅行しますか？年に1回？",en:"How often do you travel to Japan, once a year?",cat:"aika"},
 
-    // TAPA - Miten / Kuinka
-    {q:"___ tämä toimii?",a:"Miten",ja:"これはどうやって動きますか？",en:"How does this work?",cat:"tapa"},
-    {q:"___ tämä sanotaan suomeksi?",a:"Miten",ja:"これはフィンランド語でどう言いますか？",en:"How do you say this in Finnish?",cat:"tapa"},
-    {q:"___ tämä kirjoitetaan?",a:"Miten",ja:"これはどう書きますか？",en:"How do you write/spell this?",cat:"tapa"},
-    {q:"___ sinä matkustat töihin?",a:"Miten",ja:"あなたはどうやって仕事に行きますか？",en:"How do you travel to work?",cat:"tapa"},
+    // ====== TAPA 🔧 Method / Manner ======
+    // Miten (how, in what way — with manner context)
+    {q:"___ sinä matkustat töihin, bussilla vai autolla?",a:"Miten",ja:"あなたはどうやって仕事に行きますか？バスで？車で？",en:"How do you get to work, by bus or by car?",cat:"tapa"},
     {q:"___ sinä sanot 'kiitos' japaniksi?",a:"Miten",ja:"「kiitos」は日本語でどう言いますか？",en:"How do you say 'kiitos' in Japanese?",cat:"tapa"},
-    {q:"___ sinä löysit tämän paikan?",a:"Miten",ja:"あなたはこの場所をどうやって見つけましたか？",en:"How did you find this place?",cat:"tapa"},
-    // Millainen / Minkälainen
-    {q:"___ sää tänään on?",a:"Millainen",ja:"今日はどんな天気ですか？",en:"What kind of weather is it today?",cat:"tapa"},
-    {q:"___ ihminen hän on?",a:"Millainen",ja:"彼/彼女はどんな人ですか？",en:"What kind of person is he/she?",cat:"tapa"},
-    {q:"___ asunto sinulla on?",a:"Millainen",ja:"あなたはどんなアパートに住んでいますか？",en:"What kind of apartment do you have?",cat:"tapa"},
-    {q:"___ ruokaa sinä ostat?",a:"Millaista",ja:"あなたはどんな食べ物を買いますか？",en:"What kind of food do you buy?",cat:"tapa"},
-    {q:"___ päivä sinulla on?",a:"Millainen",ja:"あなたはどんな一日ですか？",en:"What kind of day are you having?",cat:"tapa"},
+    {q:"___ tämä toimii?",a:"Miten",ja:"これはどうやって動きますか？",en:"How does this work?",cat:"tapa"},
+    {q:"___ sinä laitat ruokaa, uunissa vai liedellä?",a:"Miten",ja:"あなたはどうやって料理しますか？オーブンで？コンロで？",en:"How do you cook, in the oven or on the stove?",cat:"tapa"},
+    {q:"___ tämä sana kirjoitetaan?",a:"Miten",ja:"この言葉はどう書きますか？",en:"How do you spell this word?",cat:"tapa"},
+    // Millainen (what kind of, nominative — describing a noun)
+    {q:"___ sää on tänään, aurinkoinen vai sateinen?",a:"Millainen",ja:"今日の天気はどんなですか？晴れ？雨？",en:"What's the weather like today, sunny or rainy?",cat:"tapa"},
+    {q:"___ asunto sinulla on, suuri vai pieni?",a:"Millainen",ja:"あなたのアパートはどんなですか？大きい？小さい？",en:"What kind of apartment do you have, big or small?",cat:"tapa"},
+    {q:"___ päivä sinulla on tänään?",a:"Millainen",ja:"今日はどんな一日ですか？",en:"What kind of day are you having?",cat:"tapa"},
+    {q:"___ naapuri sinulla on?",a:"Millainen",ja:"あなたの隣人はどんな人ですか？",en:"What kind of neighbor do you have?",cat:"tapa"},
+    // Millaista (what kind of, partitive — with partitive nouns)
+    {q:"___ ruokaa sinä laitat illalla?",a:"Millaista",ja:"あなたは夜にどんな料理を作りますか？",en:"What kind of food do you cook in the evening?",cat:"tapa",ex:["Mitä"]},
+    {q:"___ kahvia sinä ostat, vaaleaa vai tummaa?",a:"Millaista",ja:"あなたはどんなコーヒーを買いますか？浅煎り？深煎り？",en:"What kind of coffee do you buy, light or dark?",cat:"tapa"},
 
-    // SYY - Miksi
-    {q:"___ sinä olet täällä?",a:"Miksi",ja:"あなたはなぜここにいますか？",en:"Why are you here?",cat:"syy"},
+    // ====== SYY ❓ Reason / Amount ======
+    // Miksi (why — with reason context)
+    {q:"___ sinä olet täällä eikä kotona?",a:"Miksi",ja:"あなたはなぜ家ではなくここにいますか？",en:"Why are you here and not at home?",cat:"syy"},
+    {q:"___ sinä naurat niin paljon?",a:"Miksi",ja:"あなたはなぜそんなに笑うのですか？",en:"Why do you laugh so much?",cat:"syy"},
+    {q:"___ kauppa on kiinni tänään?",a:"Miksi",ja:"なぜ今日お店は閉まっていますか？",en:"Why is the store closed today?",cat:"syy"},
     {q:"___ sinä itket?",a:"Miksi",ja:"あなたはなぜ泣いていますか？",en:"Why are you crying?",cat:"syy"},
-    {q:"___ kauppa on kiinni?",a:"Miksi",ja:"なぜ店は閉まっていますか？",en:"Why is the shop closed?",cat:"syy"},
-    {q:"___ sinä kysyt?",a:"Miksi",ja:"あなたはなぜ聞くのですか？",en:"Why do you ask?",cat:"syy"},
-    {q:"___ sinä nauret?",a:"Miksi",ja:"あなたはなぜ笑っていますか？",en:"Why are you laughing?",cat:"syy"},
-    {q:"___ sinä lähdet?",a:"Miksi",ja:"あなたはなぜ出発するのですか？",en:"Why are you leaving?",cat:"syy"},
-    {q:"___ sinä odotat?",a:"Miksi",ja:"あなたはなぜ待っていますか？",en:"Why are you waiting?",cat:"syy"},
-    // Kuinka paljon / Montako
-    {q:"___ tämä maksaa?",a:"Kuinka paljon",ja:"これはいくらですか？",en:"How much does this cost?",cat:"syy"},
-    {q:"___ lapsia sinulla on?",a:"Montako",ja:"あなたには子供が何人いますか？",en:"How many children do you have?",cat:"syy"},
-    {q:"___ kello on?",a:"Kuinka paljon",ja:"今何時ですか？",en:"What time is it?",cat:"syy"},
-    {q:"___ ihmistä saapuu?",a:"Montako",ja:"何人着きますか？",en:"How many people are arriving?",cat:"syy"},
-    {q:"___ tämä painaa?",a:"Kuinka paljon",ja:"これはどのくらいの重さですか？",en:"How much does this weigh?",cat:"syy"},
-    // Kuinka kauan
-    {q:"___ olet asunut Suomessa?",a:"Kuinka kauan",ja:"あなたはどのくらいフィンランドに住んでいますか？",en:"How long have you lived in Finland?",cat:"syy"},
-    {q:"___ matka kestää?",a:"Kuinka kauan",ja:"旅はどのくらいかかりますか？",en:"How long does the trip take?",cat:"syy"},
-    {q:"___ sinä odotat?",a:"Kuinka kauan",ja:"あなたはどのくらい待ちますか？",en:"How long are you waiting?",cat:"syy"},
+    {q:"___ sinä et puhu suomea?",a:"Miksi",ja:"あなたはなぜフィンランド語を話さないのですか？",en:"Why don't you speak Finnish?",cat:"syy"},
+    {q:"___ sinä olet väsynyt tänään?",a:"Miksi",ja:"あなたはなぜ今日疲れていますか？",en:"Why are you tired today?",cat:"syy"},
+    // Kuinka paljon (how much — uncountable amounts)
+    {q:"___ tämä maksaa?",a:"Kuinka paljon",ja:"これはいくらですか？",en:"How much does this cost?",cat:"syy",ex:["Mitä"]},
+    {q:"___ maitoa sinä ostat viikossa?",a:"Kuinka paljon",ja:"あなたは週にどのくらい牛乳を買いますか？",en:"How much milk do you buy per week?",cat:"syy"},
+    {q:"___ rahaa sinulla on?",a:"Kuinka paljon",ja:"あなたはいくらお金を持っていますか？",en:"How much money do you have?",cat:"syy"},
+    // Montako (how many — countable things)
+    {q:"___ lasta sinulla on?",a:"Montako",ja:"あなたには子供が何人いますか？",en:"How many children do you have?",cat:"syy"},
+    {q:"___ huonetta sinun asunnossa on?",a:"Montako",ja:"あなたのアパートには部屋がいくつありますか？",en:"How many rooms are in your apartment?",cat:"syy"},
+    {q:"___ tuntia sinä luet päivässä?",a:"Montako",ja:"あなたは1日に何時間勉強しますか？",en:"How many hours do you study per day?",cat:"syy"},
+    // Kuinka kauan (how long — duration)
+    {q:"___ sinä olet asunut Suomessa?",a:"Kuinka kauan",ja:"あなたはどのくらいフィンランドに住んでいますか？",en:"How long have you lived in Finland?",cat:"syy"},
+    {q:"___ matka kestää Helsingistä Tampereelle?",a:"Kuinka kauan",ja:"ヘルシンキからタンペレまでどのくらいかかりますか？",en:"How long is the trip from Helsinki to Tampere?",cat:"syy"},
     {q:"___ tunti kestää?",a:"Kuinka kauan",ja:"授業はどのくらいの長さですか？",en:"How long does the class last?",cat:"syy"},
-    {q:"___ olet lukenut tätä kirjaa?",a:"Kuinka kauan",ja:"あなたはどのくらいこの本を読んでいますか？",en:"How long have you been reading this book?",cat:"syy"}
+    {q:"___ sinä odotat vielä, viisi minuuttia vai tunnin?",a:"Kuinka kauan",ja:"あなたはあとどのくらい待ちますか？5分？1時間？",en:"How long will you still wait, 5 min or an hour?",cat:"syy"}
   ];
 
   // All unique answers for option buttons
@@ -3646,7 +3836,7 @@
     "syy":"❓ 理由・量 Syy"
   };
 
-  var qwState = {list:[], idx:0, correct:0, wrong:0, total:10, answered:false, cat:'all'};
+  var qwState = {list:[], idx:0, correct:0, wrong:0, total:10, answered:false, cat:'all', numOpts:8, history:[]};
 
   // Build category filter buttons
   var catContainer = document.getElementById('qw-cats');
@@ -3676,12 +3866,53 @@
     qwState.correct = 0;
     qwState.wrong = 0;
     qwState.answered = false;
+    qwState.history = [];
     document.getElementById('qw-result').style.display = 'none';
     document.getElementById('qw-card').style.display = 'block';
     qwRender();
   }
 
+  function qwUpdateNav() {
+    document.getElementById('qw-prev').disabled = qwState.idx <= 0;
+    var h = qwState.history[qwState.idx];
+    document.getElementById('qw-next').disabled = !h;
+    document.getElementById('qw-next').textContent = (h && qwState.idx === qwState.history.length - 1 && qwState.idx === qwState.list.length - 1) ? '結果を見る →' : '次へ →';
+  }
+
+  function qwRenderReview(h) {
+    var item = h.item;
+    var sentenceHtml = item.q.replace('___', '<span class="qw-blank" style="color:var(--finnish);font-weight:700">' + item.a + '</span>');
+    document.getElementById('qw-sentence').innerHTML = sentenceHtml;
+    document.getElementById('qw-hint-text').innerHTML = item.ja + '<br><span style="font-size:12px">' + item.en + '</span>';
+    document.getElementById('qw-hint').classList.add('held');
+    document.getElementById('qw-progress').style.width = ((qwState.idx / qwState.list.length) * 100) + '%';
+
+    var container = document.getElementById('qw-options');
+    container.innerHTML = '';
+    container.className = 'quiz-options' + (h.options.length > 4 ? ' cols-1' : '');
+    h.options.forEach(function(opt) {
+      var btn = document.createElement('div');
+      btn.className = 'quiz-option disabled';
+      btn.innerHTML = '<span style="color:var(--finnish);font-weight:600">' + opt + '</span>';
+      if (opt === item.a) btn.classList.add('correct-answer');
+      if (opt === h.chosen && !h.wasCorrect) btn.classList.add('wrong-answer');
+      container.appendChild(btn);
+    });
+
+    var filledSentence = item.q.replace('___', item.a);
+    if (h.wasCorrect) {
+      document.getElementById('qw-feedback').innerHTML = '<span style="color:var(--positive)">⭕ ' + filledSentence + '</span>';
+    } else {
+      document.getElementById('qw-feedback').innerHTML = '<span style="color:var(--negative)">❌ ' + filledSentence + '</span>';
+    }
+    qwUpdateNav();
+  }
+
   function qwRender() {
+    // If already answered, show review
+    var h = qwState.history[qwState.idx];
+    if (h) { qwRenderReview(h); return; }
+
     var item = qwState.list[qwState.idx];
     var sentenceHtml = item.q.replace('___', '<span class="qw-blank">???</span>');
     document.getElementById('qw-sentence').innerHTML = sentenceHtml;
@@ -3694,34 +3925,38 @@
     document.getElementById('qw-feedback').textContent = '';
     qwState.answered = false;
 
-    // Get possible answers: correct + others from the same category + some random
-    var catAnswers = [];
-    qwGetPool().forEach(function(q) { if (catAnswers.indexOf(q.a) === -1) catAnswers.push(q.a); });
-    // If fewer than 4 in category, add from all
-    if (catAnswers.length < 4) catAnswers = QW_ANSWERS.slice();
-    var wrongOptions = catAnswers.filter(function(a) { return a !== item.a; });
-    wrongOptions = shuffle(wrongOptions).slice(0, 3);
+    // Get possible answers: correct + others (filter out ambiguous alternatives)
+    var exList = item.ex || [];
+    var answerPool = QW_ANSWERS.filter(function(a) { return exList.indexOf(a) === -1; });
+    var wrongAll = answerPool.filter(function(a) { return a !== item.a; });
+    var numWrongs = qwState.numOpts === 0 ? wrongAll.length : Math.min(qwState.numOpts - 1, wrongAll.length);
+    var wrongOptions = shuffle(wrongAll).slice(0, numWrongs);
     var options = shuffle([item.a].concat(wrongOptions));
 
     var container = document.getElementById('qw-options');
     container.innerHTML = '';
+    container.className = 'quiz-options' + (options.length > 4 ? ' cols-1' : '');
     options.forEach(function(opt) {
       var btn = document.createElement('div');
       btn.className = 'quiz-option';
       btn.innerHTML = '<span style="color:var(--finnish);font-weight:600">' + opt + '</span>';
       btn.dataset.answer = opt;
-      btn.addEventListener('click', function() { qwAnswer(btn, opt, item); });
+      btn.addEventListener('click', function() { qwAnswer(btn, opt, item, options); });
       container.appendChild(btn);
     });
+    qwUpdateNav();
   }
 
-  function qwAnswer(btn, chosen, item) {
+  function qwAnswer(btn, chosen, item, options) {
     if (qwState.answered) return;
     qwState.answered = true;
+    var wasCorrect = chosen === item.a;
+
+    qwState.history[qwState.idx] = {item: item, chosen: chosen, wasCorrect: wasCorrect, options: options};
 
     var allBtns = document.getElementById('qw-options').querySelectorAll('.quiz-option');
     var filledSentence = item.q.replace('___', item.a);
-    if (chosen === item.a) {
+    if (wasCorrect) {
       btn.classList.add('correct-answer');
       qwState.correct++;
       document.getElementById('qw-feedback').innerHTML = '<span style="color:var(--positive)">⭕ ' + filledSentence + '</span>';
@@ -3737,12 +3972,23 @@
     document.getElementById('qw-remaining').textContent = qwState.list.length - qwState.idx - 1;
     // Show hint after answering
     document.getElementById('qw-hint').classList.add('held');
-
-    setTimeout(function() {
-      qwState.idx++;
-      if (qwState.idx >= qwState.list.length) { qwEnd(); } else { qwRender(); }
-    }, 1800);
+    qwUpdateNav();
   }
+
+  function qwGoNext() {
+    if (!qwState.history[qwState.idx]) return;
+    qwState.idx++;
+    if (qwState.idx >= qwState.list.length) { qwEnd(); } else { qwRender(); }
+  }
+
+  function qwGoPrev() {
+    if (qwState.idx <= 0) return;
+    qwState.idx--;
+    qwRender();
+  }
+
+  document.getElementById('qw-next').addEventListener('click', qwGoNext);
+  document.getElementById('qw-prev').addEventListener('click', qwGoPrev);
 
   function qwEnd() {
     document.getElementById('qw-card').style.display = 'none';
@@ -3757,6 +4003,24 @@
     else if (pct >= 40) msg = '💪 もう少し！ Keep going! Jatka!';
     else msg = '📚 練習あるのみ！ Practice makes perfect! Harjoitus tekee mestarin!';
     document.getElementById('qw-final-msg').textContent = msg;
+
+    // Render mistake review
+    var mistakes = qwState.history.filter(function(h) { return !h.wasCorrect; });
+    var mDiv = document.getElementById('qw-mistakes');
+    mDiv.innerHTML = '';
+    if (mistakes.length > 0) {
+      mDiv.innerHTML = '<h4>間違えた問題 (' + mistakes.length + ')</h4>';
+      mistakes.forEach(function(h) {
+        var item = document.createElement('div');
+        item.className = 'quiz-mistake-item';
+        var filledSentence = h.item.q.replace('___', h.item.a);
+        item.innerHTML = '<span style="color:var(--finnish);font-weight:600">' + filledSentence + '</span>' +
+          '<br><span style="font-size:13px">' + h.item.ja + ' / ' + h.item.en + '</span>' +
+          '<br><span class="mi-chosen">あなたの答え: ' + h.chosen + '</span>' +
+          ' → <span class="mi-correct">正解: ' + h.item.a + '</span>';
+        mDiv.appendChild(item);
+      });
+    }
   }
 
   var qwQuiz = {start: qwStartQuiz};
@@ -3779,6 +4043,16 @@
       btn.parentNode.querySelectorAll('.qcount').forEach(function(b) { b.classList.remove('active'); });
       btn.classList.add('active');
       qwState.total = parseInt(btn.dataset.count);
+      qwStartQuiz();
+    });
+  });
+
+  // Wire up option count buttons for qwords quiz
+  document.querySelectorAll('.quiz-settings[data-quiz="qwords"] .qopts').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      btn.parentNode.querySelectorAll('.qopts').forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      qwState.numOpts = parseInt(btn.dataset.opts);
       qwStartQuiz();
     });
   });
