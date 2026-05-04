@@ -688,6 +688,51 @@
       padding: 60px 20px 80px;
     }
   }
+
+  /* --- Vocabulary Reference Lists --- */
+  .vocab-item {
+    background: var(--card);
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin-bottom: 8px;
+    border-left: 4px solid var(--accent);
+  }
+  .vocab-forms {
+    font-size: 15px;
+    color: var(--text);
+    line-height: 1.6;
+    font-weight: 500;
+  }
+  .vocab-forms .vf-base {
+    font-weight: 700;
+    color: var(--accent);
+  }
+  .vocab-meaning {
+    display: none;
+    margin-top: 6px;
+    padding-top: 6px;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .vocab-item.revealed .vocab-meaning {
+    display: block;
+  }
+  .vocab-item:not(.revealed)::after {
+    content: "tap";
+    float: right;
+    font-size: 11px;
+    color: var(--muted);
+    opacity: 0.5;
+  }
+  .vocab-section-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--accent);
+    margin: 24px 0 12px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--accent);
+  }
 </style>
 </head>
 <body>
@@ -788,6 +833,14 @@
     <a href="#" data-page="quiz-verbs1"><span class="page-num">V1</span> 動詞タイプ1（50語）</a>
     <a href="#" data-page="quiz-nouns"><span class="page-num">N</span> 名詞（100語）</a>
     <a href="#" data-page="quiz-qwords"><span class="page-num">Q</span> 疑問詞（穴埋め）</a>
+  </div>
+
+  <div class="chapter-group">
+    <div class="chapter-title">📖 単語帳</div>
+    <a href="#" data-page="vocab-verbs"><span class="page-num">動</span> 動詞リスト</a>
+    <a href="#" data-page="vocab-nouns"><span class="page-num">名</span> 名詞リスト</a>
+    <a href="#" data-page="vocab-adj"><span class="page-num">形</span> 形容詞リスト</a>
+    <a href="#" data-page="vocab-misc"><span class="page-num">他</span> その他の語彙</a>
   </div>
 </nav>
 
@@ -6689,6 +6742,725 @@
     <div class="message" id="qw-final-msg"></div>
     <button class="quiz-next-btn" onclick="qwQuiz.start()">もう一回 🔄</button>
     <div class="quiz-mistakes" id="qw-mistakes"></div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- VOCAB LIST: Verbs (Ch 1-3)                                    -->
+<!-- ============================================================ -->
+<section class="page-section" id="vocab-verbs">
+  <div class="page-header">
+    <span class="page-badge">単語帳</span>
+    <h2>動詞リスト — Verbit (1-3章)</h2>
+  </div>
+
+  <div class="explanation-box">
+    <strong>形式 / Format:</strong> 基本形, 一人称, 命令形, 疑問形<br>
+    <strong>Perusmuoto, Minä, Käsky, Kysymys</strong><br>
+    タップして英語・日本語の意味を見る / Tap to reveal meaning
+  </div>
+
+  <div class="vocab-section-title">タイプ1 — Verbityyppi 1 (-a / -ä)</div>
+
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">puhua</span>, puhun, puhu, puhutko</div>
+    <div class="vocab-meaning">to speak / 話す</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">sanoa</span>, sanon, sano, sanotko</div>
+    <div class="vocab-meaning">to say / 言う</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">antaa</span>, annan, anna, annatko</div>
+    <div class="vocab-meaning">to give / あげる</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">ottaa</span>, otan, ota, otatko</div>
+    <div class="vocab-meaning">to take / 取る</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">lukea</span>, luen, lue, luetko</div>
+    <div class="vocab-meaning">to read / 読む</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">kirjoittaa</span>, kirjoitan, kirjoita, kirjoitatko</div>
+    <div class="vocab-meaning">to write / 書く</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">asua</span>, asun, asu, asutko</div>
+    <div class="vocab-meaning">to live, to reside / 住む</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">kysyä</span>, kysyn, kysy, kysytkö</div>
+    <div class="vocab-meaning">to ask / 尋ねる</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">ostaa</span>, ostan, osta, ostatko</div>
+    <div class="vocab-meaning">to buy / 買う</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">ymmärtää</span>, ymmärrän, ymmärrä, ymmärrätkö</div>
+    <div class="vocab-meaning">to understand / 理解する</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">odottaa</span>, odotan, odota, odotatko</div>
+    <div class="vocab-meaning">to wait / 待つ</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">maksaa</span>, maksan, maksa, maksatko</div>
+    <div class="vocab-meaning">to pay, to cost / 払う・かかる</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">soittaa</span>, soitan, soita, soitatko</div>
+    <div class="vocab-meaning">to call, to play (instrument) / 電話する・弾く</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">katsoa</span>, katson, katso, katsotko</div>
+    <div class="vocab-meaning">to look, to watch / 見る</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">laulaa</span>, laulan, laula, laulatko</div>
+    <div class="vocab-meaning">to sing / 歌う</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">nukkua</span>, nukun, nuku, nukutko</div>
+    <div class="vocab-meaning">to sleep / 寝る</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">istua</span>, istun, istu, istutko</div>
+    <div class="vocab-meaning">to sit / 座る</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">seisoa</span>, seison, seiso, seisotko</div>
+    <div class="vocab-meaning">to stand / 立つ</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">polttaa</span>, poltan, polta, poltatko</div>
+    <div class="vocab-meaning">to smoke / 吸う</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">keittää</span>, keitän, keitä, keitätkö</div>
+    <div class="vocab-meaning">to boil, to brew / 沸かす・淹れる</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">rakastaa</span>, rakastan, rakasta, rakastatko</div>
+    <div class="vocab-meaning">to love / 愛する</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">auttaa</span>, autan, auta, autatko</div>
+    <div class="vocab-meaning">to help / 助ける</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">muistaa</span>, muistan, muista, muistatko</div>
+    <div class="vocab-meaning">to remember / 覚えている</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">nauraa</span>, nauran, naura, nauratko</div>
+    <div class="vocab-meaning">to laugh / 笑う</div>
+  </div>
+
+  <div class="vocab-section-title">タイプ2 — Verbityyppi 2 (-da / -dä)</div>
+
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">juoda</span>, juon, juo, juotko</div>
+    <div class="vocab-meaning">to drink / 飲む</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">syödä</span>, syön, syö, syötkö</div>
+    <div class="vocab-meaning">to eat / 食べる</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">käydä</span>, käyn, käy, käytkö</div>
+    <div class="vocab-meaning">to visit, to go / 行く・通う</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">viedä</span>, vien, vie, vietkö</div>
+    <div class="vocab-meaning">to take (somewhere) / 連れて行く</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">tuoda</span>, tuon, tuo, tuotko</div>
+    <div class="vocab-meaning">to bring / 持って来る</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">uida</span>, uin, ui, uitko</div>
+    <div class="vocab-meaning">to swim / 泳ぐ</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">myydä</span>, myyn, myy, myytkö</div>
+    <div class="vocab-meaning">to sell / 売る</div>
+  </div>
+
+  <div class="vocab-section-title">タイプ3 — Verbityyppi 3 (-lla, -stä, -nnä...)</div>
+
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">tulla</span>, tulen, tule, tuletko</div>
+    <div class="vocab-meaning">to come / 来る</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">mennä</span>, menen, mene, menetkö</div>
+    <div class="vocab-meaning">to go / 行く</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">opiskella</span>, opiskelen, opiskele, opiskeleko</div>
+    <div class="vocab-meaning">to study / 勉強する</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">jutella</span>, juttelen, juttele, juteletko</div>
+    <div class="vocab-meaning">to chat / おしゃべりする</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">pestä</span>, pesen, pese, pesetkö</div>
+    <div class="vocab-meaning">to wash / 洗う</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">nousta</span>, nousen, nouse, nousetko</div>
+    <div class="vocab-meaning">to get up, to rise / 起き上がる</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">kuunnella</span>, kuuntelen, kuuntele, kuunteletko</div>
+    <div class="vocab-meaning">to listen / 聞く</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">kävellä</span>, kävelen, kävele, käveletkö</div>
+    <div class="vocab-meaning">to walk / 歩く</div>
+  </div>
+
+  <div class="vocab-section-title">タイプ4 — Verbityyppi 4 (-Vta / -Vtä)</div>
+
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">herätä</span>, herään, herää, heräätkö</div>
+    <div class="vocab-meaning">to wake up / 起きる</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">siivota</span>, siivoan, siivoa, siivotko</div>
+    <div class="vocab-meaning">to clean / 掃除する</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">pelata</span>, pelaan, pelaa, pelaatko</div>
+    <div class="vocab-meaning">to play (sports/games) / プレーする</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">tavata</span>, tapaan, tapaa, tapaatko</div>
+    <div class="vocab-meaning">to meet / 会う</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">vastata</span>, vastaan, vastaa, vastaatko</div>
+    <div class="vocab-meaning">to answer / 答える</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">avata</span>, avaan, avaa, avaatko</div>
+    <div class="vocab-meaning">to open / 開ける</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">haluta</span>, haluan, halua, haluatko</div>
+    <div class="vocab-meaning">to want / ～したい</div>
+  </div>
+
+  <div class="vocab-section-title">タイプ5 + 不規則 — Verbityyppi 5 + epäsäännölliset</div>
+
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">tarvita</span>, tarvitsen, tarvitse, tarvitsetko</div>
+    <div class="vocab-meaning">to need / 必要とする</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">tehdä</span>, teen, tee, teetkö</div>
+    <div class="vocab-meaning">to do, to make / する・作る</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">nähdä</span>, näen, näe, näetkö</div>
+    <div class="vocab-meaning">to see / 見る・会う</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">olla</span>, olen, ole, oletko</div>
+    <div class="vocab-meaning">to be / ～です・いる・ある</div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- VOCAB LIST: Nouns (Ch 1-3)                                    -->
+<!-- ============================================================ -->
+<section class="page-section" id="vocab-nouns">
+  <div class="page-header">
+    <span class="page-badge">単語帳</span>
+    <h2>名詞リスト — Substantiivit (1-3章)</h2>
+  </div>
+
+  <div class="explanation-box">
+    <strong>形式 / Format:</strong> 基本形, 属格, 分格, 複数<br>
+    <strong>Perusmuoto, Genetiivi, Partitiivi, Monikko</strong><br>
+    タップして英語・日本語の意味を見る / Tap to reveal meaning
+  </div>
+
+  <div class="vocab-section-title">人 — Ihmiset</div>
+
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">mies</span>, miehen, miestä, miehet</div>
+    <div class="vocab-meaning">man, husband / 男性・夫</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">nainen</span>, naisen, naista, naiset</div>
+    <div class="vocab-meaning">woman / 女性</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">lapsi</span>, lapsen, lasta, lapset</div>
+    <div class="vocab-meaning">child / 子供</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">poika</span>, pojan, poikaa, pojat</div>
+    <div class="vocab-meaning">boy, son / 男の子・息子</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">tyttö</span>, tytön, tyttöä, tytöt</div>
+    <div class="vocab-meaning">girl, daughter / 女の子・娘</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">vaimo</span>, vaimon, vaimoa, vaimot</div>
+    <div class="vocab-meaning">wife / 妻</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">ystävä</span>, ystävän, ystävää, ystävät</div>
+    <div class="vocab-meaning">friend / 友達</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">naapuri</span>, naapurin, naapuria, naapurit</div>
+    <div class="vocab-meaning">neighbor / 隣人</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">perhe</span>, perheen, perhettä, perheet</div>
+    <div class="vocab-meaning">family / 家族</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">veli</span>, veljen, veljeä, veljet</div>
+    <div class="vocab-meaning">brother / 兄弟</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">sisko</span>, siskon, siskoa, siskot</div>
+    <div class="vocab-meaning">sister / 姉妹</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">isä</span>, isän, isää, isät</div>
+    <div class="vocab-meaning">father / 父</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">äiti</span>, äidin, äitiä, äidit</div>
+    <div class="vocab-meaning">mother / 母</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">opiskelija</span>, opiskelijan, opiskelijaa, opiskelijat</div>
+    <div class="vocab-meaning">student / 学生</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">opettaja</span>, opettajan, opettajaa, opettajat</div>
+    <div class="vocab-meaning">teacher / 先生</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">myyjä</span>, myyjän, myyjää, myyjät</div>
+    <div class="vocab-meaning">salesperson / 販売員</div>
+  </div>
+
+  <div class="vocab-section-title">場所 — Paikat</div>
+
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">koti</span>, kodin, kotia, kodit</div>
+    <div class="vocab-meaning">home / 家</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">koulu</span>, koulun, koulua, koulut</div>
+    <div class="vocab-meaning">school / 学校</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">kauppa</span>, kaupan, kauppaa, kaupat</div>
+    <div class="vocab-meaning">shop, store / 店</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">kahvila</span>, kahvilan, kahvilaa, kahvilat</div>
+    <div class="vocab-meaning">cafe / カフェ</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">kaupunki</span>, kaupungin, kaupunkia, kaupungit</div>
+    <div class="vocab-meaning">city / 都市</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">maa</span>, maan, maata, maat</div>
+    <div class="vocab-meaning">country, land / 国・土地</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">keittiö</span>, keittiön, keittiötä, keittiöt</div>
+    <div class="vocab-meaning">kitchen / 台所</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">sauna</span>, saunan, saunaa, saunat</div>
+    <div class="vocab-meaning">sauna / サウナ</div>
+  </div>
+
+  <div class="vocab-section-title">時間 — Aika</div>
+
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">päivä</span>, päivän, päivää, päivät</div>
+    <div class="vocab-meaning">day / 日</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">aamu</span>, aamun, aamua, aamut</div>
+    <div class="vocab-meaning">morning / 朝</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">ilta</span>, illan, iltaa, illat</div>
+    <div class="vocab-meaning">evening / 夕方・夜</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">yö</span>, yön, yötä, yöt</div>
+    <div class="vocab-meaning">night / 夜・深夜</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">vuosi</span>, vuoden, vuotta, vuodet</div>
+    <div class="vocab-meaning">year / 年</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">viikko</span>, viikon, viikkoa, viikot</div>
+    <div class="vocab-meaning">week / 週</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">tunti</span>, tunnin, tuntia, tunnit</div>
+    <div class="vocab-meaning">hour / 時間</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">kello</span>, kellon, kelloa, kellot</div>
+    <div class="vocab-meaning">clock, time / 時計・時刻</div>
+  </div>
+
+  <div class="vocab-section-title">物 — Tavarat</div>
+
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">auto</span>, auton, autoa, autot</div>
+    <div class="vocab-meaning">car / 車</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">puhelin</span>, puhelimen, puhelinta, puhelimet</div>
+    <div class="vocab-meaning">phone / 電話</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">kirja</span>, kirjan, kirjaa, kirjat</div>
+    <div class="vocab-meaning">book / 本</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">lehti</span>, lehden, lehteä, lehdet</div>
+    <div class="vocab-meaning">newspaper, magazine / 新聞・雑誌</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">viesti</span>, viestin, viestiä, viestit</div>
+    <div class="vocab-meaning">message / メッセージ</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">nimi</span>, nimen, nimeä, nimet</div>
+    <div class="vocab-meaning">name / 名前</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">kieli</span>, kielen, kieltä, kielet</div>
+    <div class="vocab-meaning">language / 言語</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">työ</span>, työn, työtä, työt</div>
+    <div class="vocab-meaning">work, job / 仕事</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">koira</span>, koiran, koiraa, koirat</div>
+    <div class="vocab-meaning">dog / 犬</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">kissa</span>, kissan, kissaa, kissat</div>
+    <div class="vocab-meaning">cat / 猫</div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- VOCAB LIST: Adjectives (Ch 1-3)                               -->
+<!-- ============================================================ -->
+<section class="page-section" id="vocab-adj">
+  <div class="page-header">
+    <span class="page-badge">単語帳</span>
+    <h2>形容詞リスト — Adjektiivit (1-3章)</h2>
+  </div>
+
+  <div class="explanation-box">
+    <strong>形式 / Format:</strong> 基本形, 属格, 分格, 複数<br>
+    <strong>Perusmuoto, Genetiivi, Partitiivi, Monikko</strong><br>
+    タップして英語・日本語の意味を見る / Tap to reveal meaning
+  </div>
+
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">hyvä</span>, hyvän, hyvää, hyvät</div>
+    <div class="vocab-meaning">good / いい・良い</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">huono</span>, huonon, huonoa, huonot</div>
+    <div class="vocab-meaning">bad / 悪い</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">iso</span>, ison, isoa, isot</div>
+    <div class="vocab-meaning">big / 大きい</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">pieni</span>, pienen, pientä, pienet</div>
+    <div class="vocab-meaning">small / 小さい</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">uusi</span>, uuden, uutta, uudet</div>
+    <div class="vocab-meaning">new / 新しい</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">vanha</span>, vanhan, vanhaa, vanhat</div>
+    <div class="vocab-meaning">old / 古い・年をとった</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">kiva</span>, kivan, kivaa, kivat</div>
+    <div class="vocab-meaning">nice, cool / いい・素敵な</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">kylmä</span>, kylmän, kylmää, kylmät</div>
+    <div class="vocab-meaning">cold / 冷たい・寒い</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">lämmin</span>, lämpimän, lämmintä, lämpimät</div>
+    <div class="vocab-meaning">warm / 温かい</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">pitkä</span>, pitkän, pitkää, pitkät</div>
+    <div class="vocab-meaning">long, tall / 長い・背が高い</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">nopea</span>, nopean, nopeaa, nopeat</div>
+    <div class="vocab-meaning">fast / 速い</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">väsynyt</span>, väsyneen, väsynyttä, väsyneet</div>
+    <div class="vocab-meaning">tired / 疲れた</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">iloinen</span>, iloisen, iloista, iloiset</div>
+    <div class="vocab-meaning">happy, cheerful / 嬉しい</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">suomalainen</span>, suomalaisen, suomalaista, suomalaiset</div>
+    <div class="vocab-meaning">Finnish / フィンランドの</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">japanilainen</span>, japanilaisen, japanilaista, japanilaiset</div>
+    <div class="vocab-meaning">Japanese / 日本の</div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- VOCAB LIST: Misc words (Ch 1-3)                               -->
+<!-- ============================================================ -->
+<section class="page-section" id="vocab-misc">
+  <div class="page-header">
+    <span class="page-badge">単語帳</span>
+    <h2>その他の語彙 — Muut sanat (1-3章)</h2>
+  </div>
+
+  <div class="explanation-box">
+    接続詞、副詞、前置詞など / Conjunctions, adverbs, prepositions etc.<br>
+    タップして英語・日本語の意味を見る / Tap to reveal meaning
+  </div>
+
+  <div class="vocab-section-title">接続詞 — Konjunktiot</div>
+
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">ja</span></div>
+    <div class="vocab-meaning">and / と・そして</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">mutta</span></div>
+    <div class="vocab-meaning">but / でも・しかし</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">tai</span></div>
+    <div class="vocab-meaning">or / か・または</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">koska</span></div>
+    <div class="vocab-meaning">because / なぜなら</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">kun</span></div>
+    <div class="vocab-meaning">when / ～のとき</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">että</span></div>
+    <div class="vocab-meaning">that / ～ということ</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">vai</span></div>
+    <div class="vocab-meaning">or (in questions) / それとも</div>
+  </div>
+
+  <div class="vocab-section-title">副詞 — Adverbit</div>
+
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">myös</span></div>
+    <div class="vocab-meaning">also / も・また</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">jo</span></div>
+    <div class="vocab-meaning">already / もう</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">vielä</span></div>
+    <div class="vocab-meaning">still, yet / まだ</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">ehkä</span></div>
+    <div class="vocab-meaning">maybe, perhaps / たぶん</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">aina</span></div>
+    <div class="vocab-meaning">always / いつも</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">usein</span></div>
+    <div class="vocab-meaning">often / よく・頻繁に</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">joskus</span></div>
+    <div class="vocab-meaning">sometimes / 時々</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">nyt</span></div>
+    <div class="vocab-meaning">now / 今</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">sitten</span></div>
+    <div class="vocab-meaning">then, after that / それから</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">ensin</span></div>
+    <div class="vocab-meaning">first / まず</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">lopuksi</span></div>
+    <div class="vocab-meaning">finally / 最後に</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">paljon</span></div>
+    <div class="vocab-meaning">a lot, much / たくさん</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">vähän</span></div>
+    <div class="vocab-meaning">a little / 少し</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">hyvin</span></div>
+    <div class="vocab-meaning">well, very / よく・とても</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">tosi</span></div>
+    <div class="vocab-meaning">really, very / 本当に</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">aika</span></div>
+    <div class="vocab-meaning">quite, pretty / かなり・けっこう</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">nopeasti</span></div>
+    <div class="vocab-meaning">quickly / 速く</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">hitaasti</span></div>
+    <div class="vocab-meaning">slowly / ゆっくり</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">aikaisin</span></div>
+    <div class="vocab-meaning">early / 早く</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">myöhään</span></div>
+    <div class="vocab-meaning">late / 遅く</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">yksin</span></div>
+    <div class="vocab-meaning">alone / 一人で</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">yhdessä</span></div>
+    <div class="vocab-meaning">together / 一緒に</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">ulkona</span></div>
+    <div class="vocab-meaning">outside / 外で</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">kotona</span></div>
+    <div class="vocab-meaning">at home / 家で</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">täällä</span></div>
+    <div class="vocab-meaning">here / ここに</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">siellä</span></div>
+    <div class="vocab-meaning">there / あそこに</div>
+  </div>
+
+  <div class="vocab-section-title">挨拶・表現 — Tervehdykset</div>
+
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">hei / moi</span></div>
+    <div class="vocab-meaning">hi / こんにちは</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">huomenta</span></div>
+    <div class="vocab-meaning">good morning / おはよう</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">kiitos</span></div>
+    <div class="vocab-meaning">thank you / ありがとう</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">anteeksi</span></div>
+    <div class="vocab-meaning">sorry, excuse me / すみません</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">hei hei / moi moi</span></div>
+    <div class="vocab-meaning">bye / さようなら</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">hauska tutustua</span></div>
+    <div class="vocab-meaning">nice to meet you / はじめまして</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">ei se mitään</span></div>
+    <div class="vocab-meaning">it's nothing, no worries / 大丈夫です</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">sano vielä kerran</span></div>
+    <div class="vocab-meaning">say it again / もう一度言ってください</div>
+  </div>
+
+  <div class="vocab-section-title">後置詞・その他 — Postpositiot ym.</div>
+
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">kanssa</span></div>
+    <div class="vocab-meaning">with / ～と一緒に</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">lähellä</span></div>
+    <div class="vocab-meaning">near / 近くに</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">joka</span></div>
+    <div class="vocab-meaning">every / 毎～</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">kaikki</span></div>
+    <div class="vocab-meaning">all, everyone / みんな・全部</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">jotain</span></div>
+    <div class="vocab-meaning">something / 何か</div>
+  </div>
+  <div class="vocab-item" onclick="this.classList.toggle('revealed')">
+    <div class="vocab-forms"><span class="vf-base">ei mitään</span></div>
+    <div class="vocab-meaning">nothing / 何も～ない</div>
   </div>
 </section>
 
