@@ -842,6 +842,11 @@
     <a href="#" data-page="vocab-adj"><span class="page-num">形</span> 形容詞リスト</a>
     <a href="#" data-page="vocab-misc"><span class="page-num">他</span> その他の語彙</a>
   </div>
+
+  <div class="chapter-group">
+    <div class="chapter-title">📐 文法ガイド</div>
+    <a href="#" data-page="ref-kpt"><span class="page-num">KPT</span> 子音交替ルール</a>
+  </div>
 </nav>
 
 <main>
@@ -7462,6 +7467,429 @@
     <div class="vocab-forms"><span class="vf-base">ei mitään</span></div>
     <div class="vocab-meaning">nothing / 何も～ない</div>
   </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- REFERENCE: KPT Rule (Consonant Gradation)                     -->
+<!-- ============================================================ -->
+<section class="page-section" id="ref-kpt">
+  <div class="page-header">
+    <span class="page-badge">文法</span>
+    <h2>KPTルール — Astevaihtelu（子音交替）</h2>
+  </div>
+
+  <div class="explanation-box">
+    フィンランド語で最も重要な音変化のルール。<br>
+    子音 <strong>k</strong>、<strong>p</strong>、<strong>t</strong> が特定の条件で「弱くなる」現象。<br>
+    日本語の連濁（れんだく）に似ているが、フィンランド語では子音が弱化・消失する。
+  </div>
+
+  <div class="vocab-section-title">基本原則 — Perusperiaate</div>
+
+  <div class="grammar-note" style="background:var(--card);border-radius:10px;padding:14px;margin-bottom:12px;border-left:4px solid var(--accent);">
+    <strong>開音節</strong>（母音で終わる）= <span style="color:var(--positive);font-weight:700;">強形（vahva aste）</span><br>
+    <strong>閉音節</strong>（子音で終わる）= <span style="color:var(--negative);font-weight:700;">弱形（heikko aste）</span><br><br>
+    音節が「閉じる」と、k/p/t が弱くなる。<br>
+    例：<strong>kauppa</strong>（店）→ kaupa<strong>n</strong>（-n を付けると pp → p）
+  </div>
+
+  <div class="vocab-section-title">交替パターン一覧 — Astevaihtelutaulukko</div>
+
+  <div class="grammar-note" style="background:var(--card);border-radius:10px;padding:14px;margin-bottom:12px;">
+    <strong style="color:var(--accent);">二重子音 → 単子音（重子音のパターン）</strong>
+    <table style="width:100%;margin-top:8px;font-size:14px;border-collapse:collapse;">
+      <tr style="border-bottom:1px solid var(--border);">
+        <td style="padding:6px;font-weight:700;">強 (vahva)</td>
+        <td style="padding:6px;font-weight:700;">弱 (heikko)</td>
+        <td style="padding:6px;font-weight:700;">例</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border);">
+        <td style="padding:6px;">kk</td><td style="padding:6px;">k</td>
+        <td style="padding:6px;">pankki → pankin</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border);">
+        <td style="padding:6px;">pp</td><td style="padding:6px;">p</td>
+        <td style="padding:6px;">kauppa → kaupan</td>
+      </tr>
+      <tr>
+        <td style="padding:6px;">tt</td><td style="padding:6px;">t</td>
+        <td style="padding:6px;">matto → maton</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="grammar-note" style="background:var(--card);border-radius:10px;padding:14px;margin-bottom:12px;">
+    <strong style="color:var(--accent);">単子音の変化（覚えにくいパターン）</strong>
+    <table style="width:100%;margin-top:8px;font-size:14px;border-collapse:collapse;">
+      <tr style="border-bottom:1px solid var(--border);">
+        <td style="padding:6px;font-weight:700;">強</td>
+        <td style="padding:6px;font-weight:700;">弱</td>
+        <td style="padding:6px;font-weight:700;">例</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border);">
+        <td style="padding:6px;">k</td><td style="padding:6px;">–（消える）</td>
+        <td style="padding:6px;">lukea → luen</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border);">
+        <td style="padding:6px;">p</td><td style="padding:6px;">v</td>
+        <td style="padding:6px;">tapa → tavan</td>
+      </tr>
+      <tr>
+        <td style="padding:6px;">t</td><td style="padding:6px;">d</td>
+        <td style="padding:6px;">katu → kadun</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="grammar-note" style="background:var(--card);border-radius:10px;padding:14px;margin-bottom:12px;">
+    <strong style="color:var(--accent);">子音クラスターの変化（同化パターン）</strong>
+    <table style="width:100%;margin-top:8px;font-size:14px;border-collapse:collapse;">
+      <tr style="border-bottom:1px solid var(--border);">
+        <td style="padding:6px;font-weight:700;">強</td>
+        <td style="padding:6px;font-weight:700;">弱</td>
+        <td style="padding:6px;font-weight:700;">例</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border);">
+        <td style="padding:6px;">nk</td><td style="padding:6px;">ng</td>
+        <td style="padding:6px;">Helsinki → Helsingin</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border);">
+        <td style="padding:6px;">mp</td><td style="padding:6px;">mm</td>
+        <td style="padding:6px;">kampa → kamman</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border);">
+        <td style="padding:6px;">nt</td><td style="padding:6px;">nn</td>
+        <td style="padding:6px;">ranta → rannan</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border);">
+        <td style="padding:6px;">lt</td><td style="padding:6px;">ll</td>
+        <td style="padding:6px;">ilta → illan</td>
+      </tr>
+      <tr>
+        <td style="padding:6px;">rt</td><td style="padding:6px;">rr</td>
+        <td style="padding:6px;">parta → parran</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="vocab-section-title">動詞タイプとKPTの方向 — Verbityypit ja astevaihtelu</div>
+
+  <div class="explanation-box">
+    <strong>重要：</strong>動詞タイプによって交替の方向が逆になる！<br>
+    タイプ1-2 = 不定形が強 → 活用形が弱（普通の方向）<br>
+    タイプ3-4 = 不定形が弱 → 活用形が強（逆方向！）
+  </div>
+
+  <div class="grammar-note" style="background:var(--card);border-radius:10px;padding:14px;margin-bottom:12px;">
+    <strong style="color:var(--accent);">タイプ1（-a/-ä）: 強 → 弱</strong><br>
+    <span style="font-size:13px;color:var(--muted);">不定形は強形。minä形で弱化する。</span>
+    <table style="width:100%;margin-top:8px;font-size:14px;border-collapse:collapse;">
+      <tr style="border-bottom:1px solid var(--border);">
+        <td style="padding:6px;font-weight:700;">不定形（強）</td>
+        <td style="padding:6px;font-weight:700;">minä（弱）</td>
+        <td style="padding:6px;font-weight:700;">変化</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border);">
+        <td style="padding:6px;">o<strong>tt</strong>aa</td>
+        <td style="padding:6px;">o<strong>t</strong>an</td>
+        <td style="padding:6px;">tt → t</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border);">
+        <td style="padding:6px;">lu<strong>k</strong>ea</td>
+        <td style="padding:6px;">lu<strong>e</strong>n</td>
+        <td style="padding:6px;">k → ∅</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border);">
+        <td style="padding:6px;">ta<strong>pp</strong>aa</td>
+        <td style="padding:6px;">ta<strong>p</strong>an</td>
+        <td style="padding:6px;">pp → p</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border);">
+        <td style="padding:6px;">a<strong>nt</strong>aa</td>
+        <td style="padding:6px;">a<strong>nn</strong>an</td>
+        <td style="padding:6px;">nt → nn</td>
+      </tr>
+      <tr>
+        <td style="padding:6px;">y<strong>mp</strong>ärillä</td>
+        <td style="padding:6px;">y<strong>mm</strong>ärrän</td>
+        <td style="padding:6px;">mp → mm</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="grammar-note" style="background:var(--card);border-radius:10px;padding:14px;margin-bottom:12px;">
+    <strong style="color:var(--accent);">タイプ2（-da/-dä）: 変化なし</strong><br>
+    <span style="font-size:13px;color:var(--muted);">KPT交替が起こらないタイプ。</span>
+    <table style="width:100%;margin-top:8px;font-size:14px;border-collapse:collapse;">
+      <tr style="border-bottom:1px solid var(--border);">
+        <td style="padding:6px;font-weight:700;">不定形</td>
+        <td style="padding:6px;font-weight:700;">minä</td>
+        <td style="padding:6px;font-weight:700;">備考</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border);">
+        <td style="padding:6px;">syödä</td>
+        <td style="padding:6px;">syön</td>
+        <td style="padding:6px;">KPTなし</td>
+      </tr>
+      <tr>
+        <td style="padding:6px;">juoda</td>
+        <td style="padding:6px;">juon</td>
+        <td style="padding:6px;">KPTなし</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="grammar-note" style="background:var(--card);border-radius:10px;padding:14px;margin-bottom:12px;">
+    <strong style="color:var(--accent);">タイプ3（-lla/-nna/-rra/-sta）: 弱 → 強 ⚠️逆方向！</strong><br>
+    <span style="font-size:13px;color:var(--muted);">不定形が弱形。活用すると強くなる。</span>
+    <table style="width:100%;margin-top:8px;font-size:14px;border-collapse:collapse;">
+      <tr style="border-bottom:1px solid var(--border);">
+        <td style="padding:6px;font-weight:700;">不定形（弱）</td>
+        <td style="padding:6px;font-weight:700;">minä（強）</td>
+        <td style="padding:6px;font-weight:700;">変化</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border);">
+        <td style="padding:6px;">ju<strong>t</strong>ella</td>
+        <td style="padding:6px;">ju<strong>tt</strong>elen</td>
+        <td style="padding:6px;">t → tt</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border);">
+        <td style="padding:6px;">o<strong>m</strong>mella</td>
+        <td style="padding:6px;">o<strong>mp</strong>elen</td>
+        <td style="padding:6px;">mm → mp</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border);">
+        <td style="padding:6px;">nous<strong>t</strong>a</td>
+        <td style="padding:6px;">nous<strong>e</strong>n</td>
+        <td style="padding:6px;">（-sta特殊）</td>
+      </tr>
+      <tr>
+        <td style="padding:6px;">aja<strong>t</strong>ella</td>
+        <td style="padding:6px;">aja<strong>tt</strong>elen</td>
+        <td style="padding:6px;">t → tt</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="grammar-note" style="background:var(--card);border-radius:10px;padding:14px;margin-bottom:12px;">
+    <strong style="color:var(--accent);">タイプ4（-Vta/-Vtä、母音+ta）: 弱 → 強 ⚠️逆方向！</strong><br>
+    <span style="font-size:13px;color:var(--muted);">不定形が弱形。活用すると強くなる。</span>
+    <table style="width:100%;margin-top:8px;font-size:14px;border-collapse:collapse;">
+      <tr style="border-bottom:1px solid var(--border);">
+        <td style="padding:6px;font-weight:700;">不定形（弱）</td>
+        <td style="padding:6px;font-weight:700;">minä（強）</td>
+        <td style="padding:6px;font-weight:700;">変化</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border);">
+        <td style="padding:6px;">pu<strong>d</strong>ota</td>
+        <td style="padding:6px;">pu<strong>t</strong>oan</td>
+        <td style="padding:6px;">d → t</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border);">
+        <td style="padding:6px;">ta<strong>v</strong>ata</td>
+        <td style="padding:6px;">ta<strong>p</strong>aan</td>
+        <td style="padding:6px;">v → p</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border);">
+        <td style="padding:6px;">hy<strong>p</strong>ätä</td>
+        <td style="padding:6px;">hy<strong>pp</strong>ään</td>
+        <td style="padding:6px;">p → pp</td>
+      </tr>
+      <tr>
+        <td style="padding:6px;">pa<strong>k</strong>ata</td>
+        <td style="padding:6px;">pa<strong>kk</strong>aan</td>
+        <td style="padding:6px;">k → kk</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="grammar-note" style="background:var(--card);border-radius:10px;padding:14px;margin-bottom:12px;">
+    <strong style="color:var(--accent);">タイプ5（-ita/-itä）: ケースによる</strong><br>
+    <span style="font-size:13px;color:var(--muted);">短い語幹。KPTがある語とない語がある。</span>
+    <table style="width:100%;margin-top:8px;font-size:14px;border-collapse:collapse;">
+      <tr style="border-bottom:1px solid var(--border);">
+        <td style="padding:6px;font-weight:700;">不定形</td>
+        <td style="padding:6px;font-weight:700;">minä</td>
+        <td style="padding:6px;font-weight:700;">備考</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border);">
+        <td style="padding:6px;">tarvita</td>
+        <td style="padding:6px;">tarvitsen</td>
+        <td style="padding:6px;">KPTなし</td>
+      </tr>
+      <tr>
+        <td style="padding:6px;">häiritä</td>
+        <td style="padding:6px;">häiritsen</td>
+        <td style="padding:6px;">KPTなし</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="vocab-section-title">方向まとめ表 — Yhteenveto</div>
+
+  <div class="grammar-note" style="background:var(--card);border-radius:10px;padding:14px;margin-bottom:12px;">
+    <table style="width:100%;font-size:14px;border-collapse:collapse;">
+      <tr style="border-bottom:2px solid var(--accent);">
+        <td style="padding:8px;font-weight:700;">動詞タイプ</td>
+        <td style="padding:8px;font-weight:700;">不定形</td>
+        <td style="padding:8px;font-weight:700;">活用形</td>
+        <td style="padding:8px;font-weight:700;">方向</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border);">
+        <td style="padding:8px;">タイプ1（-a/-ä）</td>
+        <td style="padding:8px;color:var(--positive);font-weight:700;">強</td>
+        <td style="padding:8px;color:var(--negative);font-weight:700;">弱</td>
+        <td style="padding:8px;">強→弱 ↓</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border);">
+        <td style="padding:8px;">タイプ2（-da/-dä）</td>
+        <td style="padding:8px;">—</td>
+        <td style="padding:8px;">—</td>
+        <td style="padding:8px;">変化なし</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border);">
+        <td style="padding:8px;">タイプ3（-lla等）</td>
+        <td style="padding:8px;color:var(--negative);font-weight:700;">弱</td>
+        <td style="padding:8px;color:var(--positive);font-weight:700;">強</td>
+        <td style="padding:8px;">弱→強 ↑</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border);">
+        <td style="padding:8px;">タイプ4（-Vta/-Vtä）</td>
+        <td style="padding:8px;color:var(--negative);font-weight:700;">弱</td>
+        <td style="padding:8px;color:var(--positive);font-weight:700;">強</td>
+        <td style="padding:8px;">弱→強 ↑</td>
+      </tr>
+      <tr>
+        <td style="padding:8px;">タイプ5（-ita/-itä）</td>
+        <td style="padding:8px;">—</td>
+        <td style="padding:8px;">—</td>
+        <td style="padding:8px;">ほぼなし</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="vocab-section-title">名詞のKPT — Substantiivien astevaihtelu</div>
+
+  <div class="explanation-box">
+    名詞では通常 <strong>強 → 弱</strong> の方向。<br>
+    主格（基本形）が強形、属格（-n）で弱化する。
+  </div>
+
+  <div class="grammar-note" style="background:var(--card);border-radius:10px;padding:14px;margin-bottom:12px;">
+    <table style="width:100%;font-size:14px;border-collapse:collapse;">
+      <tr style="border-bottom:2px solid var(--accent);">
+        <td style="padding:6px;font-weight:700;">主格（強）</td>
+        <td style="padding:6px;font-weight:700;">属格（弱）</td>
+        <td style="padding:6px;font-weight:700;">意味</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border);">
+        <td style="padding:6px;">kau<strong>pp</strong>a</td>
+        <td style="padding:6px;">kau<strong>p</strong>an</td>
+        <td style="padding:6px;">店</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border);">
+        <td style="padding:6px;">ku<strong>kk</strong>a</td>
+        <td style="padding:6px;">ku<strong>k</strong>an</td>
+        <td style="padding:6px;">花</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border);">
+        <td style="padding:6px;">pöy<strong>t</strong>ä</td>
+        <td style="padding:6px;">pöy<strong>d</strong>än</td>
+        <td style="padding:6px;">テーブル</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border);">
+        <td style="padding:6px;">ka<strong>t</strong>u</td>
+        <td style="padding:6px;">ka<strong>d</strong>un</td>
+        <td style="padding:6px;">道</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border);">
+        <td style="padding:6px;">Helsi<strong>nk</strong>i</td>
+        <td style="padding:6px;">Helsi<strong>ng</strong>in</td>
+        <td style="padding:6px;">ヘルシンキ</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border);">
+        <td style="padding:6px;">ra<strong>nt</strong>a</td>
+        <td style="padding:6px;">ra<strong>nn</strong>an</td>
+        <td style="padding:6px;">浜辺</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border);">
+        <td style="padding:6px;">ka<strong>mp</strong>a</td>
+        <td style="padding:6px;">ka<strong>mm</strong>an</td>
+        <td style="padding:6px;">くし</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border);">
+        <td style="padding:6px;">i<strong>lt</strong>a</td>
+        <td style="padding:6px;">i<strong>ll</strong>an</td>
+        <td style="padding:6px;">夕方</td>
+      </tr>
+      <tr>
+        <td style="padding:6px;">pa<strong>rt</strong>a</td>
+        <td style="padding:6px;">pa<strong>rr</strong>an</td>
+        <td style="padding:6px;">あごひげ</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="vocab-section-title">jutella → juttelen の解説</div>
+
+  <div class="grammar-note" style="background:var(--card);border-radius:10px;padding:14px;margin-bottom:12px;">
+    <strong>jutella</strong> はタイプ3の動詞（-lla語尾）。<br><br>
+    <strong>なぜ不定形が「弱」なのか？</strong><br>
+    ju-<strong>tel</strong>-la → 「tel」の音節が子音（l）で閉じている → 弱形（t）<br><br>
+    <strong>なぜ活用形が「強」なのか？</strong><br>
+    jut-<strong>te</strong>-len → 「te」の音節が母音（e）で開いている → 強形（tt）<br><br>
+    <table style="width:100%;font-size:14px;border-collapse:collapse;margin-top:8px;">
+      <tr style="border-bottom:1px solid var(--border);">
+        <td style="padding:6px;">jutella（不定形）</td><td style="padding:6px;">弱：t</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border);">
+        <td style="padding:6px;">juttelen（私は）</td><td style="padding:6px;">強：tt</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border);">
+        <td style="padding:6px;">juttelet（あなたは）</td><td style="padding:6px;">強：tt</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border);">
+        <td style="padding:6px;">juttelee（彼/彼女は）</td><td style="padding:6px;">強：tt</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border);">
+        <td style="padding:6px;">juttelemme（私たちは）</td><td style="padding:6px;">強：tt</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border);">
+        <td style="padding:6px;">juttelette（あなたたちは）</td><td style="padding:6px;">強：tt</td>
+      </tr>
+      <tr>
+        <td style="padding:6px;">juttelevat（彼らは）</td><td style="padding:6px;">強：tt</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="vocab-section-title">覚え方のコツ — Muistisääntö</div>
+
+  <div class="grammar-note" style="background:var(--card);border-radius:10px;padding:14px;margin-bottom:12px;">
+    <strong>1. 二重子音（kk, pp, tt）:</strong><br>
+    → 単純に1つ減る。一番簡単！<br><br>
+    <strong>2. 単子音（k, p, t）:</strong><br>
+    → k は消える（一番トリッキー！）<br>
+    → p は v になる<br>
+    → t は d になる<br><br>
+    <strong>3. クラスター（nk, mp, nt, lt, rt）:</strong><br>
+    → 後ろの子音が前の子音に「吸収」される<br>
+    → nk→ng, mp→mm, nt→nn, lt→ll, rt→rr<br><br>
+    <strong>4. 方向の覚え方：</strong><br>
+    → タイプ1-2：辞書形が「重い」→ 活用で「軽く」なる<br>
+    → タイプ3-4：辞書形が「軽い」→ 活用で「重く」なる
+  </div>
+
+  <div class="vocab-section-title">KPTが起こらない場合 — Poikkeukset</div>
+
+  <div class="grammar-note" style="background:var(--card);border-radius:10px;padding:14px;margin-bottom:12px;">
+    以下の場合、KPT交替は起こらない：<br><br>
+    <strong>1.</strong> 語頭のk/p/t（例：puhun — 語頭のpは変わらない）<br>
+    <strong>2.</strong> 外来語の一部（例：bussi → bussin、KPTなし）<br>
+    <strong>3.</strong> 3人称単数（hän）は多くの場合、強形を保つ<br>
+    <strong>4.</strong> k/p/tの後にもう一つ子音がある場合（例：lasten — stは変わらない）
+  </div>
+
 </section>
 
 </main>
